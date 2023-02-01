@@ -3,15 +3,16 @@ import './App.scss'
 
 import reactLogo from './assets/react.svg'
 
-import Home from './components/Home'
+import Grid from './components/Grid'
+
+import Furniture from './components/Furniture'
 
 const App = () => {
   const [count, setCount] = useState(0)
 
   return (
     <div className='App'>
-      <div>Hello</div>
-      <Home />
+      <Furniture />
     </div>
   )
 }

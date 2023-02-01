@@ -1,27 +1,86 @@
 @import './index.scss';
 
 .navBar {
-  @apply w-full flex py-6 justify-between items-center;
+  @apply flex w-full items-center justify-between py-6;
 
   .navBarLogo {
-    @apply w-[124px] h-[32px];
+    @apply h-[32px] w-[124px];
   }
   .listNone {
-    @apply sm:flex list-none hidden overflow-hidden  justify-end items-center;
+    @apply hidden list-none items-center justify-end  overflow-hidden sm:flex;
   }
   .navBarListItem {
-    @apply font-poppins font-bold text-fuchsia-100 cursor-pointer text-[1rem];
+    @apply cursor-pointer font-poppins text-[1rem] font-bold text-fuchsia-100;
   }
   .navBarMobile {
-    @apply sm:hidden flex flex-1 justify-end items-center;
+    @apply flex flex-1 items-center justify-end sm:hidden;
   }
   .navBarImg {
-    @apply w-[28px] h-[28px] object-contain;
+    @apply h-[28px] w-[28px] object-contain;
   }
   .navBarMobileSideBar {
-    @apply justify-center  p-6 absolute top-20 right-0 mx-4 my-2 min-w-[140px] bg-black-gradient rounded-xl sidebar;
+    @apply bg-black-gradient  sidebar absolute top-20 right-0 mx-4 my-2 min-w-[140px] justify-center rounded-xl p-6;
   }
   .navBarMobileSideBarList {
-    @apply list-none flex flex-col overflow-hidden  justify-center items-center;
+    @apply flex   flex-col  items-center justify-center overflow-hidden;
+  }
+}
+
+.furnitureContainer {
+  @apply mx-auto mt-40  w-[40rem] rounded-3xl border-2 border-white/[.20] bg-black px-10 py-5 shadow-modern;
+
+  /* .furnitureSidePanel {
+    @apply w-20;
+  } */
+
+  .furnitureList {
+    @apply flex flex-col justify-between gap-y-2 p-2;
+  }
+  .furnitureItem {
+    @apply h-16 w-16 cursor-pointer rounded-2xl bg-[#a8347479] transition-colors first:bg-[#fe4fb0] hover:bg-[#fe4fb0];
+  }
+
+  .furnitureHero {
+    @apply rounded-3xl bg-[#fe4fb0];
+  }
+
+  .furniturePriceTitle {
+    @apply font-poppins text-[36px] font-normal text-white;
+  }
+  .furnitureRate {
+    @apply flex items-center justify-between;
+  }
+  .furnitureRateStart {
+    @apply ml-1 inline-block align-bottom font-poppins text-sm text-white/[.40];
+  }
+  .furnitureCost {
+    @apply mt-4;
+  }
+  .furnitureCostDigit {
+    @apply font-poppins text-2xl text-white;
+  }
+  .furnitureDecrease {
+    @apply absolute top-0 right-0 text-[3rem] text-white/[.40];
+  }
+  .furnitureProperty {
+    @apply mt-6;
+  }
+  .furnitureLabel {
+    @apply mr-1 font-poppins text-sm text-white/[.40];
+  }
+  .labelSelect {
+    @apply ml-0.5 bg-transparent text-white;
+
+    option {
+      @apply border-none bg-black drop-shadow backdrop-blur-xl;
+    }
+  }
+  .furnitureButtonAdd {
+    @apply mt-6 w-full rounded-3xl bg-[#EF6043] p-2 font-poppins text-lg text-white transition-colors hover:bg-[#eb6f50];
+  }
+  .furnitureInfo {
+    p {
+      @apply mt-6 cursor-pointer font-poppins text-xs text-white/[.40] hover:text-[#eb988488];
+    }
   }
 }

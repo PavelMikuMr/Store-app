@@ -32,13 +32,7 @@ module.exports = {
     sourceType: 'module',
     project: './tsconfig.json'
   },
-  plugins: [
-    'react',
-    '@typescript-eslint',
-    'react-hooks',
-    'prettier',
-    'tailwindcss'
-  ],
+  plugins: ['react', '@typescript-eslint', 'react-hooks', 'prettier', 'tailwindcss'],
   rules: {
     'react/react-in-jsx-scope': ['off'],
     'react/require-default-props': 0,
@@ -47,10 +41,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'react-hooks/rules-of-hooks': 'error',
     'react/prop-types': 1,
-    'react/jsx-no-useless-fragment': [
-      2,
-      { allowExpressions: true }
-    ],
+    'react/jsx-no-useless-fragment': [2, { allowExpressions: true }],
     'no-undef': 0,
     'no-unused-vars': 0,
     '@typescript-eslint/no-unused-vars': 0,
@@ -73,6 +64,7 @@ module.exports = {
       {
         endOfLine: 'auto'
       }
-    ]
+    ],
+    'tailwindcss/no-custom-classname': 0
   }
 }

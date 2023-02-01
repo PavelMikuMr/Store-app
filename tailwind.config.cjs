@@ -30,6 +30,9 @@ module.exports = {
       md: '1060px',
       lg: '1200px',
       xl: '1700px'
+    },
+    boxShadow: {
+      modern: '0 5px 10px #9aa0b90d, 0 15px 60px #a6adc933'
     }
   },
   plugins: []

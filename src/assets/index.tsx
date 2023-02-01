@@ -4,12 +4,7 @@ import facebook from './facebook.svg'
 import instagram from './instagram.svg'
 import linkedin from './linkedin.svg'
 import twitter from './twitter.svg'
+import chair from './chairPink.png'
+import chairWeb from './nigmature.png'
 
-export {
-  apple,
-  arrowUp,
-  facebook,
-  instagram,
-  linkedin,
-  twitter
-}
+export { chair, chairWeb }
