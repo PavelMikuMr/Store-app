@@ -1,0 +1,27 @@
+@import './index.scss';
+
+.navBar {
+  @apply w-full flex py-6 justify-between items-center;
+
+  .navBarLogo {
+    @apply w-[124px] h-[32px];
+  }
+  .listNone {
+    @apply sm:flex list-none hidden overflow-hidden  justify-end items-center;
+  }
+  .navBarListItem {
+    @apply font-poppins font-bold text-fuchsia-100 cursor-pointer text-[1rem];
+  }
+  .navBarMobile {
+    @apply sm:hidden flex flex-1 justify-end items-center;
+  }
+  .navBarImg {
+    @apply w-[28px] h-[28px] object-contain;
+  }
+  .navBarMobileSideBar {
+    @apply justify-center  p-6 absolute top-20 right-0 mx-4 my-2 min-w-[140px] bg-black-gradient rounded-xl sidebar;
+  }
+  .navBarMobileSideBarList {
+    @apply list-none flex flex-col overflow-hidden  justify-center items-center;
+  }
+}
