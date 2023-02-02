@@ -9,7 +9,7 @@ import styles from '../App.style'
 
 import module from '../App.module.scss'
 
-import { chair, chairWeb } from '../assets'
+import { chairWeb } from '../assets'
 
 const {
   furnitureContainer,
@@ -35,10 +35,10 @@ const Furniture = () => {
   return (
     <div className={furnitureContainer}>
       <div className={`${furniture} grid-custom`}>
-        <div className={`${styles.flexCenterX} furnitureSidePanel`}>
+        <div className='flexCenterX furnitureSidePanel'>
           <ul className={furnitureList}>
             <li className={`${furnitureItem} furnitureItemBackground`}>
-              <img src='' alt='' />
+              <img src={chairWeb} alt='' />
             </li>
             <li className={`${furnitureItem} furnitureItemBackground`}>
               <img src='' alt='' />
@@ -51,7 +51,7 @@ const Furniture = () => {
             </li>
           </ul>
         </div>
-        <div className={`${furnitureHero} ${styles.flexCenter}`}>
+        <div className={`${furnitureHero} flexCenter`}>
           <img src={chairWeb} alt='lamp' />{' '}
         </div>
         <div className={`${furniturePrice} ${styles.flexCol}`}>

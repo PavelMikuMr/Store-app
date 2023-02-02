@@ -1,5 +1,5 @@
 @import './index.scss';
-
+/* 
 .navBar {
   @apply flex w-full items-center justify-between py-6;
 
@@ -25,9 +25,66 @@
     @apply flex   flex-col  items-center justify-center overflow-hidden;
   }
 }
+ */
+
+.wrapper {
+  @apply mx-auto mt-10 mb-10 w-max;
+}
+.header {
+  .container {
+    @apply mb-12 md:max-w-full;
+  }
+  .infoTextBox {
+    @apply ml-1;
+  }
+  .InfoTitle {
+    @apply font-poppins text-2xl font-semibold;
+  }
+  .InfoSubTitle {
+    @apply font-medium text-white/[.40];
+  }
+  .infoPayment {
+    @apply grid place-content-center;
+  }
+  .button {
+    @apply h-max rounded-3xl bg-[#EF6043] py-3 px-5 hover:bg-[#eb6f50];
+  }
+  .buttonDelimiter {
+    @apply mx-3 h-4  w-[1px] bg-white;
+  }
+  .buttonCost {
+    @apply self-end  font-poppins font-semibold leading-none;
+  }
+  .infoBin {
+    @apply self-end font-poppins font-semibold leading-none;
+  }
+}
+
+.sort {
+  @apply mb-12;
+  .categoryItem {
+    @apply mr-8 cursor-pointer rounded-3xl bg-none py-3 px-5 font-poppins font-bold first:bg-[#EF6043] hover:bg-violet-700;
+  }
+  span {
+    @apply cursor-pointer border-b border-dashed border-[#EF6043] font-poppins;
+  }
+  .sortPopup {
+    @apply absolute right-[0px] top-[40px] rounded-2xl bg-[#0f0f0f] p-4;
+    li {
+      @apply cursor-pointer font-poppins first:text-[#EF6043];
+    }
+  }
+}
+
+.handleLayout {
+  /* @apply mx-auto  grid grid-cols-[200px_minmax(900px,_1fr)_100px]; */
+  @apply mx-auto grid min-h-screen w-max grid-cols-1 place-content-center gap-5 lg:grid-cols-[repeat(2,_minmax(0,_max-content))];
+
+  /* grid-template-columns: minmax(0, max-content) repeat(2, minmax(0, 1fr)); */
+}
 
 .furnitureContainer {
-  @apply mx-auto mt-40  w-[40rem] rounded-3xl border-2 border-white/[.20] bg-black px-10 py-5 shadow-modern;
+  @apply w-[40rem] rounded-3xl border-2 border-white/[.20] bg-black px-10 py-5 shadow-modern;
 
   /* .furnitureSidePanel {
     @apply w-20;
@@ -37,7 +94,10 @@
     @apply flex flex-col justify-between gap-y-2 p-2;
   }
   .furnitureItem {
-    @apply h-16 w-16 cursor-pointer rounded-2xl bg-[#a8347479] transition-colors first:bg-[#fe4fb0] hover:bg-[#fe4fb0];
+    @apply flex h-16 w-16 cursor-pointer items-center justify-center rounded-2xl bg-[#a8347479]  transition-colors first:bg-[#fe4fb0] hover:bg-[#fe4fb0];
+    img {
+      @apply w-[80%];
+    }
   }
 
   .furnitureHero {

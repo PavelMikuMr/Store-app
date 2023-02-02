@@ -1,18 +1,28 @@
 import { useState } from 'react'
-import './App.scss'
 
-import reactLogo from './assets/react.svg'
+import styles from './App.style'
 
-import Grid from './components/Grid'
+import module from './App.module.scss'
 
-import Furniture from './components/Furniture'
+import HandleLayout from './components/HandleLayout'
+
+import LoginPage from './pages/LoginPages/LoginPage'
+
+import Header from './components/Header'
+import Sort from './components/Sort'
+
+const { wrapper } = module
 
 const App = () => {
   const [count, setCount] = useState(0)
 
   return (
     <div className='App'>
-      <Furniture />
+      <div className={wrapper}>
+        <Header />
+        <Sort />
+        <HandleLayout />
+      </div>
     </div>
   )
 }

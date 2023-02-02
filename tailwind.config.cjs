@@ -32,7 +32,7 @@ module.exports = {
       xl: '1700px'
     },
     boxShadow: {
-      modern: '0 5px 10px #9aa0b90d, 0 15px 60px #a6adc933'
+      modern: '0 1px  #9aa0b90d, 0 5px 40px #a6adc933'
     }
   },
   plugins: []
