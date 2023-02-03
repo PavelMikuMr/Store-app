@@ -63,7 +63,7 @@
     @apply flex justify-center;
   }
   .flexBetweenX {
-    @apply flex justify-between;
+    @apply flex flex-row justify-between;
   }
   .flexCol {
     @apply flex flex-col;
@@ -142,6 +142,19 @@
   &:first-child {
     background-color: #ba59ff;
   }
+}
+
+// Active Sort
+
+.categoryListActive {
+  li.active {
+    background-color: #905ace;
+  }
+}
+
+// sort by
+.sortActive {
+  color: #ef6043;
 }
 
 // Page Login

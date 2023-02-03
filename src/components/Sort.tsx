@@ -1,17 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import module from '../App.module.scss'
 
-const { sort, sortByCategory, categoryItem, sortPopup } = module
+const { sort, sortByCategory, categoryItem, sortPopup, categoryList } = module
 
 const Sort = () => {
-  const [activeIndex, setActiveIndex] = React.useState(0)
+  const [sortByPopup, setSortByPopup] = useState(0)
+  const [isOpenPop, setIsOpenPop] = useState(false)
+  const [activeIndex, setActiveIndex] = useState(0)
 
   const categories: string[] = ['Collection', 'Lamp', 'Chair', 'Sofa', 'Poof']
+  const sortBy: string[] = ['popular', 'price', 'word']
 
+  const showHidePopup = (i: number) => {
+    setSortByPopup(i)
+    setIsOpenPop(false)
+  }
   return (
-    <div className={`${sort} flexBetweenX `}>
+    <div className={`${sort} lg:flexBetweenX`}>
       <div className={sortByCategory}>
-        <ul className='categoryList flexBetweenX'>
+        <ul className={`${categoryList} categoryListActive  flexBetweenX`}>
           {categories.map((category, index) => {
             return (
               <li
@@ -27,7 +34,7 @@ const Sort = () => {
         </ul>
       </div>
       <div className='sortByFilter flexCenter relative'>
-        <div className='sortLabel flexBetweenX  mr-2 gap-2'>
+        <div className='sortLabel flexBetweenX  mr-4 gap-2'>
           <svg
             className='cursor-pointer self-center'
             width='16'
@@ -42,15 +49,26 @@ const Sort = () => {
             />
           </svg>
           <b className='font-poppins'>Sort by: </b>
-          <span>popular</span>
+          <span onClick={() => setIsOpenPop((prev) => !prev)} role='presentation'>
+            {sortBy[sortByPopup]}
+          </span>
         </div>
-        <div className={sortPopup}>
-          <ul>
-            <li>popular</li>
-            <li>price</li>
-            <li>word</li>
-          </ul>
-        </div>
+        {isOpenPop && (
+          <div className={`${sortPopup}`}>
+            <ul>
+              {sortBy.map((item, i) => (
+                <li
+                  onClick={() => showHidePopup(i)}
+                  className={sortByPopup === i ? 'sortActive' : ''}
+                  key={item}
+                  role='presentation'
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   )

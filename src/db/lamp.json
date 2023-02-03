@@ -1,0 +1,50 @@
+[
+  {
+    "id": 0,
+    "title": "O Lamp",
+    "price": 320.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/15/dc/3c/15dc3cf91812bba3c442f355a187ea9a.jpg",
+      "https://i.pinimg.com/564x/26/f4/79/26f479dc4220008d01902ce5187ab8fc.jpg",
+      "https://i.pinimg.com/564x/24/fd/aa/24fdaa9cd80fec308f7717213d7d6dd1.jpg",
+      "https://i.pinimg.com/564x/88/83/c0/8883c07cbcacccb8ca33d3a1d4ea9161.jpg"
+    ],
+    "rating": 2
+  },
+  {
+    "id": 1,
+    "title": "O Chair",
+    "price": 120.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/2b/68/49/2b68490e1d937ed5f7232c03aab5db8c.jpg",
+      "https://i.pinimg.com/564x/2f/60/88/2f60887dbca62f3b60062f4253f3fe59.jpg",
+      "https://i.pinimg.com/564x/ad/f3/61/adf361433a0e9ae283b2572a2be8d360.jpg",
+      "https://i.pinimg.com/564x/b5/3d/68/b53d68d17896095905c0a2a952f45e87.jpg"
+    ],
+    "rating": 5
+  },
+  {
+    "id": 2,
+    "title": "O Sofa",
+    "price": 520.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/23/9c/9a/239c9ae19bfe38378ccf36f2d3bff901.jpg",
+      "https://i.pinimg.com/564x/7d/0c/82/7d0c824a7843444b99c7092b524a353f.jpg",
+      "https://i.pinimg.com/564x/48/db/1f/48db1f2dae178ebad13bf37ebdf1f114.jpg",
+      "https://i.pinimg.com/564x/1c/f2/f0/1cf2f056ce28c0d5ba21dcf8c93e403f.jpg"
+    ],
+    "rating": 3
+  },
+  {
+    "id": 3,
+    "title": "O Poof",
+    "price": 90.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/32/2d/e6/322de67dd7ca99f4606e9ba241c2e198.jpg",
+      "https://i.pinimg.com/564x/b2/d3/80/b2d3800de321bad8df774ec7cdc0403d.jpg",
+      "https://i.pinimg.com/564x/7e/c4/b5/7ec4b504f62a744d9a2eb3cbf2693c49.jpg",
+      "https://i.pinimg.com/564x/f7/e4/fe/f7e4fe9d60c34bac1fa4db9f17eedc52.jpg"
+    ],
+    "rating": 4
+  }
+]

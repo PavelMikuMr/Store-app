@@ -20,11 +20,11 @@ const App = () => {
   return (
     <div className='App'>
       <div className={wrapper}>
-        {/* <Header />
+        <Header />
         <Sort />
         <HandleLayout />
-        <Pizza title='name' /> */}
-        <LoginPage />
+        {/* <Pizza title='name' /> */}
+        {/* <LoginPage /> */}
       </div>
     </div>
   )
