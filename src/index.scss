@@ -106,3 +106,58 @@
 //     -webkit-filter: blur(8px);
 //   }
 // }
+
+.pinkHero {
+  background-color: #ff5ab9;
+}
+.pinkSide {
+  background-color: #a8347479;
+  &:hover {
+    background-color: #ff5ab9;
+  }
+  &:first-child {
+    background-color: #ff5ab9;
+  }
+}
+.orangeHero {
+  background-color: #ff6c4e;
+}
+.orangeSide {
+  background-color: #a8593479;
+  &:hover {
+    background-color: #ff6c4e;
+  }
+  &:first-child {
+    background-color: #ff6c4e;
+  }
+}
+.purpleHero {
+  background-color: #ba59ff;
+}
+.purpleSide {
+  background-color: #9534a879;
+  &:hover {
+    background-color: #ba59ff;
+  }
+  &:first-child {
+    background-color: #ba59ff;
+  }
+}
+
+// Page Login
+
+.formGroupActive label {
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  color: #9e9e9e;
+  transition: all 0.4s ease-in-out;
+}
+
+.formGroupActive {
+  input:focus .formLabelActive {
+    top: -16px;
+    font-size: 12px;
+    color: #9e9e9e;
+  }
+}

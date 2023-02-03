@@ -1,33 +1,40 @@
-import styles from '../../App.style'
-
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import module from '../../App.module.scss'
 
+const { header, form, formGroup, formInput, login, formLabel, loginBox, formButton } =
+  module
 const LoginPage = () => {
   return (
-    <div className='grid h-screen'>
-      <div className='m-auto shadow-black'>
-        <div className='flex h-[100px] w-[300px] items-end justify-center  rounded-t-xl bg-yellow-200 pb-5 font-poppins text-2xl font-bold text-black'>
-          <h2 className=' uppercase'>doggee</h2>
-        </div>
-        <div className=' grid h-[300px] w-[300px] items-center  rounded-b-xl bg-white px-10 pb-3 '>
-          <div className='form self-end justify-self-center'>
-            <form action='submit'>
-              <input
-                className='rounded-md bg-stone-200 p-1'
-                type='text'
-                placeholder='username'
-              />
-              <input
-                className='mt-2 rounded-md bg-stone-200 p-1'
-                type='password'
-                placeholder='password'
-              />
-            </form>
+    <div className={login}>
+      <div className={header}>
+        <h2 className='uppercase'>Store</h2>
+      </div>
+      <div className={loginBox}>
+        <form className={form}>
+          <h1 className='mb-3 text-3xl font-bold'>Log in</h1>
+          <div className={`${formGroup} formGroupActive`}>
+            <label className={`${formLabel} formLabelActive`} htmlFor='email'>
+              Email
+            </label>
+            <input id='email' className={`${formInput} formInputActive`} type='text' />
           </div>
-          <div className='self-end'>
-            <p className='  text-center text-yellow-600'>Create new account</p>
+          <div className={`${formGroup} formGroupActive`}>
+            <label className={`${formLabel} formLabelActive`} htmlFor='password'>
+              Password
+            </label>
+            <input
+              className={`${formInput} formInputActive`}
+              id='password'
+              type='password'
+            />
           </div>
-        </div>
+          <button type='submit' className={formButton}>
+            Login
+          </button>
+        </form>
+      </div>
+      <div>
+        <p className='  text-center text-yellow-600'>Create new account</p>
       </div>
     </div>
   )

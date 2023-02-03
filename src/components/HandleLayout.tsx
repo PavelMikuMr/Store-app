@@ -1,8 +1,8 @@
-import Furniture from './Furniture'
-
-import styles from '../App.style'
+import Furniture, { FurnitureProps } from './Furniture'
 
 import module from '../App.module.scss'
+
+import { furnitureData } from '../db'
 
 const { handleLayout } = module
 
@@ -11,12 +11,17 @@ const HandleLayout = () => {
     <>
       <h1 className='heading'>Get, Buy & Sell</h1>
       <div className={handleLayout}>
-        <Furniture />
-        <Furniture />
-        <Furniture />
-        <Furniture />
-        <Furniture />
-        <Furniture />
+        {furnitureData.map((item: FurnitureProps, index): React.ReactNode => {
+          return (
+            <Furniture
+              price={item.price}
+              title={item.title}
+              color={item.color}
+              subColor={item.subColor}
+              key={item.id}
+            />
+          )
+        })}
       </div>
     </>
   )

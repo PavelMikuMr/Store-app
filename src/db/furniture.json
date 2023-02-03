@@ -1,0 +1,44 @@
+[
+  {
+    "title": "O Lamp",
+    "price": "320.00",
+    "color": "pinkHero",
+    "subColor": "pinkSide",
+    "id": "Lamp"
+  },
+  {
+    "title": "O Chair",
+    "price": "120.00",
+    "color": "orangeHero",
+    "subColor": "orangeSide",
+    "id": "Chair"
+  },
+  {
+    "title": "O Sofa",
+    "price": "520.00",
+    "color": "purpleHero",
+    "subColor": "purpleSide",
+    "id": "Sofa"
+  },
+  {
+    "title": "O Poof",
+    "price": "90.00",
+    "color": "pinkHero",
+    "subColor": "pinkSide",
+    "id": "Poof"
+  },
+  {
+    "title": "O Bath",
+    "price": "20.00",
+    "color": "orangeHero",
+    "subColor": "orangeSide",
+    "id": "Bath"
+  },
+  {
+    "title": "O Mouse",
+    "price": "210.00",
+    "color": "purpleHero",
+    "subColor": "purpleSide",
+    "id": "Mouse"
+  }
+]

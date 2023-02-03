@@ -2,14 +2,27 @@ import { useState } from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { faStar, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
-import { faHeart } from '@fortawesome/free-regular-svg-icons'
+import {
+  faStar,
+  faPlus,
+  faMinus,
+  faHeart as faHeartSol
+} from '@fortawesome/free-solid-svg-icons'
+import { faHeart as faHeartReg } from '@fortawesome/free-regular-svg-icons'
 
 import styles from '../App.style'
 
 import module from '../App.module.scss'
 
 import { chairWeb } from '../assets'
+
+export interface FurnitureProps {
+  price: string
+  title: string
+  color: string
+  subColor: string
+  id?: string
+}
 
 const {
   furnitureContainer,
@@ -30,50 +43,54 @@ const {
   furnitureInfo
 } = module
 
-const Furniture = () => {
+const Furniture = ({ price, title, color, subColor }: FurnitureProps) => {
+  const Ryan = '#ef6043'
   const [count, setCount] = useState(1)
+  const [like, setLike] = useState(false)
+
   return (
     <div className={furnitureContainer}>
       <div className={`${furniture} grid-custom`}>
         <div className='flexCenterX furnitureSidePanel'>
           <ul className={furnitureList}>
-            <li className={`${furnitureItem} furnitureItemBackground`}>
+            <li className={`${furnitureItem} ${subColor}  furnitureItemBackground`}>
               <img src={chairWeb} alt='' />
             </li>
-            <li className={`${furnitureItem} furnitureItemBackground`}>
+            <li className={`${furnitureItem} ${subColor} furnitureItemBackground`}>
               <img src='' alt='' />
             </li>
-            <li className={`${furnitureItem} furnitureItemBackground`}>
+            <li className={`${furnitureItem} ${subColor} furnitureItemBackground `}>
               <img src='' alt='' />
             </li>
-            <li className={`${furnitureItem} furnitureItemBackground`}>
+            <li className={`${furnitureItem} ${subColor} furnitureItemBackground `}>
               <img src='' alt='' />
             </li>
           </ul>
         </div>
-        <div className={`${furnitureHero} flexCenter`}>
+        <div className={`${furnitureHero} flexCenter ${color} `}>
           <img src={chairWeb} alt='lamp' />{' '}
         </div>
         <div className={`${furniturePrice} ${styles.flexCol}`}>
-          <h2 className={furniturePriceTitle}>O Lamp</h2>
+          <h2 className={furniturePriceTitle}>{title}</h2>
           <div className={`${furnitureRate} `}>
             <div className='flex'>
-              <FontAwesomeIcon color='#f77d4d' icon={faStar} size='sm' />
-              <FontAwesomeIcon color='#f77d4d' icon={faStar} size='sm' />
-              <FontAwesomeIcon color='#f77d4d' icon={faStar} size='sm' />
-              <FontAwesomeIcon color='#f77d4d' icon={faStar} size='sm' />
-              <FontAwesomeIcon color='#f77d4d' icon={faStar} size='sm' />
+              {[...(new Array(5).fill(1) as number[])].map((item) => {
+                return (
+                  <FontAwesomeIcon color='#f77d4d' icon={faStar} size='sm' key='faStar' />
+                )
+              })}
               <span className={furnitureRateStart}>5 of 12 reviews</span>
             </div>
             <FontAwesomeIcon
-              icon={faHeart}
-              className='cursor-pointer'
-              color='white'
+              onClick={() => setLike((like) => !like)}
+              icon={like ? faHeartSol : faHeartReg}
+              className='cursor-pointer transition-all'
+              color={like ? 'indigo' : 'white'}
               size='2xl'
             />
           </div>
           <div className={`${furnitureCost} ${styles.flexBetweenX}`}>
-            <p className={furnitureCostDigit}>$ 320.00</p>
+            <p className={furnitureCostDigit}>$ {price}</p>
             <div className='flex items-center gap-x-2'>
               <FontAwesomeIcon
                 className='cursor-pointer'

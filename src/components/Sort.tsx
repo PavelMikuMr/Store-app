@@ -1,17 +1,29 @@
+import React from 'react'
 import module from '../App.module.scss'
 
 const { sort, sortByCategory, categoryItem, sortPopup } = module
 
 const Sort = () => {
+  const [activeIndex, setActiveIndex] = React.useState(0)
+
+  const categories: string[] = ['Collection', 'Lamp', 'Chair', 'Sofa', 'Poof']
+
   return (
     <div className={`${sort} flexBetweenX `}>
       <div className={sortByCategory}>
         <ul className='categoryList flexBetweenX'>
-          <li className={categoryItem}>Collection</li>
-          <li className={categoryItem}>Lamp</li>
-          <li className={categoryItem}>Chair</li>
-          <li className={categoryItem}>Sofa</li>
-          <li className={categoryItem}>Poof</li>
+          {categories.map((category, index) => {
+            return (
+              <li
+                onClick={() => setActiveIndex(index)}
+                className={`${categoryItem} ${activeIndex === index ? 'active' : ''}`}
+                role='presentation'
+                key={category}
+              >
+                {category}
+              </li>
+            )
+          })}
         </ul>
       </div>
       <div className='sortByFilter flexCenter relative'>

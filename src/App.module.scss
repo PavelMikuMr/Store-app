@@ -63,8 +63,9 @@
 .sort {
   @apply mb-12;
   .categoryItem {
-    @apply mr-8 cursor-pointer rounded-3xl bg-none py-3 px-5 font-poppins font-bold first:bg-[#EF6043] hover:bg-violet-700;
+    @apply mr-8 cursor-pointer rounded-3xl bg-none py-3 px-5 font-poppins font-bold transition-colors;
   }
+
   span {
     @apply cursor-pointer border-b border-dashed border-[#EF6043] font-poppins;
   }
@@ -94,14 +95,14 @@
     @apply flex flex-col justify-between gap-y-2 p-2;
   }
   .furnitureItem {
-    @apply flex h-16 w-16 cursor-pointer items-center justify-center rounded-2xl bg-[#a8347479]  transition-colors first:bg-[#fe4fb0] hover:bg-[#fe4fb0];
+    @apply flex h-16 w-16 cursor-pointer items-center justify-center rounded-2xl transition-colors;
     img {
       @apply w-[80%];
     }
   }
 
   .furnitureHero {
-    @apply rounded-3xl bg-[#fe4fb0];
+    @apply rounded-3xl;
   }
 
   .furniturePriceTitle {
@@ -142,5 +143,35 @@
     p {
       @apply mt-6 cursor-pointer font-poppins text-xs text-white/[.40] hover:text-[#eb988488];
     }
+  }
+}
+
+/* login page */
+
+.login {
+  @apply m-auto flex h-[30rem] w-[400px]  flex-col justify-between bg-slate-200 font-poppins  text-black shadow-modern;
+  .header {
+    @apply flex h-[100px] w-full   items-end justify-center  rounded-t-xl bg-yellow-200 pb-4 font-poppins text-2xl font-bold;
+  }
+
+  /* .loginBox {
+    @apply flex  flex-grow flex-col justify-center;
+  } */
+  .loginBox {
+    @apply flex  flex-grow flex-col justify-center px-6;
+  }
+  .form {
+    @apply flex w-full flex-col gap-y-4  py-8 tracking-wider;
+  }
+  .formGroup {
+    @apply relative;
+  }
+
+  .formInput {
+    @apply w-full border-b border-stone-400 bg-transparent pb-3 outline-none transition-all focus:border-stone-500;
+  }
+
+  .formButton {
+    @apply m-auto w-[30%] cursor-pointer rounded-md bg-[#EF6043] p-2 font-medium transition-colors hover:bg-[#fa836b];
   }
 }

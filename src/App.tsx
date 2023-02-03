@@ -10,6 +10,7 @@ import LoginPage from './pages/LoginPages/LoginPage'
 
 import Header from './components/Header'
 import Sort from './components/Sort'
+import Pizza from './components/Pizza'
 
 const { wrapper } = module
 
@@ -19,9 +20,11 @@ const App = () => {
   return (
     <div className='App'>
       <div className={wrapper}>
-        <Header />
+        {/* <Header />
         <Sort />
         <HandleLayout />
+        <Pizza title='name' /> */}
+        <LoginPage />
       </div>
     </div>
   )
