@@ -28,11 +28,13 @@
  */
 
 .wrapper {
-  @apply mx-auto mt-10 mb-10 w-max;
+  @apply mx-auto mt-10 mb-10 max-w-[1350px] px-4;
 }
 .header {
+  /* @apply ; */
+
   .container {
-    @apply mb-12 md:max-w-full;
+    @apply mb-12 xs:max-w-[100%] ss:max-w-[100%] sm:max-w-[100%] md:max-w-[100%] lg:max-w-[1350px];
   }
   .infoTextBox {
     @apply ml-1;
@@ -64,10 +66,10 @@
   @apply mb-12 flex-col;
 
   .categoryList {
-    @apply mb-4 lg:mb-0;
+    @apply mb-4 gap-8 lg:mb-0;
   }
   .categoryItem {
-    @apply mr-8 cursor-pointer rounded-3xl bg-none py-3 px-5 font-poppins font-bold transition-colors;
+    @apply cursor-pointer rounded-3xl bg-none py-3 px-5 font-poppins font-bold transition-colors;
   }
 
   span {
@@ -105,7 +107,7 @@
   }
 
   .furnitureHero {
-    @apply max-h-[300px] rounded-3xl;
+    @apply h-[18.43rem] rounded-3xl;
   }
 
   .furniturePriceTitle {
@@ -176,5 +178,56 @@
 
   .formButton {
     @apply m-auto w-[30%] cursor-pointer rounded-md bg-[#EF6043] p-2 font-medium transition-colors hover:bg-[#fa836b];
+  }
+}
+
+/* BacketPage */
+
+.basketContainer {
+  @apply mx-auto max-w-[800px];
+
+  .basketHeader {
+    @apply mb-10 border-b border-white/[.40] pb-4;
+  }
+  .basket {
+    @apply font-poppins text-2xl;
+  }
+  .cleanBasket {
+    @apply items-start;
+  }
+  .cleanBasketTitle {
+    @apply cursor-pointer font-poppins text-xl text-white/[.40];
+  }
+  .selectedItem {
+    @apply grid grid-cols-[repeat(2,_minmax(0,_max-content)),repeat(2,1fr),_minmax(0,_max-content)] gap-x-5;
+  }
+  .itemImg {
+    @apply h-14 w-14 rounded-lg;
+  }
+  .itemInfoTittle {
+    @apply font-poppins text-xl;
+  }
+  .itemInfoSubTittle {
+    @apply font-poppins text-sm;
+  }
+  .additionItem {
+    @apply gap-x-5 font-poppins text-xl;
+
+    .additionItemBtn {
+      @apply grid h-10 w-10 place-content-center rounded-full bg-white/[.20];
+      span {
+        @apply grid h-[36px] w-[36px] cursor-pointer place-items-center rounded-full bg-black text-center align-bottom;
+      }
+    }
+  }
+  .totalCost {
+    @apply font-poppins text-xl;
+  }
+  .cancelSell {
+    @apply h-10 w-10 cursor-pointer self-center rounded-full bg-white/[.20] p-1;
+
+    .closeMarker {
+      @apply grid h-8 w-8 place-content-center rounded-full bg-black;
+    }
   }
 }

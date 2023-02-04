@@ -47,6 +47,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 0,
     '@typescript-eslint/no-shadow': 0,
     'consistent-return': 1,
+    'no-console': 0,
     'react/function-component-definition': [
       2,
       {

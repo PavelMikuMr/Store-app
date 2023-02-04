@@ -10,8 +10,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { faHeart as faHeartReg } from '@fortawesome/free-regular-svg-icons'
 
-import { pint } from '../assets'
-
 import styles from '../App.style'
 
 import module from '../App.module.scss'
