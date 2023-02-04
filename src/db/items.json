@@ -1,0 +1,210 @@
+[
+  {
+    "id": 0,
+    "title": "Polo Victoria",
+    "price": 320.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/32/a1/ab/32a1ab682273a3d45d8446027b196f1b.jpg",
+      "https://i.pinimg.com/564x/c5/31/28/c53128ef4b399dbf22d9c4548ece1022.jpg",
+      "https://i.pinimg.com/564x/75/30/59/7530592f90b56accee255205ec5d94f2.jpg",
+      "https://i.pinimg.com/564x/01/e6/05/01e60548b9d924d44b24d1bf13e2234d.jpg"
+    ],
+    "rating": 2,
+    "category": [0, 1]
+  },
+  {
+    "id": 1,
+    "title": "Rimini",
+    "price": 120.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/4a/c4/c6/4ac4c6983911e160ded1fe461abe7d69.jpg",
+      "https://i.pinimg.com/736x/7d/60/ac/7d60ac01e839ade2e10e607bddfb6af1.jpg",
+      "https://i.pinimg.com/564x/db/6b/ce/db6bce6b92e1fe490c6b1bb843aa55fb.jpg",
+      "https://i.pinimg.com/564x/a5/c5/35/a5c535b1ffdc69e86cf6d92e77ecd8d8.jpg"
+    ],
+    "rating": 5,
+    "category": [0, 1]
+  },
+  {
+    "id": 2,
+    "title": "Christopher",
+    "price": 520.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/9d/d2/c0/9dd2c0cea6a3e188df0f3d48eef32aad.jpg",
+      "https://i.pinimg.com/564x/04/c2/86/04c28678f6f85e17365d5333691ad711.jpg",
+      "https://i.pinimg.com/564x/1c/50/fb/1c50fba372fb818fa5ea5d4dbca86014.jpg",
+      "https://i.pinimg.com/564x/ca/f6/32/caf63299132ca297256e8a9deee1d285.jpg"
+    ],
+    "rating": 3,
+    "category": [0, 1]
+  },
+  {
+    "id": 3,
+    "title": "Choco",
+    "price": 90,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/40/4a/e5/404ae56a68b7342fbb43d473a47f71a3.jpg",
+      "https://i.pinimg.com/564x/52/a0/cc/52a0cc2f65f1c494524cfec356fabf28.jpg",
+      "https://i.pinimg.com/564x/71/34/89/713489f948e3ac0b94f5c1fed21b2e6b.jpg",
+      "https://i.pinimg.com/564x/d7/b6/7d/d7b67d751dc14890b93702b5a1fdcb51.jpg"
+    ],
+    "rating": 4,
+    "category": [0, 1]
+  },
+  {
+    "id": 4,
+    "title": "Vela",
+    "price": 320.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/bc/9e/45/bc9e452b476a29778e571fb688f120c0.jpg",
+      "https://i.pinimg.com/564x/a6/52/7f/a6527f25590889013f656781e8e06990.jpg",
+      "https://i.pinimg.com/564x/95/11/50/95115031e88c68ded7c4acf52195a1f8.jpg",
+      "https://i.pinimg.com/564x/7b/7c/5a/7b7c5a5fbe63a56f9e6f6778f20a19d0.jpg"
+    ],
+    "rating": 3,
+    "category": [0, 2]
+  },
+  {
+    "id": 5,
+    "title": "Ars Natura",
+    "price": 120.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/fb/ad/39/fbad3958b876bed76bd009b3219493e5.jpg",
+      "https://i.pinimg.com/564x/02/72/02/027202437f26f1eb829bed23ed6a74a6.jpg",
+      "https://i.pinimg.com/564x/83/b3/04/83b3040abb252fbeb99fc09f3d09834a.jpg",
+      "https://i.pinimg.com/564x/29/3d/2b/293d2bab87f55e2d8aefb504fc749a22.jpg"
+    ],
+    "rating": 3,
+    "category": [0, 2]
+  },
+  {
+    "id": 6,
+    "title": "O Sofa",
+    "price": 520.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/9e/cb/57/9ecb57842bf672578f58abf7d54b9a21.jpg",
+      "https://i.pinimg.com/564x/7b/da/44/7bda4473fd1149073f5dfa604f2eee49.jpg",
+      "https://i.pinimg.com/564x/42/4f/e8/424fe8baf33ea60d63e681b1bd226070.jpg",
+      "https://i.pinimg.com/564x/de/cf/64/decf64fcbabb74d1edf2a37652d70439.jpg"
+    ],
+    "rating": 5,
+    "category": [0, 2]
+  },
+  {
+    "id": 7,
+    "title": "Esstisch",
+    "price": 90.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/c2/16/f6/c216f600968c921203bdf23bd19583c4.jpg",
+      "https://i.pinimg.com/564x/33/4b/bb/334bbba62d5f6b1539584a1b6bcb226b.jpg",
+      "https://i.pinimg.com/564x/03/c2/9b/03c29b8335f8bab0610a7907004d0243.jpg",
+      "https://i.pinimg.com/564x/2b/43/35/2b433546f3bb6abbf70ad7977e2eab0d.jpg"
+    ],
+    "rating": 4,
+    "category": [0, 2]
+  },
+  {
+    "id": 8,
+    "title": "Sitzer",
+    "price": 130.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/85/e9/a8/85e9a82b539b6e86ccacc37e3d28952c.jpg",
+      "https://i.pinimg.com/564x/f6/c9/5b/f6c95bb9a1535cdf0abd79ea5c79aa53.jpg",
+      "https://i.pinimg.com/564x/15/f2/6c/15f26c4361688b644d00df6c0ec46009.jpg",
+      "https://i.pinimg.com/564x/23/96/54/23965455aa4c6577ffb2751c3b84b27e.jpg"
+    ],
+    "rating": 2,
+    "category": [0, 3]
+  },
+  {
+    "id": 9,
+    "title": "Robas Lund",
+    "price": 290.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/22/92/30/229230a4f9677759928fa5551719df48.jpg",
+      "https://i.pinimg.com/564x/44/4c/7c/444c7c793656110e0099cea71c7efdce.jpg",
+      "https://i.pinimg.com/564x/af/a1/8d/afa18d3bede793bc9ea0626ef27d9bd0.jpg",
+      "https://i.pinimg.com/564x/2e/4f/66/2e4f664d99f45c24773f5583d8c06766.jpg"
+    ],
+    "rating": 5,
+    "category": [0, 3]
+  },
+  {
+    "id": 10,
+    "title": "Hardman",
+    "price": 145.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/9b/64/2a/9b642a9a784e304263b8c036e921aede.jpg",
+      "https://i.pinimg.com/564x/c5/e5/b4/c5e5b4c49aca01b128a88fdc8718b744.jpg",
+      "https://i.pinimg.com/564x/1a/e6/9a/1ae69abd7c7fc738109b654858b0ee03.jpg",
+      "https://i.pinimg.com/564x/dc/10/25/dc1025a8b8942f90158f362ff2614286.jpg"
+    ],
+    "rating": 3,
+    "category": [0, 3]
+  },
+  {
+    "id": 11,
+    "title": "Vernal",
+    "price": 390.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/15/5e/e8/155ee8838ce8a225ede91d81e8bb2ec3.jpg",
+      "https://i.pinimg.com/564x/bf/6b/42/bf6b42add87bed733efaf13f4239c268.jpg",
+      "https://i.pinimg.com/564x/9a/b3/e9/9ab3e9718ce73eb86d42d39ade9059fd.jpg",
+      "https://i.pinimg.com/564x/9a/0a/6e/9a0a6e12ad1f087120ef1c41e8f36bb8.jpg"
+    ],
+    "rating": 4,
+    "category": [0, 3]
+  },
+  {
+    "id": 12,
+    "title": "Flexa",
+    "price": 210.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/15/dc/3c/15dc3cf91812bba3c442f355a187ea9a.jpg",
+      "https://i.pinimg.com/564x/26/f4/79/26f479dc4220008d01902ce5187ab8fc.jpg",
+      "https://i.pinimg.com/564x/24/fd/aa/24fdaa9cd80fec308f7717213d7d6dd1.jpg",
+      "https://i.pinimg.com/564x/88/83/c0/8883c07cbcacccb8ca33d3a1d4ea9161.jpg"
+    ],
+    "rating": 2,
+    "category": [0, 4]
+  },
+  {
+    "id": 13,
+    "title": "Rivera Jerry",
+    "price": 280.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/2b/68/49/2b68490e1d937ed5f7232c03aab5db8c.jpg",
+      "https://i.pinimg.com/564x/2f/60/88/2f60887dbca62f3b60062f4253f3fe59.jpg",
+      "https://i.pinimg.com/564x/ad/f3/61/adf361433a0e9ae283b2572a2be8d360.jpg",
+      "https://i.pinimg.com/564x/b5/3d/68/b53d68d17896095905c0a2a952f45e87.jpg"
+    ],
+    "rating": 5,
+    "category": [0, 4]
+  },
+  {
+    "id": 14,
+    "title": "Monro",
+    "price": 30.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/23/9c/9a/239c9ae19bfe38378ccf36f2d3bff901.jpg",
+      "https://i.pinimg.com/564x/7d/0c/82/7d0c824a7843444b99c7092b524a353f.jpg",
+      "https://i.pinimg.com/564x/48/db/1f/48db1f2dae178ebad13bf37ebdf1f114.jpg",
+      "https://i.pinimg.com/564x/1c/f2/f0/1cf2f056ce28c0d5ba21dcf8c93e403f.jpg"
+    ],
+    "rating": 4,
+    "category": [0, 4]
+  },
+  {
+    "id": 15,
+    "title": "Arcadia Night",
+    "price": 70.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/32/2d/e6/322de67dd7ca99f4606e9ba241c2e198.jpg",
+      "https://i.pinimg.com/564x/b2/d3/80/b2d3800de321bad8df774ec7cdc0403d.jpg",
+      "https://i.pinimg.com/564x/7e/c4/b5/7ec4b504f62a744d9a2eb3cbf2693c49.jpg",
+      "https://i.pinimg.com/564x/f7/e4/fe/f7e4fe9d60c34bac1fa4db9f17eedc52.jpg"
+    ],
+    "rating": 4,
+    "category": [0, 4]
+  }
+]

@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "title": "O Lamp",
+    "title": "Polo Victoria",
     "price": 320.0,
     "imgUrl": [
       "https://i.pinimg.com/564x/32/a1/ab/32a1ab682273a3d45d8446027b196f1b.jpg",
@@ -14,7 +14,7 @@
   },
   {
     "id": 1,
-    "title": "O Chair",
+    "title": "Rimini",
     "price": 120.0,
     "subColor": "orangeSide",
     "imgUrl": [
@@ -27,7 +27,7 @@
   },
   {
     "id": 2,
-    "title": "O Sofa",
+    "title": "Christopher",
     "price": 520.0,
     "imgUrl": [
       "https://i.pinimg.com/564x/9d/d2/c0/9dd2c0cea6a3e188df0f3d48eef32aad.jpg",
@@ -40,7 +40,7 @@
   },
   {
     "id": 3,
-    "title": "O Poof",
+    "title": "Choco",
     "price": 90.0,
     "imgUrl": [
       "https://i.pinimg.com/564x/40/4a/e5/404ae56a68b7342fbb43d473a47f71a3.jpg",

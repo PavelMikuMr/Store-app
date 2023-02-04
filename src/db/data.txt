@@ -102,3 +102,7 @@ https://i.pinimg.com/564x/9a/b3/e9/9ab3e9718ce73eb86d42d39ade9059fd.jpg
 https://i.pinimg.com/564x/9a/0a/6e/9a0a6e12ad1f087120ef1c41e8f36bb8.jpg
 
 
+              {[...new Array(rating).map((val, i) => i + 1)].map((item) => {
+                return (
+
+Array.from(Array(rating).map((e, i) => i + 1)).map((item)

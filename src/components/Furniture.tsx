@@ -16,11 +16,12 @@ import styles from '../App.style'
 
 import module from '../App.module.scss'
 
-export interface FurnitureProps {
+interface FurnitureProps {
   price: number
   title: string
   imgUrl: string[]
   rating: number
+  id: number
 }
 
 const {
@@ -47,20 +48,24 @@ const Furniture = ({ price, title, imgUrl, rating }: FurnitureProps) => {
   const [like, setLike] = useState(false)
   const [count, setCount] = useState(0)
   const [heroImg, setHeroImg] = useState(0)
+  const getKeyForSideImg = (arr: string[]): number[] => {
+    return Array.from(Array(arr.length)).map((v, i) => i + 1)
+  }
+
   return (
     <div className={furnitureContainer}>
       <div className={`${furniture} grid-custom`}>
         <div className='flexCenterX furnitureSidePanel'>
           <ul className={furnitureList}>
-            {imgUrl.map((item, index) => (
+            {getKeyForSideImg(imgUrl).map((item, index) => (
               <li
                 onClick={() => setHeroImg(index)}
                 className={`${furnitureItem} furnitureItemBackground`}
-                key={title}
+                key={item}
                 role='presentation'
               >
                 <div className={sideBackdrop}> </div>
-                <img src={item} alt='' />
+                <img src={imgUrl[index]} alt={title} />
               </li>
             ))}
           </ul>
@@ -72,11 +77,13 @@ const Furniture = ({ price, title, imgUrl, rating }: FurnitureProps) => {
           <h2 className={furniturePriceTitle}>{title}</h2>
           <div className={`${furnitureRate} `}>
             <div className='flex'>
-              {[...(new Array(rating).fill(1) as number[])].map((item) => {
-                return (
-                  <FontAwesomeIcon color='#f77d4d' icon={faStar} size='sm' key={item} />
-                )
-              })}
+              {Array.from(Array(rating))
+                .map((e, i) => +i + 10)
+                .map((item) => {
+                  return (
+                    <FontAwesomeIcon color='#f77d4d' icon={faStar} size='sm' key={item} />
+                  )
+                })}
               <span className={furnitureRateStart}>{rating} of 12 reviews</span>
             </div>
             <FontAwesomeIcon

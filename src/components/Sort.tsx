@@ -8,7 +8,7 @@ const Sort = () => {
   const [isOpenPop, setIsOpenPop] = useState(false)
   const [activeIndex, setActiveIndex] = useState(0)
 
-  const categories: string[] = ['Collection', 'Lamp', 'Chair', 'Sofa', 'Poof']
+  const categories: string[] = ['Collection', 'Chair', 'Poof', 'Sofa', 'Lamp']
   const sortBy: string[] = ['popular', 'price', 'word']
 
   const showHidePopup = (i: number) => {

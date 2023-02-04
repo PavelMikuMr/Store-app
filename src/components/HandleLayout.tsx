@@ -1,11 +1,13 @@
-import Furniture, { FurnitureProps } from './Furniture'
+import Furniture from './Furniture'
 
 import module from '../App.module.scss'
 
-import { furnitureData } from '../db'
+// import { furnitureData } from '../db'
 
+import furnitureData from '../db/furniture.json'
 import lampData from '../db/lamp.json'
 import poofData from '../db/poof.json'
+import sofaData from '../db/sofa.json'
 
 interface IFurniture {
   id: number
@@ -28,8 +30,9 @@ const HandleLayout = () => {
               price={item.price}
               title={item.title}
               imgUrl={item.imgUrl}
-              key={item.id}
+              key={item.title}
               rating={item.rating}
+              id={item.id}
             />
           )
         })}
