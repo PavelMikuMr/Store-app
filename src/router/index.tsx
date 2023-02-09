@@ -1,11 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom'
-import Home from '../pages/Home'
-import ErrorPage from '../pages/ErrorPage'
-import BasketPage from '../pages/BasketPage'
-import EmptyBasketPage from '../pages/EmptyBasketPage'
-import Header from '../components/Header'
-import Wrapper from '../components/Wrapper'
-import LoginPage from '../pages/LoginPage'
+import Home from 'pages/Home'
+import ErrorPage from 'pages/ErrorPage'
+import BasketPage from 'pages/BasketPage'
+import EmptyBasketPage from 'pages/EmptyBasketPage'
+import Header from 'components/Header'
+import Wrapper from 'components/Wrapper'
+import LoginPage from 'pages/LoginPage'
 
 const router = createBrowserRouter([
   {

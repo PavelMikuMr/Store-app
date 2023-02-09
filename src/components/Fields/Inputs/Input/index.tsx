@@ -1,7 +1,6 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-import module from '../../../../App.module.scss'
+import module from '@/App.module.scss'
 
-const { formInput, inputError, helperErrorText } = module
+const { formInput, error, helperErrorText } = module
 //* 1)
 // type InputProps = React.HTMLProps<HTMLInputElement>
 
@@ -23,10 +22,14 @@ export const Input = ({
   helperText,
   ...props
 }: InputProps) => {
-  const className = isError ? inputError : ''
+  const className = isError ? error : ''
   return (
     <>
-      <input className={`${formInput} formInputActive ${className}`} {...props} />
+      <input
+        id={htmlFor}
+        className={`${formInput} formInputActive ${className}`}
+        {...props}
+      />
       <label className='formLabelActive' htmlFor={htmlFor}>
         {labelText}
       </label>

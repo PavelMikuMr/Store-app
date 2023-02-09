@@ -1,8 +1,8 @@
-import { BtnXL } from '../components/Fields'
+import { BtnXL } from '@fields'
 
-import module from '../App.module.scss'
+import module from '@/App.module.scss'
 
-import { emptyCart } from '../assets'
+import { emptyCart } from '@/assets'
 
 const { basketContainer, emptyBasket, emptyCartImg, emptyBasketTitle } = module
 

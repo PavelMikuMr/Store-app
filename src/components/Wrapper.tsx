@@ -1,4 +1,4 @@
-import module from '../App.module.scss'
+import module from '@/App.module.scss'
 
 const { wrapper } = module
 interface WrapperProps {

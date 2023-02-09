@@ -4,12 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBasketShopping, faCaretLeft } from '@fortawesome/free-solid-svg-icons'
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons'
 
-import SelectedItem from '../components/SelectedItem'
-// import BtnXl from '../components/Fields/Btns/BtnXL/BtnXL'
+import SelectedItem from 'components/SelectedItem'
 
-import { BtnXL } from '../components/Fields'
+import { BtnXL } from '@fields'
 
-import module from '../App.module.scss'
+import module from '@/App.module.scss'
 
 const {
   basketContainer,

@@ -147,13 +147,13 @@
     }
 
     .formInput {
-      @apply w-full border-b border-stone-400 bg-transparent pb-3 outline-none transition-all focus:border-stone-500;
+      @apply w-full  rounded-lg  bg-gray-100 py-3 px-2 caret-zinc-900 outline-none transition-all;
     }
-    .inputError {
-      @apply bg-[#c437374d];
+    .error {
+      @apply bg-[#d85d5d50];
     }
     .helperErrorText {
-      @apply absolute w-full bg-[#c437374d] text-center text-sm text-[#c4373785];
+      @apply absolute w-full  text-center text-sm text-[#c43737d2];
     }
 
     .checkbox {

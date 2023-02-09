@@ -1,8 +1,8 @@
+import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons'
-import { Link } from 'react-router-dom'
-import module from '../App.module.scss'
-import { logo } from '../assets'
+import { logo } from '@assets'
+import module from '@/App.module.scss'
 
 const {
   header,

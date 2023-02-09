@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
-import module from '../App.module.scss'
-import { pint } from '../assets'
+import module from '@/App.module.scss'
+import { pint } from '@/assets'
 
 const {
   selectedItem,

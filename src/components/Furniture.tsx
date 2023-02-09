@@ -10,9 +10,9 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { faHeart as faHeartReg } from '@fortawesome/free-regular-svg-icons'
 
-import styles from '../App.style'
+import styles from '@/App.style'
 
-import module from '../App.module.scss'
+import module from '@/App.module.scss'
 
 interface FurnitureProps {
   price: number
