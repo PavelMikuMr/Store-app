@@ -1,33 +1,18 @@
-import { useState } from 'react'
-
-import styles from './App.style'
-
+import { Route, Routes, RouterProvider } from 'react-router-dom'
 import module from './App.module.scss'
-
-import HandleLayout from './components/HandleLayout'
-
-import LoginPage from './pages/LoginPages/LoginPage'
-import BasketPage from './pages/BinPage/BasketPage'
-
+import BasketPage from './pages/BasketPage'
+import EmptyBasketPage from './pages/EmptyBasketPage'
+import Skeleton from './components/HandleLayout/Skeleton'
 import Header from './components/Header'
-import Sort from './components/Sort'
-import Pizza from './components/Pizza'
+import Home from './pages/Home'
+import NotFound from './pages/NotFound'
+
+import router from './router'
 
 const { wrapper } = module
 
 const App = () => {
-  return (
-    <div className='App'>
-      <div className={wrapper}>
-        <Header />
-        <BasketPage />
-        {/* <Sort /> */}
-        {/* <HandleLayout /> */}
-        {/* <Pizza title='name' /> */}
-        {/* <LoginPage /> */}
-      </div>
-    </div>
-  )
+  return <RouterProvider router={router} />
 }
 
 export default App

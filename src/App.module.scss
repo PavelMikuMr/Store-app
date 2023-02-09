@@ -1,31 +1,4 @@
 @import './index.scss';
-/* 
-.navBar {
-  @apply flex w-full items-center justify-between py-6;
-
-  .navBarLogo {
-    @apply h-[32px] w-[124px];
-  }
-  .listNone {
-    @apply hidden list-none items-center justify-end  overflow-hidden sm:flex;
-  }
-  .navBarListItem {
-    @apply cursor-pointer font-poppins text-[1rem] font-bold text-fuchsia-100;
-  }
-  .navBarMobile {
-    @apply flex flex-1 items-center justify-end sm:hidden;
-  }
-  .navBarImg {
-    @apply h-[28px] w-[28px] object-contain;
-  }
-  .navBarMobileSideBar {
-    @apply bg-black-gradient  sidebar absolute top-20 right-0 mx-4 my-2 min-w-[140px] justify-center rounded-xl p-6;
-  }
-  .navBarMobileSideBarList {
-    @apply flex   flex-col  items-center justify-center overflow-hidden;
-  }
-}
- */
 
 .wrapper {
   @apply mx-auto mt-10 mb-10 max-w-[1350px] px-4;
@@ -152,32 +125,47 @@
 }
 
 /* login page */
+.wrapperLogin {
+  @apply grid min-h-screen place-items-center;
+  .login {
+    @apply m-auto flex h-[30rem]  w-[400px] flex-col justify-between overflow-hidden rounded-t-xl bg-white font-poppins text-black;
+    .header {
+      @apply flex h-[100px] w-full   items-end justify-center   bg-yellow-200 pb-4 font-poppins text-2xl font-bold;
+    }
 
-.login {
-  @apply m-auto flex h-[30rem] w-[400px]  flex-col justify-between bg-slate-200 font-poppins  text-black shadow-modern;
-  .header {
-    @apply flex h-[100px] w-full   items-end justify-center  rounded-t-xl bg-yellow-200 pb-4 font-poppins text-2xl font-bold;
-  }
-
-  /* .loginBox {
+    /* .loginBox {
     @apply flex  flex-grow flex-col justify-center;
   } */
-  .loginBox {
-    @apply flex  flex-grow flex-col justify-center px-6;
-  }
-  .form {
-    @apply flex w-full flex-col gap-y-4  py-8 tracking-wider;
-  }
-  .formGroup {
-    @apply relative;
-  }
+    .loginBox {
+      @apply flex  flex-grow flex-col justify-center px-6;
+    }
+    .form {
+      @apply flex w-full flex-col gap-y-4  py-8 tracking-wider;
+    }
+    .formGroup {
+      @apply relative pb-4;
+    }
 
-  .formInput {
-    @apply w-full border-b border-stone-400 bg-transparent pb-3 outline-none transition-all focus:border-stone-500;
-  }
+    .formInput {
+      @apply w-full border-b border-stone-400 bg-transparent pb-3 outline-none transition-all focus:border-stone-500;
+    }
+    .inputError {
+      @apply bg-[#c437374d];
+    }
+    .helperErrorText {
+      @apply absolute w-full bg-[#c437374d] text-center text-sm text-[#c4373785];
+    }
 
-  .formButton {
-    @apply m-auto w-[30%] cursor-pointer rounded-md bg-[#EF6043] p-2 font-medium transition-colors hover:bg-[#fa836b];
+    .checkbox {
+      @apply relative flex justify-center gap-x-2;
+
+      .checkboxLabel {
+        @apply text-sm text-black/[.60];
+      }
+    }
+    .formButton {
+      @apply m-auto w-[30%] cursor-pointer rounded-md bg-[#efc743] p-2 font-medium transition-colors hover:bg-[#fad46b];
+    }
   }
 }
 
@@ -229,5 +217,42 @@
     .closeMarker {
       @apply grid h-8 w-8 place-content-center rounded-full bg-black;
     }
+  }
+  .order {
+    @apply grid grid-cols-2;
+  }
+  .orderTitle {
+    @apply font-poppins text-xl;
+  }
+  .orderAll {
+    @apply grid grid-rows-2;
+  }
+  .orderComeBack {
+    @apply relative self-center;
+  }
+  .orderComeBackBtn {
+    @apply ml-4 font-poppins text-sm text-white/[.40];
+  }
+  .buyNow {
+    @apply flex flex-col gap-y-4  justify-self-end;
+  }
+  .buyNowTitle {
+    @apply font-poppins text-xl;
+    strong {
+      @apply text-[#eb6f50];
+    }
+  }
+}
+/* EmptyBasket Page*/
+.emptyBasket {
+  @apply mx-auto flex max-w-[500px] flex-col gap-y-[7rem] text-center;
+  .emptyBasketTitle {
+    @apply mb-3 font-poppins text-3xl;
+  }
+  p {
+    @apply font-poppins text-sm text-white/[.40];
+  }
+  .emptyCartImg {
+    @apply mb-14 w-[400px];
   }
 }

@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons'
-
+import { Link } from 'react-router-dom'
 import module from '../App.module.scss'
 import { logo } from '../assets'
 
@@ -35,7 +35,8 @@ const Header = () => {
           </div>
         </div>
         <div className={`${infoPayment}  text-white`}>
-          <a href='home' className={`${button} flexCenter`}>
+          <Link to='/basket' className={`${button} flexCenter`}>
+            {/* <a href='basket' className={`${button} flexCenter`}> */}
             <span className={buttonCost}>$ 320</span>
             <div className={buttonDelimiter}> </div>
             <FontAwesomeIcon
@@ -45,7 +46,8 @@ const Header = () => {
               size='lg'
             />
             <span className={infoBin}>3</span>
-          </a>
+            {/* </a> */}
+          </Link>
         </div>
       </div>
     </header>

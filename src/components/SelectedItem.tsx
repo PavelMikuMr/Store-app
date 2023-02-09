@@ -23,6 +23,7 @@ const {
 const SelectedItem = () => {
   const [count, setCount] = useState(0)
 
+  const increaseSelect = () => {}
   return (
     <div className='selectedContainer mb-10'>
       <div className={`${selectedItem} px-2`}>
@@ -35,13 +36,19 @@ const SelectedItem = () => {
         </div>
         <div className={`${additionItem} flexCenter`}>
           <div className={additionItemBtn}>
-            <span onClick={() => setCount(count + 1)} role='presentation'>
+            <span
+              onClick={() => setCount(count >= 0 ? count + 1 : 0)}
+              role='presentation'
+            >
               +
             </span>
           </div>
           <div className='additionItemAmount w-[20px]'>{count}</div>
           <div className={additionItemBtn}>
-            <span onClick={() => setCount(count - 1)} role='presentation'>
+            <span
+              onClick={() => setCount(count === 0 ? 0 : count - 1)}
+              role='presentation'
+            >
               -
             </span>
           </div>

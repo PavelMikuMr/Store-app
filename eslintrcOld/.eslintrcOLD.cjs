@@ -42,7 +42,12 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react/prop-types': 1,
     'react/jsx-no-useless-fragment': [2, { allowExpressions: true }],
-    'react/jsx-props-no-spreading': 0,
+    'no-undef': 0,
+    'no-unused-vars': 0,
+    '@typescript-eslint/no-unused-vars': 0,
+    '@typescript-eslint/no-shadow': 0,
+    'consistent-return': 1,
+    'no-console': 0,
     'react/function-component-definition': [
       2,
       {
@@ -50,33 +55,17 @@ module.exports = {
         unnamedComponents: 'arrow-function'
       }
     ],
-    '@typescript-eslint/no-unused-vars': 0,
-    '@typescript-eslint/no-shadow': 0,
+    'import/prefer-default-export': 0,
+    'react/jsx-props-no-spreading': 0,
     'eslint linebreak-style': [0, 'error', 'windows'],
+    'global-require': 0,
+    'linebreak-style': 0,
     'prettier/prettier': [
       'error',
       {
         endOfLine: 'auto'
       }
     ],
-    'tailwindcss/no-custom-classname': 0,
-    'no-undef': 0,
-    'no-unused-vars': 1,
-    'consistent-return': 1,
-    'no-console': 1,
-    'import/prefer-default-export': 0,
-    'global-require': 0,
-    'linebreak-style': 0,
-    'import/extensions': [
-      'error',
-      'ignorePackages',
-      {
-        '': 'never',
-        js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never'
-      }
-    ]
+    'tailwindcss/no-custom-classname': 0
   }
 }

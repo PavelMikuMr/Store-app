@@ -20,7 +20,13 @@
 
 @layer components {
   body {
-    @apply min-h-screen bg-black text-white;
+    @apply bg-white text-white;
+  }
+}
+
+@layer components {
+  .btnXl {
+    @apply w-full rounded-3xl bg-[#EF6043] p-3 font-poppins text-lg hover:bg-[#eb6f50];
   }
 }
 
@@ -44,7 +50,7 @@
     @apply w-full xl:max-w-[1280px];
   }
   .paragraph {
-    @apply font-poppins text-[18px] font-normal leading-[30.8px] text-dimWhite;
+    @apply font-poppins text-[18px] font-normal leading-[30.8px] text-white;
   }
   .heading {
     @apply w-full font-poppins text-[40px] font-semibold leading-[66.8px] text-white xs:text-[48px] xs:leading-[76.8px];
@@ -61,6 +67,9 @@
   }
   .flexCenterX {
     @apply flex justify-center;
+  }
+  .flexCenterY {
+    @apply flex flex-col items-center justify-center;
   }
   .flexBetweenX {
     @apply flex flex-row justify-between;
@@ -159,18 +168,74 @@
 
 // Page Login
 
+.login {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
 .formGroupActive label {
   position: absolute;
   top: 0;
   z-index: 0;
+  left: 0;
   color: #9e9e9e;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.formInputActive:focus ~ .formLabelActive,
+.formInputActive:not(:placeholder-shown) ~ .formLabelActive {
+  top: -16px;
+  font-size: 12px;
+  color: #9e9e9e;
+}
+// .inputError {
+//   background: rgba(219, 57, 57, 0.3) !important;
+// }
+
+// checkbox
+
+.inputDevice {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+  top: 2px;
+  left: 100px;
+}
+.labelDevice {
+  padding-left: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.labelDevice:before {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  position: absolute;
+  top: 2px;
+  left: 100px;
+  z-index: 1;
+  border-radius: 5px;
+}
+.labelDevice:after {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 16px;
+  background: url('./assets/check.svg') no-repeat;
+  background-size: 16px 16px;
+  opacity: 0;
+  position: absolute;
+  top: 2px;
+  left: 100px;
+  z-index: 2;
+  transition: opacity 0.1s linear;
 }
 
-.formGroupActive {
-  input:focus .formLabelActive {
-    top: -16px;
-    font-size: 12px;
-    color: #9e9e9e;
-  }
+.inputDevice:checked + .labelDevice:before {
+  background-color: #f6c678;
+  border-color: #ffffff;
+}
+.inputDevice:checked + .labelDevice:after {
+  opacity: 1;
 }
