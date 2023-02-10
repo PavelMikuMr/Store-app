@@ -1,0 +1,37 @@
+.header {
+  .container {
+    @apply mb-12 xs:max-w-[100%] ss:max-w-[100%] sm:max-w-[100%] md:max-w-[100%] lg:max-w-[1350px];
+  }
+
+  .infoTextBox {
+    @apply ml-1;
+  }
+
+  .infoTitle {
+    @apply font-poppins text-2xl font-semibold;
+  }
+
+  .infoSubTitle {
+    @apply font-medium text-white/[.40];
+  }
+
+  .infoPayment {
+    @apply grid place-content-center;
+  }
+
+  .button {
+    @apply h-max rounded-3xl bg-[#EF6043] py-3 px-5 hover:bg-[#eb6f50];
+  }
+
+  .buttonDelimiter {
+    @apply mx-3 h-4  w-[1px] bg-white;
+  }
+
+  .buttonCost {
+    @apply self-end  font-poppins font-semibold leading-none;
+  }
+
+  .infoBin {
+    @apply self-end font-poppins font-semibold leading-none;
+  }
+}

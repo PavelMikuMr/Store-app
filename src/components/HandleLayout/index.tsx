@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import Furniture from '../Furniture'
-import module from '../../App.module.scss'
-import IFurniture from '../../types/items.interface'
+import IFurniture from '@types/IFurniture'
+import Furniture from '@components/Furniture'
+import $ from '@common/HandleLayout.module.scss'
 import Skeleton from './Skeleton'
-
-const { handleLayout } = module
 
 const ITEMS_URL = 'https://63dd2619367aa5a7a40a161a.mockapi.io/items'
 
@@ -46,7 +44,7 @@ const HandleLayout = () => {
   return (
     <>
       <h1 className='heading text-center lg:text-left'>Get, Buy & Sell</h1>
-      <div className={handleLayout}>{isLoading ? renderSkeleton() : renderItems()}</div>
+      <div className={$.handleLayout}>{isLoading ? renderSkeleton() : renderItems()}</div>
     </>
   )
 }

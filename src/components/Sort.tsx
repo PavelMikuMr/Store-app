@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-import module from '../App.module.scss'
-
-const { sort, sortByCategory, categoryItem, sortPopup, categoryList } = module
+import $ from '@common/Sort.module.scss'
 
 const Sort = () => {
   const [sortByPopup, setSortByPopup] = useState(0)
@@ -16,14 +14,14 @@ const Sort = () => {
     setIsOpenPop(false)
   }
   return (
-    <div className={`${sort} lg:flexBetweenX`}>
-      <div className={sortByCategory}>
-        <ul className={`${categoryList} categoryListActive  flexBetweenX`}>
+    <div className={`${$.sort} lg:flexBetweenX`}>
+      <div>
+        <ul className={`${$.categoryList} ${$.categoryListActive}  flexBetweenX`}>
           {categories.map((category, index) => {
             return (
               <li
                 onClick={() => setActiveIndex(index)}
-                className={`${categoryItem} ${activeIndex === index ? 'active' : ''}`}
+                className={`${$.categoryItem} ${activeIndex === index ? $.active : ''}`}
                 role='presentation'
                 key={category}
               >
@@ -54,12 +52,12 @@ const Sort = () => {
           </span>
         </div>
         {isOpenPop && (
-          <div className={`${sortPopup}`}>
+          <div className={$.sortPopup}>
             <ul>
               {sortBy.map((item, i) => (
                 <li
                   onClick={() => showHidePopup(i)}
-                  className={sortByPopup === i ? 'sortActive' : ''}
+                  className={sortByPopup === i ? $.sortActive : ''}
                   key={item}
                   role='presentation'
                 >

@@ -1,6 +1,5 @@
-import module from '@/App.module.scss'
+import $ from '@common/Wrapper.module.scss'
 
-const { wrapper } = module
 interface WrapperProps {
   children: React.ReactNode
 }
@@ -8,7 +7,7 @@ interface WrapperProps {
 const Wrapper = ({ children }: WrapperProps) => {
   return (
     <div className='App'>
-      <div className={wrapper}>{children}</div>
+      <div className={$.wrapper}>{children}</div>
     </div>
   )
 }

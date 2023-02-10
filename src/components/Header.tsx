@@ -1,52 +1,35 @@
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons'
-import { logo } from '@assets'
-import module from '@/App.module.scss'
-
-const {
-  header,
-  infoIcon,
-  infoTextBox,
-  container,
-  infoPayment,
-  buttonDelimiter,
-  infoBin,
-  buttonCost,
-  button,
-  logoSvg,
-  InfoTitle,
-  InfoSubTitle
-} = module
+import { logo } from '@assets/icons'
+import $ from '@common/Header.module.scss'
 
 const Header = () => {
   return (
-    <header className={header}>
-      <div className={`${container} flexBetweenX`}>
+    <header className={$.header}>
+      <div className={`${$.container} flexBetweenX`}>
         <div className='info flexCenter text-white'>
-          <div className={`${infoIcon}`}>
-            <a href='home'>
-              <img className={`${logoSvg}`} src={logo} alt='logo' />
-            </a>
+          <div>
+            <Link to='/'>
+              <img src={logo} alt='logo' />
+            </Link>
           </div>
-          <div className={infoTextBox}>
-            <h2 className={InfoTitle}>React Store</h2>
-            <p className={InfoSubTitle}> The best store in the universe </p>
+          <div className={$.infoTextBox}>
+            <h2 className={$.infoTitle}>React Store</h2>
+            <p className={$.infoSubTitle}> The best store in the universe </p>
           </div>
         </div>
-        <div className={`${infoPayment}  text-white`}>
-          <Link to='/basket' className={`${button} flexCenter`}>
-            {/* <a href='basket' className={`${button} flexCenter`}> */}
-            <span className={buttonCost}>$ 320</span>
-            <div className={buttonDelimiter}> </div>
+        <div className={`${$.infoPayment}  text-white`}>
+          <Link to='/basket' className={`${$.button} flexCenter`}>
+            <span className={$.buttonCost}>$ 320</span>
+            <div className={$.buttonDelimiter}> </div>
             <FontAwesomeIcon
               color='white'
               className='mr-2'
               icon={faBasketShopping}
               size='lg'
             />
-            <span className={infoBin}>3</span>
-            {/* </a> */}
+            <span className={$.infoBin}>3</span>
           </Link>
         </div>
       </div>

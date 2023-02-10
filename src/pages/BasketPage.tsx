@@ -4,32 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBasketShopping, faCaretLeft } from '@fortawesome/free-solid-svg-icons'
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons'
 
-import SelectedItem from 'components/SelectedItem'
+import SelectedItem from '@components/SelectedItem'
+
+import $ from '@views/BasketPage.module.scss'
 
 import { BtnXL } from '@fields'
 
-import module from '@/App.module.scss'
-
-const {
-  basketContainer,
-  basket,
-  cleanBasketTitle,
-  cleanBasket,
-  basketHeader,
-  order,
-  buyNow,
-  orderAll,
-  orderTitle,
-  orderComeBackBtn,
-  buyNowTitle,
-  orderComeBack
-} = module
-
 const BasketPage = () => {
   return (
-    <div className={basketContainer}>
-      <header className={`${basketHeader} flexBetweenX`}>
-        <div className={`${basket} flexBetweenX`}>
+    <div className={$.basketContainer}>
+      <header className={`${$.basketHeader} flexBetweenX`}>
+        <div className={`${$.basket} flexBetweenX`}>
           <FontAwesomeIcon
             color='white'
             className='mr-2'
@@ -38,14 +23,14 @@ const BasketPage = () => {
           />
           <h2 className='title'>Basket</h2>
         </div>
-        <div className={`${cleanBasket} flexBetweenX`}>
+        <div className={`${$.cleanBasket} flexBetweenX`}>
           <FontAwesomeIcon
             color='white'
             className='mr-2 cursor-pointer'
             icon={faTrashCan}
             size='lg'
           />
-          <p className={cleanBasketTitle}>Clean basket</p>
+          <p className={$.cleanBasketTitle}>Clean basket</p>
         </div>
       </header>
       <SelectedItem />
@@ -53,12 +38,12 @@ const BasketPage = () => {
       <SelectedItem />
       <SelectedItem />
       <SelectedItem />
-      <div className={order}>
-        <div className={orderAll}>
-          <h2 className={orderTitle}>
+      <div className={$.order}>
+        <div className={$.orderAll}>
+          <h2 className={$.orderTitle}>
             Total selected: <strong>3 pieces</strong>
           </h2>
-          <div className={orderComeBack}>
+          <div className={$.orderComeBack}>
             <FontAwesomeIcon
               color='white'
               className='absolute top-[4px] left-0 mr-2 cursor-pointer'
@@ -66,12 +51,12 @@ const BasketPage = () => {
               size='lg'
             />
             <Link to='/'>
-              <button className={orderComeBackBtn}>Go back</button>
+              <button className={$.orderComeBackBtn}>Go back</button>
             </Link>
           </div>
         </div>
-        <div className={buyNow}>
-          <h2 className={buyNowTitle}>
+        <div className={$.buyNow}>
+          <h2 className={$.buyNowTitle}>
             Order amount: <strong>900 $</strong>
           </h2>
           <BtnXL text='Buy now' link='/' />

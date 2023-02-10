@@ -1,35 +1,4 @@
-@import '@/styles/fonts';
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
-
-@tailwind base;
-@tailwind components;
 @tailwind utilities;
-
-:root {
-  --black-gradient: linear-gradient(
-    144.39deg,
-    #202020 -278.56%,
-    #161616 -78.47%,
-    #0e0e0f 91.61%
-  );
-  --card-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
-}
-
-* {
-  scroll-behavior: smooth;
-}
-
-@layer components {
-  body {
-    @apply bg-black text-white;
-  }
-}
-
-@layer components {
-  .btnXl {
-    @apply w-full rounded-3xl bg-[#EF6043] p-3 font-poppins text-lg hover:bg-[#eb6f50];
-  }
-}
 
 @layer utilities {
   .boxWidth {
@@ -93,56 +62,4 @@
   .sectionInfo {
     @apply flex-1  flex-col  items-start justify-center;
   }
-}
-
-// @layer components {
-//   .but-bl {
-//     filter: blur(8px);
-//     -webkit-filter: blur(8px);
-//   }
-// }
-
-.pinkHero {
-  background-color: #ff5ab9;
-}
-.pinkSide {
-  background-color: #a8347479;
-  &:hover {
-    background-color: #ff5ab9;
-  }
-  &:first-child {
-    background-color: #ff5ab9;
-  }
-}
-.orangeHero {
-  background-color: #ff6c4e;
-}
-.orangeSide {
-  background-color: #a8593479;
-  &:hover {
-    background-color: #ff6c4e;
-  }
-  &:first-child {
-    background-color: #ff6c4e;
-  }
-}
-.purpleHero {
-  background-color: #ba59ff;
-}
-.purpleSide {
-  background-color: #9534a879;
-  &:hover {
-    background-color: #ba59ff;
-  }
-  &:first-child {
-    background-color: #ba59ff;
-  }
-}
-
-.test {
-  color: black;
-  font-family: 'Ubuntu';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 2rem;
 }

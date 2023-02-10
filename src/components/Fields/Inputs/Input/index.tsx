@@ -1,6 +1,4 @@
-import module from '@/App.module.scss'
-
-const { formInput, error, helperErrorText } = module
+import $ from '@styles/views/LoginPage.module.scss'
 //* 1)
 // type InputProps = React.HTMLProps<HTMLInputElement>
 
@@ -22,18 +20,18 @@ export const Input = ({
   helperText,
   ...props
 }: InputProps) => {
-  const className = isError ? error : ''
+  const className = isError ? $.error : ''
   return (
     <>
       <input
         id={htmlFor}
-        className={`${formInput} formInputActive ${className}`}
+        className={`${$.formInput} ${$.formInputActive} ${className}`}
         {...props}
       />
-      <label className='formLabelActive' htmlFor={htmlFor}>
+      <label className={$.formLabelActive} htmlFor={htmlFor}>
         {labelText}
       </label>
-      {isError && helperText && <div className={helperErrorText}>{helperText}</div>}
+      {isError && helperText && <div className={$.helperErrorText}>{helperText}</div>}
     </>
   )
 }

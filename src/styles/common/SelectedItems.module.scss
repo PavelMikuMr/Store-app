@@ -1,0 +1,34 @@
+.selectedItem {
+  @apply grid grid-cols-[repeat(2,_minmax(0,_max-content)),repeat(2,1fr),_minmax(0,_max-content)] gap-x-5;
+}
+
+.itemImg {
+  @apply h-14 w-14 rounded-lg;
+}
+.itemInfoTittle {
+  @apply font-poppins text-xl;
+}
+
+.itemInfoSubTittle {
+  @apply font-poppins text-sm;
+}
+.additionItem {
+  @apply gap-x-5 font-poppins text-xl;
+
+  .additionItemBtn {
+    @apply grid h-10 w-10 place-content-center rounded-full bg-white/[.20];
+    span {
+      @apply grid h-[36px] w-[36px] cursor-pointer place-items-center rounded-full bg-black text-center align-bottom;
+    }
+  }
+}
+.totalCost {
+  @apply font-poppins text-xl;
+}
+.cancelSell {
+  @apply h-10 w-10 cursor-pointer self-center rounded-full bg-white/[.20] p-1;
+
+  .closeMarker {
+    @apply grid h-8 w-8 place-content-center rounded-full bg-black;
+  }
+}

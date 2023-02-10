@@ -1,5 +1,5 @@
-import Sort from 'components/Sort'
-import HandleLayout from 'components/HandleLayout'
+import Sort from '@components/Sort'
+import HandleLayout from '@components/HandleLayout'
 
 const Home = () => {
   return (
