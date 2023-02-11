@@ -1,31 +1,46 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import $ from '@common/Sort.module.scss'
+import { ISort } from '@pages/Home'
 
-const Sort = () => {
-  const [sortByPopup, setSortByPopup] = useState(0)
+interface SortProps {
+  value: number
+  sortValue: ISort
+  onClickCategory: (index: number) => void
+  setSortValue: (sortObj: ISort) => void
+}
+
+const Sort = ({ value, onClickCategory, sortValue, setSortValue }: SortProps) => {
   const [isOpenPop, setIsOpenPop] = useState(false)
-  const [activeIndex, setActiveIndex] = useState(0)
 
   const categories: string[] = ['Collection', 'Chair', 'Poof', 'Sofa', 'Lamp']
-  const sortBy: string[] = ['popular', 'price', 'word']
+  const sortBy: { [key: string]: string }[] = [
+    { name: 'popular(desc)', sortProperty: 'rating' },
+    { name: 'popular(asc)', sortProperty: '-rating' },
+    { name: 'price(desc)', sortProperty: 'price' },
+    { name: 'price(asc)', sortProperty: '-price' },
+    { name: 'word(desc)', sortProperty: 'title' },
+    { name: 'word(asc)', sortProperty: '-title' }
+  ]
 
-  const showHidePopup = (i: number) => {
-    setSortByPopup(i)
+  const showHidePopup = (sortObj: ISort) => {
+    setSortValue(sortObj)
     setIsOpenPop(false)
   }
+
+  console.log(value, sortValue.name)
   return (
     <div className={`${$.sort} lg:flexBetweenX`}>
       <div>
         <ul className={`${$.categoryList} ${$.categoryListActive}  flexBetweenX`}>
-          {categories.map((category, index) => {
+          {categories.map((categoryName, index) => {
             return (
               <li
-                onClick={() => setActiveIndex(index)}
-                className={`${$.categoryItem} ${activeIndex === index ? $.active : ''}`}
+                onClick={() => onClickCategory(index)}
+                className={`${$.categoryItem} ${value === index ? $.active : ''}`}
                 role='presentation'
-                key={category}
+                key={categoryName}
               >
-                {category}
+                {categoryName}
               </li>
             )
           })}
@@ -48,20 +63,22 @@ const Sort = () => {
           </svg>
           <b className='font-poppins'>Sort by: </b>
           <span onClick={() => setIsOpenPop((prev) => !prev)} role='presentation'>
-            {sortBy[sortByPopup]}
+            {sortValue.name}
           </span>
         </div>
         {isOpenPop && (
           <div className={$.sortPopup}>
             <ul>
-              {sortBy.map((item, i) => (
+              {sortBy.map((obj) => (
                 <li
-                  onClick={() => showHidePopup(i)}
-                  className={sortByPopup === i ? $.sortActive : ''}
-                  key={item}
+                  onClick={() => showHidePopup(obj)}
+                  className={
+                    sortValue.sortProperty === obj.sortProperty ? $.sortActive : ''
+                  }
+                  key={obj.name}
                   role='presentation'
                 >
-                  {item}
+                  {obj.name}
                 </li>
               ))}
             </ul>

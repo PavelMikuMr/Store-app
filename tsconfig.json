@@ -27,6 +27,7 @@
   },
   "include": [
     "src",
+    "types",
     ".eslintrc.cjs",
     "vite.config.ts",
     "tailwind.config.cjs",

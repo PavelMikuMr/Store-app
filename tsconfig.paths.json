@@ -5,7 +5,7 @@
       "@/*": ["./src/*", "./dist/*", ""],
       "@pages/*": ["src/pages/*"],
       "@components/*": ["src/components/*"],
-      "@types/*": ["./src/types/*"],
+      "_types/*": ["./types/*"],
       "public/*": ["public/*"],
       "@fields": ["./src/components/fields/index"],
       "@assets/*": ["./src/assets/*"],

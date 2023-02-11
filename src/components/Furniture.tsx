@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import {
@@ -126,7 +126,9 @@ const Furniture = ({ price, title, imgUrl, rating }: FurnitureProps) => {
               </form>
             </div>
           </div>
-          <button className={$.furnitureButtonAdd}>Add to card</button>
+          <Link to='/basket'>
+            <button className={$.furnitureButtonAdd}>Add to card</button>
+          </Link>
           <div className={`${$.furnitureInfo} flexBetweenX`}>
             <div>
               <p>Info Guide</p>

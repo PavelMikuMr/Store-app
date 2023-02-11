@@ -1,7 +1,11 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter, RouterProvider } from 'react-router-dom'
+import GlobalStyles from '@styles/GlobalStyles'
 import App from './App'
 import './index.scss'
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<App />)
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+  <>
+    <GlobalStyles />
+    <App />
+  </>
+)

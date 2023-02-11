@@ -77,6 +77,7 @@ module.exports = {
         ts: 'never',
         tsx: 'never'
       }
-    ]
+    ],
+    'import/no-extraneous-dependencies': 0
   }
 }

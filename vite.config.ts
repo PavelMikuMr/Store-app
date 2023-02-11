@@ -12,14 +12,29 @@ export default (args: ViteConfigInput) => {
     args.mode === 'production' ? '[hash:base64:4]' : '[local]_[hash:base64:4]'
 
   return defineConfig({
-    plugins: [react()],
+    optimizeDeps: {
+      esbuildOptions: {
+        target: 'es2020'
+      }
+    },
+    esbuild: {
+      // https://github.com/vitejs/vite/issues/8644#issuecomment-1159308803
+      logOverride: { 'this-is-undefined-in-esm': 'silent' }
+    },
+    plugins: [
+      react({
+        babel: {
+          plugins: ['babel-plugin-macros', 'babel-plugin-styled-components']
+        }
+      })
+    ],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src/'),
         '@components': path.resolve(__dirname, './src/components/'),
         '@public': path.resolve(__dirname, './public/'),
         '@pages': path.resolve(__dirname, './src/pages'),
-        '@types': path.resolve(__dirname, './src/types'),
+        '_types': path.resolve(__dirname, './types'),
         '@fields': path.resolve(__dirname, './src/components/fields/index'),
         '@assets': path.resolve(__dirname, './src/assets'),
         '@hooks': path.resolve(__dirname, './src/hooks'),

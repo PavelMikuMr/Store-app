@@ -1,7 +1,5 @@
 .header {
-  .container {
-    @apply mb-12 xs:max-w-[100%] ss:max-w-[100%] sm:max-w-[100%] md:max-w-[100%] lg:max-w-[1350px];
-  }
+  @apply mb-12 max-w-[100%];
 
   .infoTextBox {
     @apply ml-1;

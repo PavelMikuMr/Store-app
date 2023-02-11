@@ -1,7 +1,26 @@
+/* eslint-disable react/no-unknown-property */
 import { useState } from 'react'
 import { Input, Checkbox } from '@fields'
 import $ from '@styles/views/LoginPage.module.scss'
+import tw from 'twin.macro'
+/* 
+interface ComponentProps {
+  hasBg?: string
+}
 
+const Component = ({ hasBg }: ComponentProps) => (
+  <div
+    css={[
+      tw`flex w-full text-black`, // Add base styles first
+      hasBg && tw`bg-black` // Then add conditional styles
+    ]}
+  >
+    Hello kitty
+    <div tw='w-1/2' />
+    <div tw='w-1/2' />
+  </div>
+)
+ */
 const validateIsEmpty = (value: string) => {
   if (!value) return 'field required'
   return null
