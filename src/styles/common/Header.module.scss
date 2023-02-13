@@ -1,10 +1,15 @@
 .header {
   @apply mb-12 max-w-[100%];
 
-  .infoTextBox {
-    @apply ml-1;
+  .gridBox {
+    @apply grid grid-cols-3;
   }
-
+  .infoTextBox {
+    @apply ml-2;
+  }
+  .info {
+    @apply flex justify-self-start;
+  }
   .infoTitle {
     @apply font-poppins text-2xl font-semibold;
   }
@@ -14,7 +19,7 @@
   }
 
   .infoPayment {
-    @apply grid place-content-center;
+    @apply grid place-content-center justify-self-end;
   }
 
   .button {

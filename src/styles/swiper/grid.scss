@@ -1,0 +1,21 @@
+.swiper {
+  width: 100%;
+  // нужно высоту свайпера установить если делаешь грид
+  height: 790px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.swiper-slide {
+  // и максимальную высоту слайдеру нужно задать а то они на всю высоту swiper растянуться
+  height: max-content !important;
+  // margin-top: 0px !important;
+}
+
+@media (max-width: 1350px) {
+  .swiper {
+    height: 700px;
+  }
+}

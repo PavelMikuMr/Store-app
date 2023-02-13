@@ -10,7 +10,11 @@
 }
 
 .furnitureContainer {
-  @apply w-[40rem] rounded-3xl border-2 border-white/[.20] bg-black px-10 py-5 shadow-modern;
+  @apply max-w-[40rem] rounded-3xl border-2 border-white/[.20] bg-black py-5 shadow-modern md:px-6 lg:px-10;
+
+  .furnitureListImg {
+    @apply max-h-[18.2rem];
+  }
 
   .furnitureList {
     @apply flex flex-col justify-between gap-y-2 p-2;
@@ -19,39 +23,45 @@
     @apply absolute z-[1] h-16 w-16 cursor-pointer bg-black/[.90] transition duration-200  hover:bg-transparent;
   }
   .furnitureItem {
-    @apply flex h-16 w-16 cursor-pointer items-center justify-center overflow-hidden rounded-2xl transition-colors;
+    @apply flex cursor-pointer items-center justify-center overflow-hidden rounded-2xl transition-colors md:max-h-[56px] md:max-w-[56px] lg:max-h-[4rem] lg:max-w-[4rem];
     img {
       @apply h-[100px] w-[100px]  object-contain object-top;
     }
   }
 
   .furnitureHero {
-    @apply h-[18.43rem] rounded-3xl;
+    @apply rounded-3xl md:max-h-[16.75rem] lg:max-h-[18.2rem];
+    img {
+      @apply md:max-w-[110%] lg:max-w-full;
+    }
   }
 
+  .furnitureInfoTextAll {
+    @apply max-h-[18.2rem] justify-between;
+  }
   .furniturePriceTitle {
-    @apply font-poppins text-[36px] font-normal text-white;
+    @apply font-poppins font-normal text-white md:text-2xl lg:text-4xl;
   }
   .furnitureRate {
     @apply flex items-center justify-between;
   }
   .furnitureRateStart {
-    @apply ml-1 inline-block align-bottom font-poppins text-sm text-white/[.40];
+    @apply ml-1 inline-block align-bottom font-poppins text-white/[.40] md:text-xs lg:text-sm;
   }
   .furnitureCost {
     @apply mt-4;
   }
   .furnitureCostDigit {
-    @apply font-poppins text-2xl text-white;
+    @apply font-poppins text-white md:text-xl lg:text-2xl;
   }
   .furnitureDecrease {
     @apply absolute top-0 right-0 text-[3rem] text-white/[.40];
   }
-  .furnitureProperty {
-    @apply mt-6;
-  }
+  // .furnitureProperty {
+  //   @apply ;
+  // }
   .furnitureLabel {
-    @apply mr-1 font-poppins text-sm text-white/[.40];
+    @apply mr-1 font-poppins text-[0.85rem] text-white/[.40];
   }
   .labelSelect {
     @apply ml-0.5 bg-transparent text-white;
@@ -61,13 +71,26 @@
     }
   }
   .furnitureButtonAdd {
-    @apply mt-6 w-full rounded-3xl bg-[#EF6043] p-2 font-poppins text-lg text-white transition-colors hover:bg-[#eb6f50];
+    @apply w-full rounded-3xl bg-[#EF6043] p-2 font-poppins text-lg text-white transition-colors hover:bg-[#eb6f50];
   }
   .furnitureInfo {
     p {
-      @apply mt-6 cursor-pointer font-poppins text-xs text-white/[.40] hover:text-[#eb988488];
+      @apply mt-6 cursor-pointer font-poppins text-white/[.40] hover:text-[#eb988488] md:text-[10px] lg:text-xs;
     }
   }
 }
 
+// .furnitureItem:first-child div {
+//   display: none;
+// }
+
 @import '@styles/utilities/Master.module.scss';
+
+@media (max-width: 1350px) {
+  .news {
+    &-item__img {
+      min-width: 201px;
+      height: 70%;
+    }
+  }
+}

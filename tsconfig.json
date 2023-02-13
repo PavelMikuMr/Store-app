@@ -34,6 +34,6 @@
     "postcss.config.cjs"
   ],
   "extends": "./tsconfig.paths.json",
-  "exclude": ["src/constant/*.*"],
+  "exclude": ["src/constant/*.*", "src/styles/proto/*.*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

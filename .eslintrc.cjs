@@ -50,6 +50,7 @@ module.exports = {
         unnamedComponents: 'arrow-function'
       }
     ],
+    'react/no-unknown-property': ['error', { ignore: ['css'] }],
     '@typescript-eslint/no-unused-vars': 0,
     '@typescript-eslint/no-shadow': 0,
     'eslint linebreak-style': [0, 'error', 'windows'],
@@ -75,7 +76,8 @@ module.exports = {
         js: 'never',
         jsx: 'never',
         ts: 'never',
-        tsx: 'never'
+        tsx: 'never',
+        scss: 'never'
       }
     ],
     'import/no-extraneous-dependencies': 0

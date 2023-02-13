@@ -18,7 +18,7 @@ module.exports = {
         DEFAULT: '400ms'
       },
       boxShadow: {
-        modern: '0 1px  #9aa0b90d, 0 5px 40px #a6adc933',
+        modern: '0 1px  #9aa0b90d, 0 5px 15px #a6adc933',
         classic: '0 5px 15px #0000004d'
       }
     },
@@ -27,7 +27,7 @@ module.exports = {
       ss: '620px',
       sm: '768px',
       md: '1060px',
-      lg: '1200px',
+      lg: '1350px',
       xl: '1700px'
     }
   },

@@ -31,7 +31,7 @@ const Furniture = ({ price, title, imgUrl, rating }: FurnitureProps) => {
   return (
     <div className={$.furnitureContainer}>
       <div className={$.gridCustom}>
-        <div className={$.flexCenterX}>
+        <div className={`${$.flexCenterX} ${$.furnitureListImg}`}>
           <ul className={$.furnitureList}>
             {getKeyForSideImg(imgUrl).map((item, index) => (
               <li
@@ -40,7 +40,7 @@ const Furniture = ({ price, title, imgUrl, rating }: FurnitureProps) => {
                 key={item}
                 role='presentation'
               >
-                <div className={$.sideBackdrop}> </div>
+                <div className={index === heroImg ? '' : $.sideBackdrop}> </div>
                 <img src={imgUrl[index]} alt={title} />
               </li>
             ))}
@@ -49,7 +49,7 @@ const Furniture = ({ price, title, imgUrl, rating }: FurnitureProps) => {
         <div className={`${$.furnitureHero} flexCenter overflow-hidden `}>
           <img src={imgUrl[heroImg]} alt='lamp' />{' '}
         </div>
-        <div className='flexCol'>
+        <div className={`${$.flexCol} ${$.furnitureInfoTextAll}`}>
           <h2 className={$.furniturePriceTitle}>{title}</h2>
           <div className={$.furnitureRate}>
             <div className='flex'>
@@ -60,7 +60,7 @@ const Furniture = ({ price, title, imgUrl, rating }: FurnitureProps) => {
                     <FontAwesomeIcon color='#f77d4d' icon={faStar} size='sm' key={item} />
                   )
                 })}
-              <span className={$.furnitureRateStart}>{rating} of 12 reviews</span>
+              <span className={$.furnitureRateStart}>{rating} of 5 stars</span>
             </div>
             <FontAwesomeIcon
               onClick={() => setLike((like) => !like)}
@@ -90,7 +90,7 @@ const Furniture = ({ price, title, imgUrl, rating }: FurnitureProps) => {
               />
             </div>
           </div>
-          <div className={`${$.furnitureProperty} flexBetweenX`}>
+          <div className='flexBetweenX'>
             <div className='furnitureColor'>
               <form>
                 <label className={$.furnitureLabel} htmlFor='select-color'>
@@ -126,7 +126,7 @@ const Furniture = ({ price, title, imgUrl, rating }: FurnitureProps) => {
               </form>
             </div>
           </div>
-          <Link to='/basket'>
+          <Link className='mt-6' to='/basket'>
             <button className={$.furnitureButtonAdd}>Add to card</button>
           </Link>
           <div className={`${$.furnitureInfo} flexBetweenX`}>

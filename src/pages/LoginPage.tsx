@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 import { useState } from 'react'
 import { Input, Checkbox } from '@fields'
-import $ from '@styles/views/LoginPage.module.scss'
+import $ from '@views/LoginPage.module.scss'
 import tw from 'twin.macro'
 /* 
 interface ComponentProps {
