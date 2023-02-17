@@ -31,7 +31,7 @@ const Header = () => {
         </div>
         {/* <Search searchValue={searchValue} setSearchValue={setSearchValue} /> */}
         <Search />
-        <div className={`${$.infoPayment}`}>
+        <div className={$.infoPayment}>
           <Link to='/basket' className={`${$.button} flexCenter`}>
             <span className={$.buttonCost}>$ 320</span>
             <div className={$.buttonDelimiter}> </div>

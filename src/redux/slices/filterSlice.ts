@@ -1,32 +1,30 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
+import { ISort, FilterState } from '_types/Filter'
 
-export interface CounterState {
-  count: number
+const initialState: FilterState = {
+  categoryId: 0,
+  sort: {
+    name: 'popular',
+    sortProperty: 'rating'
+  }
 }
-// todo первое состояние - можем писать чть угодно
 
-const initialState: CounterState = {
-  count: 0
-}
-
-export const counterSlice = createSlice({
+export const filterSlice = createSlice({
   name: 'filter',
   initialState,
+  // actions для обработки сортировки и фильтра
   reducers: {
-    increment: (state) => {
-      state.count += 1
+    setCategoryId(state, action: { payload: number }) {
+      // использовать как dispatch(setCategoryId(5)) типо сам подставит
+
+      state.categoryId = action.payload
     },
-    decrement: (state) => {
-      state.count -= 1
-    },
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.count += action.payload
+    setSortValue(state, action: { payload: ISort }) {
+      state.sort = action.payload
     }
   }
 })
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
-
-export default counterSlice.reducer
+export const { setCategoryId, setSortValue } = filterSlice.actions
+export default filterSlice.reducer

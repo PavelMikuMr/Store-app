@@ -109,7 +109,6 @@ const Xmark = styled.span`
   }
 `
 
-// const Search = ({ searchValue, setSearchValue }: HeaderProps) => {
 const Search = () => {
   const [search, setSearch] = React.useState(false)
   // * 4 в том месте где нужно применить контекст используем хук const value = useContext(SearchContext)

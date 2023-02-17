@@ -1,38 +1,34 @@
 import { useState } from 'react'
 import $ from '@common/Sort.module.scss'
-import { ISort } from '@pages/Home'
-
-type SetStateAction<S> = S | ((prevState: S) => S)
-type Dispatch<A> = (value: A) => void
+import { useSelector, useDispatch } from 'react-redux'
+import { ISort } from '_types/Filter'
+import { RootState } from '@/redux/store'
+import { setSortValue } from '@/redux/slices/filterSlice'
 
 interface SortProps {
-  value: number
-  sortValue: ISort
-  onClickCategory: (index: number) => void
-  setSortValue: (sortObj: ISort) => void
-  setOrder: Dispatch<SetStateAction<string>>
+  onChangeCategory: (index: number) => void
+  setOrder: (term: string) => void
 }
 
-const Sort = ({
-  value,
-  onClickCategory,
-  sortValue,
-  setSortValue,
-  setOrder
-}: SortProps) => {
+const categories: string[] = ['Collection', 'Chair', 'Poof', 'Sofa', 'Lamp']
+
+const sortBy: ISort[] = [
+  { name: 'popular', sortProperty: 'rating' },
+
+  { name: 'price', sortProperty: 'price' },
+
+  { name: 'word', sortProperty: 'title' }
+]
+
+const Sort = ({ onChangeCategory, setOrder }: SortProps) => {
+  const { categoryId, sort: sortType } = useSelector((state: RootState) => state.filter)
+
+  const dispatch = useDispatch()
+
   const [isOpenPop, setIsOpenPop] = useState(false)
 
-  const categories: string[] = ['Collection', 'Chair', 'Poof', 'Sofa', 'Lamp']
-  const sortBy: { [key: string]: string }[] = [
-    { name: 'popular', sortProperty: 'rating' },
-
-    { name: 'price', sortProperty: 'price' },
-
-    { name: 'word', sortProperty: 'title' }
-  ]
-
-  const showHidePopup = (sortObj: ISort) => {
-    setSortValue(sortObj)
+  const selectSortValue = (sortValue: ISort) => {
+    dispatch(setSortValue(sortValue))
     setIsOpenPop(false)
   }
 
@@ -43,8 +39,8 @@ const Sort = ({
           {categories.map((categoryName, index) => {
             return (
               <li
-                onClick={() => onClickCategory(index)}
-                className={`${$.categoryItem} ${value === index ? $.active : ''}`}
+                onClick={() => onChangeCategory(index)}
+                className={`${$.categoryItem} ${categoryId === index ? $.active : ''}`}
                 role='presentation'
                 key={categoryName}
               >
@@ -88,7 +84,7 @@ const Sort = ({
           </div>
           <b className='font-poppins'>Sort by: </b>
           <span onClick={() => setIsOpenPop((prev) => !prev)} role='presentation'>
-            {sortValue.name}
+            {sortType.name}
           </span>
         </div>
         {isOpenPop && (
@@ -96,9 +92,9 @@ const Sort = ({
             <ul>
               {sortBy.map((obj) => (
                 <li
-                  onClick={() => showHidePopup(obj)}
+                  onClick={() => selectSortValue(obj)}
                   className={
-                    sortValue.sortProperty === obj.sortProperty ? $.sortActive : ''
+                    sortType.sortProperty === obj.sortProperty ? $.sortActive : ''
                   }
                   key={obj.name}
                   role='presentation'
