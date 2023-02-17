@@ -4,8 +4,12 @@ import HandleLayout from '@components/HandleLayout'
 import IFurniture from '_types/IFurniture'
 import Header, { HeaderProps } from '@components/Header'
 import Wrapper from '@components/Wrapper'
-
-// * 1 использование контекста = создание
+//* использование redux
+// * useSelector == useContext (что то типо того)
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState } from '@/redux/store'
+import { decrement, increment } from '@/redux/slices/filterSlice'
+// *  использование контекста = создание
 
 export const SearchContext = createContext<HeaderProps | null>(null)
 
@@ -14,8 +18,10 @@ const ITEMS_URL = 'https://63dd2619367aa5a7a40a161a.mockapi.io/items'
 export interface ISort {
   [key: string]: string
 }
-
 const Home = () => {
+  const count = useSelector((state: RootState) => state.counter.count)
+  const dispatch = useDispatch()
+
   // * Логика поиска
   const [searchValue, setSearchValue] = useState('')
 
@@ -34,9 +40,7 @@ const Home = () => {
 
   const getAltItemData = async (url: string): Promise<void> => {
     setIsLoading(true)
-    // const regex = /\W/g
-    // const order = !!sortType.sortProperty.match(regex)
-    // const trim = sortType.sortProperty.replace(/\W/g, '')
+
     const property = sortType.sortProperty
     const search = searchValue ? `&search=${searchValue}` : ''
     const checkId = !!categoryId
@@ -62,11 +66,6 @@ const Home = () => {
   const onClickSort = (sortObj: ISort) => {
     setSortType(sortObj)
   }
-  // * 2 обертка того где нужен этот контекст
-  // * 3 логика контекста - передаем туда объект значений о котором будут знать все child этого компонента
-  // * 4 в том месте где нужно применить контекст используем хук const value = useContext(SearchContext)
-  // * 5 use memo нужен для того чтобы кэшировать  вычесленное значение  и если данных не изменили а функция снова вызвана он просто  подставит закешированное значение 1- это функция которая должна запускаться от измения аргуементов - если нет то просто подставит старые 2 - сами аргументы за котороыми следить
-  // * здесь возвращает объект и следит за сотоянием аргументов
 
   const searchProviderValue = useMemo(
     () => ({ searchValue, setSearchValue }),
@@ -75,7 +74,6 @@ const Home = () => {
   return (
     <Wrapper>
       <SearchContext.Provider value={searchProviderValue}>
-        {/* <Header searchValue={searchValue} setSearchValue={setSearchValue} /> */}
         <Header />
         <Sort
           value={categoryId}
@@ -86,6 +84,25 @@ const Home = () => {
         />
         <HandleLayout findValue={searchValue} items={items} isLoading={isLoading} />
       </SearchContext.Provider>
+      <div>
+        <div className='flex gap-5'>
+          <button
+            className='bg-sky-700 px-4 py-2 text-white hover:bg-sky-800 sm:px-8 sm:py-3'
+            aria-label='Increment value'
+            onClick={() => dispatch(increment())}
+          >
+            Increment
+          </button>
+          <span>{count}</span>
+          <button
+            className='bg-sky-700 px-4 py-2 text-white hover:bg-sky-800 sm:px-8 sm:py-3'
+            aria-label='Decrement value'
+            onClick={() => dispatch(decrement())}
+          >
+            Decrement
+          </button>
+        </div>
+      </div>
     </Wrapper>
   )
 }
