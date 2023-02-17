@@ -4,3 +4,4 @@ android/
 *.config.js
 vite.config.ts
 row
+# src/components/MainUseEffect.tsx

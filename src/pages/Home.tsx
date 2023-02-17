@@ -4,11 +4,10 @@ import HandleLayout from '@components/HandleLayout'
 import IFurniture from '_types/IFurniture'
 import Header, { HeaderProps } from '@components/Header'
 import Wrapper from '@components/Wrapper'
+
 // * 1 использование контекста = создание
 
 export const SearchContext = createContext<HeaderProps | null>(null)
-
-console.log(SearchContext)
 
 const ITEMS_URL = 'https://63dd2619367aa5a7a40a161a.mockapi.io/items'
 
