@@ -10,14 +10,11 @@ import { useSelector, useDispatch } from 'react-redux'
 // * использование react-query
 import { AxiosError } from 'axios'
 import { useQuery } from 'react-query'
-import { instance } from '@/api/axios.api'
 import { RootState } from '@/redux/store'
 import { setCategoryId } from '@/redux/slices/filterSlice'
 import { FurnitureService } from '@/services/furniture.service'
 
 export const SearchContext = createContext<HeaderProps | null>(null)
-
-const ITEMS_URL = 'https://63dd2619367aa5a7a40a161a.mockapi.io/items'
 
 const Home = () => {
   const { categoryId, sort } = useSelector((state: RootState) => state.filter)
@@ -33,60 +30,6 @@ const Home = () => {
   const [order, setOrder] = useState('desc')
 
   const [items, setItems] = useState<IFurniture[]>([])
-  const [isLoadingState, setIsLoadingState] = useState(true)
-
-  /*   const getAltItemData = async (url: string): Promise<void> => {
-    setIsLoadingState(true)
-
-    const property = sort.sortProperty
-    const search = searchValue ? `&search=${searchValue}` : ''
-    const checkId = !!categoryId
-    const response = await fetch(
-      checkId
-        ? `${url}?category=${categoryId}&sortBy=${property}&order=${order}${search}`
-        : `${url}?${search}`
-    )
-
-    const itemData = (await response.json()) as IFurniture[]
-    setItems(itemData)
-    setIsLoadingState(false)
-    window.scrollTo(0, 0)
-  } */
-  /* 
-  const fetchData = async (): Promise<void> => {
-    setIsLoadingState(true)
-    const checkId = !!categoryId
-    const property = sort.sortProperty
-    const search = searchValue || ''
-    const param = checkId
-      ? {
-          params: {
-            category: categoryId,
-            sortBy: property,
-            order
-            // search
-          }
-        }
-      : {
-          params: {}
-        }
-    const request = await instance.get<IFurniture[]>('/items', param)
-    setItems(request.data)
-    setIsLoadingState(false)
-    window.scrollTo(0, 0)
-  }
- */
-  const a = {
-    time: 23,
-    life: 'hello'
-  }
-  const n = {
-    girl: [1, 2, 3],
-    life: true
-  }
-  const c = { ...a, alex: n.girl }
-
-  console.log(c)
 
   const { isLoading, error, data } = useQuery(
     ['repoData', categoryId, sort, searchValue, order],
@@ -121,7 +64,6 @@ const Home = () => {
       }
     }
   )
-  // console.log(isLoading, error, data)
 
   const searchProviderValue = useMemo(
     () => ({ searchValue, setSearchValue }),

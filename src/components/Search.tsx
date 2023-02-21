@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import tw from 'twin.macro'
 import styled from 'styled-components'
 import { SearchContext } from '@pages/Home'
+import { HeaderProps } from './Header'
 
 const SearchBox = styled.div`
   ${tw`
@@ -110,17 +111,27 @@ const Xmark = styled.span`
 `
 
 const Search = () => {
+  const searchData = useContext(SearchContext) as HeaderProps
+
   const [search, setSearch] = React.useState(false)
-  // * 4 в том месте где нужно применить контекст используем хук const value = useContext(SearchContext)
-  const searchData = useContext(SearchContext)
+
+  const inputRef = React.useRef(null)
+
   if (searchData && 'setSearchValue' in searchData) {
     const { searchValue, setSearchValue } = searchData
+    // обращение к дом элементам по ссылкам
+    const onClickClear = () => {
+      setSearchValue('')
+      if (inputRef.current) (inputRef.current as HTMLInputElement).focus()
+    }
+
     return (
       <div className='flexCenter'>
         <SearchBox className={search ? 'active' : ''}>
           <SearchIcon onClick={() => setSearch((prev) => !prev)} />
           <InputContainer>
             <SearchInput
+              ref={inputRef}
               type='text'
               name=''
               placeholder='type to search'
@@ -131,7 +142,7 @@ const Search = () => {
               }}
             />
           </InputContainer>
-          {searchValue && <Xmark onClick={() => setSearchValue('')} />}
+          {searchValue && <Xmark onClick={onClickClear} />}
         </SearchBox>
       </div>
     )
