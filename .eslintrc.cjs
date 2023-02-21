@@ -76,10 +76,10 @@ module.exports = {
         js: 'never',
         jsx: 'never',
         ts: 'never',
-        tsx: 'never',
-        scss: 'never'
+        tsx: 'never'
       }
     ],
-    'import/no-extraneous-dependencies': 0
+    'import/no-extraneous-dependencies': 0,
+    'tailwindcss/classnames-order': 0
   }
 }

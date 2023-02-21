@@ -1,4 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import Home from '@pages/Home'
 import ErrorPage from '@pages/ErrorPage'
 import BasketPage from '@pages/BasketPage'
@@ -9,6 +10,7 @@ import LoginPage from '@pages/LoginPage'
 
 const router = createBrowserRouter([
   {
+    // path: `/([ap].*)`,
     path: '/',
     id: 'Homepage',
     element: <Home />,

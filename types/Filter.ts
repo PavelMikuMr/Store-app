@@ -5,6 +5,7 @@ export interface ISort {
 
 export interface FilterState {
   categoryId: number
+  pageCount: number
   sort: {
     name: string
     sortProperty: string

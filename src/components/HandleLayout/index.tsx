@@ -1,13 +1,17 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable import/extensions */
+import React from 'react'
 import Furniture from '@components/Furniture'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { useSelector, useDispatch } from 'react-redux'
 import { Grid, Pagination } from 'swiper'
 import tw from 'twin.macro'
 import $ from '@common/HandleLayout.module.scss'
 import IFurniture from '_types/IFurniture'
 import { flower } from '@assets/images'
 import Skeleton from './Skeleton'
-
+import { setPageCount } from '@/redux/slices/filterSlice'
+import { RootState } from '@/redux/store'
 // Import Swiper styles
 import 'swiper/scss'
 import 'swiper/scss/pagination'
@@ -19,12 +23,6 @@ const styles = {
   text: tw`font-poppins text-2xl`
 }
 
-const NothingFoundInSearch = () => (
-  <div css={styles.container}>
-    <div css={styles.text}>Nothing found 😁</div>
-  </div>
-)
-
 const HandleLayout = ({
   items,
   isLoading,
@@ -34,59 +32,26 @@ const HandleLayout = ({
   isLoading: boolean
   findValue: string
 }) => {
+  const swiperInit = React.useRef(null)
+  const dispacth = useDispatch()
+
+  const { pageCount } = useSelector((state: RootState) => {
+    return state.filter
+  })
+
+  const selectOpenPage = (value: number) => {
+    dispacth(setPageCount(value))
+  }
+  console.log('pageCount', pageCount)
+
   const renderSkeleton = (): React.ReactNode => {
     return [...new Array(6).fill(0).map((v, i) => i + 1)].map((item) => {
       return (<Skeleton key={item} />) as React.ReactNode
     })
   }
 
-  const filterBySearch = (finder: string): IFurniture[] | [] => {
-    const regExp = new RegExp(finder, 'gi')
-
-    const filteredItems = items.filter((item: IFurniture) => {
-      if (!finder) return true
-      return regExp.test(item.title)
-    })
-    return filteredItems
-  }
-
-  const renderItemsStatic = (finder: string) => {
-    const filteredItems = filterBySearch(finder)
-
-    return filteredItems.length > 0 ? (
-      filteredItems.map((item: IFurniture): React.ReactNode => {
-        return (
-          <Furniture
-            price={item.price}
-            title={item.title}
-            imgUrl={item.imgUrl}
-            key={item.title}
-            rating={item.rating}
-            id={item.id}
-          />
-        )
-      })
-    ) : (
-      <NothingFoundInSearch />
-    )
-  }
-  const renderItemsBackend = () => {
-    return items.map((item: IFurniture): React.ReactNode => {
-      return (
-        <Furniture
-          price={item.price}
-          title={item.title}
-          imgUrl={item.imgUrl}
-          key={item.title}
-          rating={item.rating}
-          id={item.id}
-        />
-      )
-    })
-  }
-
   const renderItemsBackendSwiper = () => {
-    return items.map((item: IFurniture): React.ReactNode => {
+    return items.map((item: IFurniture, index): React.ReactNode => {
       return (
         <SwiperSlide key={item.title}>
           <Furniture
@@ -101,31 +66,45 @@ const HandleLayout = ({
       )
     })
   }
+
+  // React.useEffect(() => {
+  //   window.location.href += `page${pageCount}`
+  // }, [pageCount])
   return (
     <div className={$.handleLayout}>
       <div className='flex items-baseline justify-start gap-x-4'>
         <h1 className='heading text-center lg:text-left'>Get, Buy & Sell</h1>
         <img src={flower} alt='flower' />
       </div>
+
       {isLoading ? (
         <div className={$.sceletonLayout}>{renderSkeleton()}</div>
-      ) : (
+      ) : items.length > 0 ? (
         <Swiper
+          ref={swiperInit}
           slidesPerView={2}
           grid={{
             rows: 2
           }}
           spaceBetween={30}
-          loop
+          // loop
           pagination={{
+            type: 'bullets',
             clickable: true
           }}
           modules={[Grid, Pagination]}
           className='mySwiper'
+          onActiveIndexChange={(swiper) => {
+            selectOpenPage(swiper.activeIndex)
+          }}
           grabCursor
         >
           {renderItemsBackendSwiper()}
         </Swiper>
+      ) : (
+        <div className=' mt-10 w-full text-center text-4xl'>
+          <h1>Nothing found 😸</h1>
+        </div>
       )}
     </div>
   )

@@ -1,4 +1,6 @@
 import React, { useContext } from 'react'
+import { debounce } from 'lodash'
+
 import tw from 'twin.macro'
 import styled from 'styled-components'
 import { SearchContext } from '@pages/Home'
@@ -111,19 +113,34 @@ const Xmark = styled.span`
 `
 
 const Search = () => {
+  const [value, setValue] = React.useState('')
   const searchData = useContext(SearchContext) as HeaderProps
 
   const [search, setSearch] = React.useState(false)
 
   const inputRef = React.useRef(null)
 
+  const updateSearchValue = React.useCallback(
+    debounce((str: string) => {
+      if (searchData && 'setSearchValue' in searchData) {
+        searchData.setSearchValue(str)
+      }
+    }, 1500),
+    []
+  )
+
+  const onClickClear = () => {
+    setValue('')
+    if (inputRef.current) (inputRef.current as HTMLInputElement).focus()
+  }
+  const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value)
+
+    updateSearchValue(event.target.value)
+  }
+
   if (searchData && 'setSearchValue' in searchData) {
     const { searchValue, setSearchValue } = searchData
-    // обращение к дом элементам по ссылкам
-    const onClickClear = () => {
-      setSearchValue('')
-      if (inputRef.current) (inputRef.current as HTMLInputElement).focus()
-    }
 
     return (
       <div className='flexCenter'>
@@ -136,13 +153,11 @@ const Search = () => {
               name=''
               placeholder='type to search'
               id='mySearch'
-              value={searchData?.searchValue}
-              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                setSearchValue(event.target.value)
-              }}
+              value={value}
+              onChange={onChangeInput}
             />
           </InputContainer>
-          {searchValue && <Xmark onClick={onClickClear} />}
+          {value && <Xmark onClick={onClickClear} />}
         </SearchBox>
       </div>
     )
