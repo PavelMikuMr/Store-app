@@ -7,8 +7,13 @@ import Wrapper from '@components/Wrapper'
 //* использование логики redux toolkit для category id
 // 1) используем селектор как useContext
 import { useSelector, useDispatch } from 'react-redux'
-import { setCategoryId } from '@/redux/slices/filterSlice'
+// * использование react-query
+import { AxiosError } from 'axios'
+import { useQuery } from 'react-query'
+import { instance } from '@/api/axios.api'
 import { RootState } from '@/redux/store'
+import { setCategoryId } from '@/redux/slices/filterSlice'
+import { FurnitureService } from '@/services/furniture.service'
 
 export const SearchContext = createContext<HeaderProps | null>(null)
 
@@ -28,10 +33,10 @@ const Home = () => {
   const [order, setOrder] = useState('desc')
 
   const [items, setItems] = useState<IFurniture[]>([])
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoadingState, setIsLoadingState] = useState(true)
 
-  const getAltItemData = async (url: string): Promise<void> => {
-    setIsLoading(true)
+  /*   const getAltItemData = async (url: string): Promise<void> => {
+    setIsLoadingState(true)
 
     const property = sort.sortProperty
     const search = searchValue ? `&search=${searchValue}` : ''
@@ -44,15 +49,79 @@ const Home = () => {
 
     const itemData = (await response.json()) as IFurniture[]
     setItems(itemData)
-    setIsLoading(false)
+    setIsLoadingState(false)
+    window.scrollTo(0, 0)
+  } */
+  /* 
+  const fetchData = async (): Promise<void> => {
+    setIsLoadingState(true)
+    const checkId = !!categoryId
+    const property = sort.sortProperty
+    const search = searchValue || ''
+    const param = checkId
+      ? {
+          params: {
+            category: categoryId,
+            sortBy: property,
+            order
+            // search
+          }
+        }
+      : {
+          params: {}
+        }
+    const request = await instance.get<IFurniture[]>('/items', param)
+    setItems(request.data)
+    setIsLoadingState(false)
     window.scrollTo(0, 0)
   }
+ */
+  const a = {
+    time: 23,
+    life: 'hello'
+  }
+  const n = {
+    girl: [1, 2, 3],
+    life: true
+  }
+  const c = { ...a, alex: n.girl }
 
-  useEffect(() => {
-    getAltItemData(ITEMS_URL).catch((err) => {
-      if (err && typeof err === 'string') throw new Error(err)
-    })
-  }, [categoryId, sort, searchValue, order])
+  console.log(c)
+
+  const { isLoading, error, data } = useQuery(
+    ['repoData', categoryId, sort, searchValue, order],
+    () => {
+      const checkId = !!categoryId
+      const property = sort.sortProperty
+      const search = searchValue || ''
+      const param = checkId
+        ? {
+            params: {
+              category: categoryId,
+              sortBy: property,
+              order,
+              ...(search ? { search: searchValue } : {})
+            }
+          }
+        : {
+            params: {
+              ...(search ? { search: searchValue } : {})
+            }
+          }
+
+      return FurnitureService.getAll('/items', param)
+    },
+    {
+      onSuccess: ({ data }: { data: IFurniture[] }) => {
+        setItems(data)
+        window.scrollTo(0, 0)
+      },
+      onError: (error) => {
+        alert((error as AxiosError).message)
+      }
+    }
+  )
+  // console.log(isLoading, error, data)
 
   const searchProviderValue = useMemo(
     () => ({ searchValue, setSearchValue }),
