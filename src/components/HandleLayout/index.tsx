@@ -2,7 +2,7 @@
 /* eslint-disable import/extensions */
 import React from 'react'
 import Furniture from '@components/Furniture'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Grid, Pagination } from 'swiper'
 import tw from 'twin.macro'
@@ -38,6 +38,18 @@ const HandleLayout = ({
   const { pageCount } = useSelector((state: RootState) => {
     return state.filter
   })
+
+  React.useEffect(() => {
+    if (!swiperInit.current) {
+      return
+    }
+
+    const currentSwiper = (swiperInit.current as SwiperRef).swiper
+
+    if (items.length > 10 && pageCount !== null) {
+      currentSwiper.slideTo((pageCount as number) - 1)
+    }
+  }, [isLoading])
 
   const selectOpenPage = (value: number) => {
     dispacth(setPageCount(value))
@@ -91,7 +103,7 @@ const HandleLayout = ({
           modules={[Grid, Pagination]}
           className='mySwiper'
           onActiveIndexChange={(swiper) => {
-            selectOpenPage(swiper.activeIndex)
+            selectOpenPage(swiper.activeIndex + 1)
           }}
           grabCursor
         >

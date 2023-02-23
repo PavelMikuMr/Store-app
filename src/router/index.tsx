@@ -11,7 +11,7 @@ import LoginPage from '@pages/LoginPage'
 const router = createBrowserRouter([
   {
     // path: `/([ap].*)`,
-    path: '/',
+    path: '/*',
     id: 'Homepage',
     element: <Home />,
     errorElement: <ErrorPage />

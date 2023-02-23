@@ -140,8 +140,6 @@ const Search = () => {
   }
 
   if (searchData && 'setSearchValue' in searchData) {
-    const { searchValue, setSearchValue } = searchData
-
     return (
       <div className='flexCenter'>
         <SearchBox className={search ? 'active' : ''}>

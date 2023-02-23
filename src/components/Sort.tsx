@@ -12,7 +12,7 @@ interface SortProps {
 
 const categories: string[] = ['Collection', 'Chair', 'Poof', 'Sofa', 'Lamp']
 
-const sortBy: ISort[] = [
+export const sortBy: ISort[] = [
   { name: 'popular', sortProperty: 'rating' },
 
   { name: 'price', sortProperty: 'price' },

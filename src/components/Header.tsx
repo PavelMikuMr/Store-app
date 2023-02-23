@@ -29,7 +29,6 @@ const Header = () => {
             <p className={$.infoSubTitle}> The best store in the universe </p>
           </div>
         </div>
-        {/* <Search searchValue={searchValue} setSearchValue={setSearchValue} /> */}
         <Search />
         <div className={$.infoPayment}>
           <Link to='/basket' className={`${$.button} flexCenter`}>
