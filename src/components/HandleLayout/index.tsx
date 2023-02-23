@@ -42,7 +42,6 @@ const HandleLayout = ({
   const selectOpenPage = (value: number) => {
     dispacth(setPageCount(value))
   }
-  console.log('pageCount', pageCount)
 
   const renderSkeleton = (): React.ReactNode => {
     return [...new Array(6).fill(0).map((v, i) => i + 1)].map((item) => {
@@ -67,9 +66,6 @@ const HandleLayout = ({
     })
   }
 
-  // React.useEffect(() => {
-  //   window.location.href += `page${pageCount}`
-  // }, [pageCount])
   return (
     <div className={$.handleLayout}>
       <div className='flex items-baseline justify-start gap-x-4'>

@@ -66,6 +66,14 @@ module.exports = {
     'consistent-return': 1,
     'no-console': 1,
     'import/prefer-default-export': 0,
+
+    // classes
+    // Enforce that class methods utilize this
+    'class-methods-use-this': 'warn',
+    'no-underscore-dangle': [
+      'error',
+      { enforceInClassFields: false, allowAfterThis: true, allow: ['foo_', '_bar'] }
+    ],
     'global-require': 0,
     'linebreak-style': 0,
     'import/extensions': [

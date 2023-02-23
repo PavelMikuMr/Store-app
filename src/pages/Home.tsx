@@ -1,4 +1,5 @@
-import { useState, useEffect, createContext, useMemo } from 'react'
+import { useState, createContext, useMemo } from 'react'
+import qs from 'qs'
 import Sort from '@components/Sort'
 import HandleLayout from '@components/HandleLayout'
 import IFurniture from '_types/IFurniture'
