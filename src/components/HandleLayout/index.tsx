@@ -35,21 +35,27 @@ const HandleLayout = ({
   const swiperInit = React.useRef(null)
   const dispacth = useDispatch()
 
-  const { pageCount } = useSelector((state: RootState) => {
+  const { pageCount, categoryId } = useSelector((state: RootState) => {
     return state.filter
   })
 
   React.useEffect(() => {
+    console.log('swiperInit.current:', swiperInit.current)
+    // console.log('swiperInit.current.swiper:', swiperInit.current.swiper)
+
     if (!swiperInit.current) {
       return
     }
+    if (!(swiperInit.current as SwiperRef).swiper) {
+      return
+    }
 
-    const currentSwiper = (swiperInit.current as SwiperRef).swiper
+    if (categoryId === 0) {
+      const currentSwiper = (swiperInit.current as SwiperRef).swiper
 
-    if (items.length > 10 && pageCount !== null) {
       currentSwiper.slideTo((pageCount as number) - 1)
     }
-  }, [isLoading])
+  }, [isLoading, categoryId])
 
   const selectOpenPage = (value: number) => {
     dispacth(setPageCount(value))
@@ -62,7 +68,7 @@ const HandleLayout = ({
   }
 
   const renderItemsBackendSwiper = () => {
-    return items.map((item: IFurniture, index): React.ReactNode => {
+    return items.map((item: IFurniture): React.ReactNode => {
       return (
         <SwiperSlide key={item.title}>
           <Furniture

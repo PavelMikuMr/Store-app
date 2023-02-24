@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import qs from 'qs'
 import $ from '@common/Sort.module.scss'
 import { useSelector, useDispatch } from 'react-redux'
 import { ISort } from '_types/Filter'
 import { RootState } from '@/redux/store'
-import { setSortValue } from '@/redux/slices/filterSlice'
+
+import { setSortValue, setFilters } from '@/redux/slices/filterSlice'
 
 interface SortProps {
   onChangeCategory: (index: number) => void
@@ -21,7 +23,11 @@ export const sortBy: ISort[] = [
 ]
 
 const Sort = ({ onChangeCategory, setOrder }: SortProps) => {
-  const { categoryId, sort: sortType } = useSelector((state: RootState) => state.filter)
+  const {
+    categoryId,
+    sort: sortType,
+    pageCount
+  } = useSelector((state: RootState) => state.filter)
 
   const dispatch = useDispatch()
 
@@ -32,6 +38,10 @@ const Sort = ({ onChangeCategory, setOrder }: SortProps) => {
     setIsOpenPop(false)
   }
 
+  const categoryChange = (index: number) => {
+    dispatch(setFilters({ categoryId, pageCount: 1, sort: sortType }))
+    onChangeCategory(index)
+  }
   return (
     <div className={`${$.sort} lg:flexBetweenX`}>
       <div>
@@ -39,7 +49,9 @@ const Sort = ({ onChangeCategory, setOrder }: SortProps) => {
           {categories.map((categoryName, index) => {
             return (
               <li
-                onClick={() => onChangeCategory(index)}
+                onClick={() => {
+                  categoryChange(index)
+                }}
                 className={`${$.categoryItem} ${categoryId === index ? $.active : ''}`}
                 role='presentation'
                 key={categoryName}

@@ -45,16 +45,16 @@ const Home = () => {
       const params = qs.parse(search)
       if (
         'categoryId' in params &&
-        typeof params.categoryId === 'string' &&
-        Number.isNaN(parseInt(params.categoryId, 10))
+        typeof params.category === 'string' &&
+        Number.isNaN(parseInt(params.category, 10))
       ) {
         params.categoryId = '0'
       }
-      const sort = sortBy.find((obj) => obj.sortProperty === params.sortProperty)
+      const sort = sortBy.find((obj) => obj.sortProperty === params.sort)
       dispatch(
         setFilters({
-          pageCount: Number(params.pageCount),
-          categoryId: Number(params.categoryId),
+          pageCount: Number(params.page),
+          categoryId: Number(params.category),
           sort: sort as ISort
         })
       )
@@ -79,20 +79,22 @@ const Home = () => {
       const checkId = !!categoryId
       const property = sort.sortProperty
       const search = searchValue || ''
-      const param = checkId
-        ? {
-            params: {
-              category: categoryId,
-              sortBy: property,
-              order,
-              ...(search ? { search: searchValue } : {})
+      const param =
+        checkId && !search
+          ? {
+              params: {
+                category: categoryId,
+                sortBy: property,
+                order
+              }
             }
-          }
-        : {
-            params: {
-              ...(search ? { search: searchValue } : {})
+          : {
+              params: {
+                ...(search ? { search: searchValue } : {}),
+                sortBy: property,
+                order
+              }
             }
-          }
 
       return curRef.current ? FurnitureService.getAll('/items', param) : {}
     },
@@ -112,9 +114,9 @@ const Home = () => {
   React.useEffect(() => {
     if (isMounted.current) {
       const queryString = qs.stringify({
-        sortProperty: sort.sortProperty,
-        categoryId,
-        pageCount
+        sort: sort.sortProperty,
+        category: categoryId,
+        page: pageCount
       })
       navigate(`?${queryString}`)
     }
