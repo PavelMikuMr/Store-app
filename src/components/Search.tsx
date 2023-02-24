@@ -3,7 +3,7 @@ import { debounce } from 'lodash'
 
 import tw from 'twin.macro'
 import styled from 'styled-components'
-import { SearchContext } from '@pages/Home'
+import { SearchContext } from '@/pages/Root'
 import { HeaderProps } from './Header'
 
 const SearchBox = styled.div`
@@ -133,33 +133,30 @@ const Search = () => {
     setValue('')
     if (inputRef.current) (inputRef.current as HTMLInputElement).focus()
   }
+
   const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value)
 
     updateSearchValue(event.target.value)
   }
-
-  if (searchData && 'setSearchValue' in searchData) {
-    return (
-      <div className='flexCenter'>
-        <SearchBox className={search ? 'active' : ''}>
-          <SearchIcon onClick={() => setSearch((prev) => !prev)} />
-          <InputContainer>
-            <SearchInput
-              ref={inputRef}
-              type='text'
-              name=''
-              placeholder='type to search'
-              id='mySearch'
-              value={value}
-              onChange={onChangeInput}
-            />
-          </InputContainer>
-          {value && <Xmark onClick={onClickClear} />}
-        </SearchBox>
-      </div>
-    )
-  }
-  return <p>Unknown Error</p>
+  return (
+    <div className='flexCenter'>
+      <SearchBox className={search ? 'active' : ''}>
+        <SearchIcon onClick={() => setSearch((prev) => !prev)} />
+        <InputContainer>
+          <SearchInput
+            ref={inputRef}
+            type='text'
+            name=''
+            placeholder='type to search'
+            id='mySearch'
+            value={value}
+            onChange={onChangeInput}
+          />
+        </InputContainer>
+        {value && <Xmark onClick={onClickClear} />}
+      </SearchBox>
+    </div>
+  )
 }
 export default Search

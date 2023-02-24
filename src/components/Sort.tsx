@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React from 'react'
 import qs from 'qs'
 import $ from '@common/Sort.module.scss'
 import { useSelector, useDispatch } from 'react-redux'
@@ -28,10 +28,11 @@ const Sort = ({ onChangeCategory, setOrder }: SortProps) => {
     sort: sortType,
     pageCount
   } = useSelector((state: RootState) => state.filter)
+  // манипуляция popup
+  const sortRef = React.useRef(null)
 
   const dispatch = useDispatch()
-
-  const [isOpenPop, setIsOpenPop] = useState(false)
+  const [isOpenPop, setIsOpenPop] = React.useState(false)
 
   const selectSortValue = (sortValue: ISort) => {
     dispatch(setSortValue(sortValue))
@@ -42,6 +43,20 @@ const Sort = ({ onChangeCategory, setOrder }: SortProps) => {
     dispatch(setFilters({ categoryId, pageCount: 1, sort: sortType }))
     onChangeCategory(index)
   }
+  // манипуляция popup
+  React.useEffect(() => {
+    const clickOutside = (event: Event) => {
+      if (!event.composedPath().includes(sortRef.current as unknown as EventTarget)) {
+        setIsOpenPop(false)
+      }
+    }
+    document.body.addEventListener('click', clickOutside)
+
+    return () => {
+      document.body.removeEventListener('click', clickOutside)
+    }
+  }, [categoryId])
+
   return (
     <div className={`${$.sort} lg:flexBetweenX`}>
       <div>
@@ -62,7 +77,7 @@ const Sort = ({ onChangeCategory, setOrder }: SortProps) => {
           })}
         </ul>
       </div>
-      <div className='sortByFilter flexCenter relative'>
+      <div ref={sortRef} className='sortByFilter flexCenter relative'>
         <div className='sortLabel flexBetweenX  mr-4 gap-2'>
           <div className='flex flex-col justify-center gap-y-1'>
             <svg

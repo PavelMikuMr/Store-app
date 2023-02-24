@@ -40,9 +40,6 @@ const HandleLayout = ({
   })
 
   React.useEffect(() => {
-    console.log('swiperInit.current:', swiperInit.current)
-    // console.log('swiperInit.current.swiper:', swiperInit.current.swiper)
-
     if (!swiperInit.current) {
       return
     }
