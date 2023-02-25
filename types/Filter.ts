@@ -8,3 +8,13 @@ export interface FilterState {
   pageCount: number | string
   sort: ISort
 }
+
+export interface IBasket {
+  id: number
+  title: string
+  price: number
+  imgUrl: string[]
+  color: string
+  size: string
+  count?: number
+}

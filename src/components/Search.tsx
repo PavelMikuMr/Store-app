@@ -132,6 +132,7 @@ const Search = () => {
   const onClickClear = () => {
     setValue('')
     if (inputRef.current) (inputRef.current as HTMLInputElement).focus()
+    updateSearchValue('')
   }
 
   const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {

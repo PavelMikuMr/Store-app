@@ -109,6 +109,7 @@ const Root = () => {
     curRef.current
       ? {
           onSuccess: ({ data }: { data: IFurniture[] }) => {
+            console.log(data)
             setItems(data)
             window.scrollTo(0, 0)
           },

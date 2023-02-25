@@ -1,0 +1,159 @@
+[
+  {
+    "id": 0,
+    "title": "Polo Victoria",
+    "price":320.0,
+		"value": 320.0,
+    
+    "rating": 2,
+    "category": 1
+  },
+  {
+    "id": 1,
+    "title": "Rimini",
+    "price":120.0,
+		"value": 120.0,
+    
+    "rating": 5,
+    "category": 1
+  },
+  {
+    "id": 2,
+    "title": "Christopher",
+    "price":520.0,
+		"value": 520.0,
+    
+    "rating": 3,
+    "category": 1
+  },
+  {
+    "id": 3,
+    "title": "Choco",
+    "price": 90,
+    
+    "rating": 4,
+    "category": 1
+  },
+  {
+    "id": 4,
+    "title": "Vela",
+    "price":320.0,
+		"value": 320.0,
+    
+    "rating": 3,
+    "category": 2
+  },
+  {
+    "id": 5,
+    "title": "Ars Natura",
+    "price":120.0,
+		"value": 120.0,
+    
+    "rating": 3,
+    "category": 2
+  },
+  {
+    "id": 6,
+    "title": "O Sofa",
+    "price":520.0,
+		"value": 520.0,
+    
+    "rating": 5,
+    "category": 2
+  },
+  {
+    "id": 7,
+    "title": "Esstisch",
+    "price":90.0,
+		"value": 90.0,
+    
+    "rating": 4,
+    "category": 2
+  },
+  {
+    "id": 8,
+    "title": "Sitzer",
+    "price":130.0,
+		"value": 130.0,
+    
+    "rating": 2,
+    "category": 3
+  },
+  {
+    "id": 9,
+    "title": "Robas Lund",
+    "price":290.0,
+		"value": 290.0,
+    
+    "rating": 5,
+    "category": 3
+  },
+  {
+    "id": 10,
+    "title": "Hardman",
+    "price":145.0,
+		"value": 145.0,
+    
+    "rating": 3,
+    "category": 3
+  },
+  {
+    "id": 11,
+    "title": "Vernal",
+    "price":390.0,
+		"value": 390.0,
+    
+    "rating": 4,
+    "category": 3
+  },
+  {
+    "id": 12,
+    "title": "Flexa",
+    "price":210.0,
+		"value": 210.0,
+    
+    "rating": 2,
+    "category": 4
+  },
+  {
+    "id": 13,
+    "title": "Rivera Jerry",
+    "price":280.0,
+		"value": 280.0,
+    
+    "rating": 5,
+    "category": 4
+  },
+  {
+    "id": 14,
+    "title": "Monro",
+    "price":30.0,
+		"value": 30.0,
+    
+    "rating": 4,
+    "category": 4
+  },
+  {
+    "id": 15,
+    "title": "Arcadia Night",
+    "price":70.0,
+		"value": 70.0,
+    
+    "rating": 4,
+    "category": 4
+  }
+]
+
+
+const demo = {
+  test1: 'test1',
+  test2: 'test2',
+  test3: 'test3',
+  test4: 'test4',
+  test5: 'test5',
+  test6: 'test6'
+};
+
+$this->var = $var;
+$this->content = $content;
+$this->question = $question;

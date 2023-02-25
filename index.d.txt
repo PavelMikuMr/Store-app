@@ -1,4 +1,60 @@
 declare module '*.module.scss' {
   const classes: { [key: string]: string }
   export default classes
+  class=\"{LabelClass}\"":""
+  class=\"{InputClass}\"":""
 }
+abcdefghijklmnopquotuvwxyz
+
+ABCDEFGHIJKLMNOPQUOTUVWXYZ
+123456789
+Ha HaHa
+java
+member.com
+member*com
+member?com
+
+cat
+mat
+pat
+bat
+
+
+321-555-2321
+940.232.9230
+940*.232*.9230
+800.555.2321
+900-555-2321
+
+Mr. Schafer
+Mr Smith
+Ms Davis
+Mrs. Robinson
+Mr. T
+
+
+const demo = {
+  test1: 'test1', index: 1,
+  test2: 'test2', index: 2,
+  test3: 'test3', index: 3,
+  test4: 'test5', index: 5,
+  test5: 'test2', index: 2,
+  test6: 'test6', index: 6
+};
+
+CoreyMSchafer@gmail.com
+corey.schafer@university.edu
+corey-321-schafer@my-work.net
+
+  {
+    "id": 15,
+    "title": "Arcadia Night_",
+    "imgUrl": [
+      "https://i.pinimg.com/564x/32/2d/e6/322de67dd7ca99f4606e9ba241c2e198.jpg",
+      "https://i.pinimg.com/564x/b2/d3/80/b2d3800de321bad8df774ec7cdc0403d.jpg",
+      "https://i.pinimg.com/564x/7e/c4/b5/7ec4b504f62a744d9a2eb3cbf2693c49.jpg",
+      "https://i.pinimg.com/564x/f7/e4/fe/f7e4fe9d60c34bac1fa4db9f17eedc52.jpg"
+    ],
+    "rating": 4,
+    "category": 4
+  }

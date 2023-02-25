@@ -1,5 +1,4 @@
 /* eslint-disable no-nested-ternary */
-/* eslint-disable import/extensions */
 import React from 'react'
 import Furniture from '@components/Furniture'
 import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react'
@@ -8,10 +7,13 @@ import { Grid, Pagination } from 'swiper'
 import tw from 'twin.macro'
 import $ from '@common/HandleLayout.module.scss'
 import IFurniture from '_types/IFurniture'
+import { IBasket } from '_types/Filter'
 import { flower } from '@assets/images'
 import Skeleton from './Skeleton'
-import { setPageCount } from '@/redux/slices/filterSlice'
 import { RootState } from '@/redux/store'
+import { setPageCount } from '@/redux/slices/filterSlice'
+import { addItems, removeItems } from '@/redux/slices/basketSlice'
+
 // Import Swiper styles
 import 'swiper/scss'
 import 'swiper/scss/pagination'
@@ -38,6 +40,30 @@ const HandleLayout = ({
   const { pageCount, categoryId } = useSelector((state: RootState) => {
     return state.filter
   })
+
+  const onCLickAdd = (item: IFurniture, actualColor: string, actualSize: string) => {
+    const basketItem: IBasket = {
+      id: item.id,
+      title: item.title,
+      price: item.price,
+      imgUrl: item.imgUrl,
+      color: actualColor,
+      size: actualSize
+    }
+    dispacth(addItems(basketItem))
+  }
+
+  const onClickRemove = (item: IFurniture, actualColor: string, actualSize: string) => {
+    const basketItem: IBasket = {
+      id: item.id,
+      title: item.title,
+      price: item.price,
+      imgUrl: item.imgUrl,
+      color: actualColor,
+      size: actualSize
+    }
+    dispacth(removeItems(basketItem))
+  }
 
   React.useEffect(() => {
     if (!swiperInit.current) {
@@ -69,6 +95,9 @@ const HandleLayout = ({
       return (
         <SwiperSlide key={item.title}>
           <Furniture
+            item={item}
+            addBasketItem={onCLickAdd}
+            removeBasketItem={onClickRemove}
             price={item.price}
             title={item.title}
             imgUrl={item.imgUrl}
@@ -108,7 +137,6 @@ const HandleLayout = ({
           onActiveIndexChange={(swiper) => {
             selectOpenPage(swiper.activeIndex + 1)
           }}
-          grabCursor
         >
           {renderItemsBackendSwiper()}
         </Swiper>

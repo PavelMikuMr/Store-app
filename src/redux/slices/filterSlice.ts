@@ -1,7 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit'
 import { ISort, FilterState } from '_types/Filter'
-import { ParsedQs } from 'qs'
 
 const initialState: FilterState = {
   pageCount: 1,

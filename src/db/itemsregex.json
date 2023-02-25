@@ -1,8 +1,8 @@
 [
   {
     "id": 0,
-    "title": "Polo Victoria",
-    "price": 320.0,
+    "title": "Victoria",
+    "price": 320,
     "imgUrl": [
       "https://i.pinimg.com/564x/32/a1/ab/32a1ab682273a3d45d8446027b196f1b.jpg",
       "https://i.pinimg.com/564x/c5/31/28/c53128ef4b399dbf22d9c4548ece1022.jpg",
@@ -11,13 +11,13 @@
     ],
     "rating": 2,
     "category": 1,
-    "size": ["light", "regular", "hard"],
+    "size": ["light", "regular", "large"],
     "color": ["white", "yellow", "pink"]
   },
   {
     "id": 1,
     "title": "Rimini",
-    "price": 120.0,
+    "price": 120,
     "imgUrl": [
       "https://i.pinimg.com/564x/4a/c4/c6/4ac4c6983911e160ded1fe461abe7d69.jpg",
       "https://i.pinimg.com/736x/7d/60/ac/7d60ac01e839ade2e10e607bddfb6af1.jpg",
@@ -26,13 +26,13 @@
     ],
     "rating": 5,
     "category": 1,
-    "size": ["light", "regular", "hard"],
+    "size": ["light", "regular", "large"],
     "color": ["white", "yellow", "pink"]
   },
   {
     "id": 2,
     "title": "Christopher",
-    "price": 520.0,
+    "price": 520,
     "imgUrl": [
       "https://i.pinimg.com/564x/9d/d2/c0/9dd2c0cea6a3e188df0f3d48eef32aad.jpg",
       "https://i.pinimg.com/564x/04/c2/86/04c28678f6f85e17365d5333691ad711.jpg",
@@ -41,7 +41,7 @@
     ],
     "rating": 3,
     "category": 1,
-    "size": ["light", "regular", "hard"],
+    "size": ["light", "regular", "large"],
     "color": ["white", "yellow", "pink"]
   },
   {
@@ -56,13 +56,13 @@
     ],
     "rating": 4,
     "category": 1,
-    "size": ["light", "regular", "hard"],
+    "size": ["light", "regular", "large"],
     "color": ["white", "yellow", "pink"]
   },
   {
     "id": 4,
     "title": "Vela",
-    "price": 320.0,
+    "price": 320,
     "imgUrl": [
       "https://i.pinimg.com/564x/bc/9e/45/bc9e452b476a29778e571fb688f120c0.jpg",
       "https://i.pinimg.com/564x/a6/52/7f/a6527f25590889013f656781e8e06990.jpg",
@@ -71,13 +71,13 @@
     ],
     "rating": 3,
     "category": 2,
-    "size": ["light", "regular", "hard"],
+    "size": ["light", "regular", "large"],
     "color": ["white", "yellow", "pink"]
   },
   {
     "id": 5,
     "title": "Ars Natura",
-    "price": 120.0,
+    "price": 120,
     "imgUrl": [
       "https://i.pinimg.com/564x/fb/ad/39/fbad3958b876bed76bd009b3219493e5.jpg",
       "https://i.pinimg.com/564x/02/72/02/027202437f26f1eb829bed23ed6a74a6.jpg",
@@ -86,13 +86,13 @@
     ],
     "rating": 3,
     "category": 2,
-    "size": ["light", "regular", "hard"],
+    "size": ["light", "regular", "large"],
     "color": ["white", "yellow", "pink"]
   },
   {
     "id": 6,
     "title": "O Sofa",
-    "price": 520.0,
+    "price": 520,
     "imgUrl": [
       "https://i.pinimg.com/564x/9e/cb/57/9ecb57842bf672578f58abf7d54b9a21.jpg",
       "https://i.pinimg.com/564x/7b/da/44/7bda4473fd1149073f5dfa604f2eee49.jpg",
@@ -101,28 +101,28 @@
     ],
     "rating": 5,
     "category": 2,
-    "size": ["light", "regular", "hard"],
+    "size": ["light", "regular", "large"],
     "color": ["white", "yellow", "pink"]
   },
   {
     "id": 7,
     "title": "Esstisch",
-    "price": 90.0,
+    "price": 90,
     "imgUrl": [
       "https://i.pinimg.com/564x/c2/16/f6/c216f600968c921203bdf23bd19583c4.jpg",
       "https://i.pinimg.com/564x/33/4b/bb/334bbba62d5f6b1539584a1b6bcb226b.jpg",
       "https://i.pinimg.com/564x/03/c2/9b/03c29b8335f8bab0610a7907004d0243.jpg",
       "https://i.pinimg.com/564x/2b/43/35/2b433546f3bb6abbf70ad7977e2eab0d.jpg"
     ],
-    "rating": 4,
+    "rating": 1,
     "category": 2,
-    "size": ["light", "regular", "hard"],
+    "size": ["light", "regular", "large"],
     "color": ["white", "yellow", "pink"]
   },
   {
     "id": 8,
     "title": "Sitzer",
-    "price": 130.0,
+    "price": 130,
     "imgUrl": [
       "https://i.pinimg.com/564x/85/e9/a8/85e9a82b539b6e86ccacc37e3d28952c.jpg",
       "https://i.pinimg.com/564x/f6/c9/5b/f6c95bb9a1535cdf0abd79ea5c79aa53.jpg",
@@ -131,13 +131,13 @@
     ],
     "rating": 2,
     "category": 3,
-    "size": ["light", "regular", "hard"],
+    "size": ["light", "regular", "large"],
     "color": ["white", "yellow", "pink"]
   },
   {
     "id": 9,
     "title": "Robas Lund",
-    "price": 290.0,
+    "price": 290,
     "imgUrl": [
       "https://i.pinimg.com/564x/22/92/30/229230a4f9677759928fa5551719df48.jpg",
       "https://i.pinimg.com/564x/44/4c/7c/444c7c793656110e0099cea71c7efdce.jpg",
@@ -146,13 +146,13 @@
     ],
     "rating": 5,
     "category": 3,
-    "size": ["light", "regular", "hard"],
+    "size": ["light", "regular", "large"],
     "color": ["white", "yellow", "pink"]
   },
   {
     "id": 10,
     "title": "Hardman",
-    "price": 145.0,
+    "price": 145,
     "imgUrl": [
       "https://i.pinimg.com/564x/9b/64/2a/9b642a9a784e304263b8c036e921aede.jpg",
       "https://i.pinimg.com/564x/c5/e5/b4/c5e5b4c49aca01b128a88fdc8718b744.jpg",
@@ -161,13 +161,13 @@
     ],
     "rating": 3,
     "category": 3,
-    "size": ["light", "regular", "hard"],
+    "size": ["light", "regular", "large"],
     "color": ["white", "yellow", "pink"]
   },
   {
     "id": 11,
     "title": "Vernal",
-    "price": 390.0,
+    "price": 390,
     "imgUrl": [
       "https://i.pinimg.com/564x/15/5e/e8/155ee8838ce8a225ede91d81e8bb2ec3.jpg",
       "https://i.pinimg.com/564x/bf/6b/42/bf6b42add87bed733efaf13f4239c268.jpg",
@@ -176,13 +176,13 @@
     ],
     "rating": 4,
     "category": 3,
-    "size": ["light", "regular", "hard"],
+    "size": ["light", "regular", "large"],
     "color": ["white", "yellow", "pink"]
   },
   {
     "id": 12,
     "title": "Flexa",
-    "price": 210.0,
+    "price": 210,
     "imgUrl": [
       "https://i.pinimg.com/564x/15/dc/3c/15dc3cf91812bba3c442f355a187ea9a.jpg",
       "https://i.pinimg.com/564x/26/f4/79/26f479dc4220008d01902ce5187ab8fc.jpg",
@@ -191,13 +191,13 @@
     ],
     "rating": 2,
     "category": 4,
-    "size": ["light", "regular", "hard"],
+    "size": ["light", "regular", "large"],
     "color": ["white", "yellow", "pink"]
   },
   {
     "id": 13,
     "title": "Rivera Jerry",
-    "price": 280.0,
+    "price": 280,
     "imgUrl": [
       "https://i.pinimg.com/564x/2b/68/49/2b68490e1d937ed5f7232c03aab5db8c.jpg",
       "https://i.pinimg.com/564x/2f/60/88/2f60887dbca62f3b60062f4253f3fe59.jpg",
@@ -206,13 +206,13 @@
     ],
     "rating": 5,
     "category": 4,
-    "size": ["light", "regular", "hard"],
+    "size": ["light", "regular", "large"],
     "color": ["white", "yellow", "pink"]
   },
   {
     "id": 14,
     "title": "Monro",
-    "price": 30.0,
+    "price": 30,
     "imgUrl": [
       "https://i.pinimg.com/564x/23/9c/9a/239c9ae19bfe38378ccf36f2d3bff901.jpg",
       "https://i.pinimg.com/564x/7d/0c/82/7d0c824a7843444b99c7092b524a353f.jpg",
@@ -221,13 +221,13 @@
     ],
     "rating": 4,
     "category": 4,
-    "size": ["light", "regular", "hard"],
+    "size": ["light", "regular", "large"],
     "color": ["white", "yellow", "pink"]
   },
   {
     "id": 15,
-    "title": "Arcadia Night",
-    "price": 70.0,
+    "title": "Arca Night",
+    "price": 70,
     "imgUrl": [
       "https://i.pinimg.com/564x/32/2d/e6/322de67dd7ca99f4606e9ba241c2e198.jpg",
       "https://i.pinimg.com/564x/b2/d3/80/b2d3800de321bad8df774ec7cdc0403d.jpg",
@@ -236,7 +236,7 @@
     ],
     "rating": 4,
     "category": 4,
-    "size": ["light", "regular", "hard"],
+    "size": ["light", "regular", "large"],
     "color": ["white", "yellow", "pink"]
   }
 ]

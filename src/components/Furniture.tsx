@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -11,6 +11,10 @@ import {
 import { faHeart as faHeartReg } from '@fortawesome/free-regular-svg-icons'
 
 import $ from '@common/Furniture.module.scss'
+import IFurniture from '_types/IFurniture'
+import { IBasket } from '_types/Filter'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/redux/store'
 
 interface FurnitureProps {
   price: number
@@ -18,16 +22,60 @@ interface FurnitureProps {
   imgUrl: string[]
   rating: number
   id: number
+  item: IFurniture
+  addBasketItem: (item: IFurniture, actualColor: string, actualSize: string) => void
+  removeBasketItem: (item: IFurniture, actualColor: string, actualSize: string) => void
 }
 
-const Furniture = ({ price, title, imgUrl, rating }: FurnitureProps) => {
-  const [like, setLike] = useState(false)
-  const [count, setCount] = useState(0)
-  const [heroImg, setHeroImg] = useState(0)
-  const getKeyForSideImg = (arr: string[]): number[] => {
-    return Array.from(Array(arr.length)).map((v, i) => i + 1)
+const Furniture = ({
+  item,
+  price,
+  title,
+  imgUrl,
+  rating,
+  addBasketItem,
+  removeBasketItem
+}: FurnitureProps) => {
+  const [like, setLike] = React.useState(false)
+  const [count, setCount] = React.useState(0)
+  const [heroImg, setHeroImg] = React.useState(0)
+  const sizeRef = React.useRef(null)
+  const colorRef = React.useRef(null)
+
+  const incrementor = () => {
+    if (count >= 0) {
+      setCount((p) => p + 1)
+    } else setCount(0)
+  }
+  const decrementor = () => {
+    if (count > 0) {
+      setCount((p) => p - 1)
+    } else setCount(0)
   }
 
+  const getKeyForSideImg = (arr: string[]): number[] => {
+    return Array.from(Array(arr.length)).map((_, i) => i + 1)
+  }
+
+  const addedItems = useSelector((state: RootState) =>
+    state.basket.items.find((val) => val.id === item.id)
+  )
+  const addedCount = addedItems ? addedItems.count : 0
+
+  const addItemToBasket = () => {
+    addBasketItem(
+      item,
+      (colorRef.current as unknown as HTMLSelectElement).value,
+      (sizeRef.current as unknown as HTMLSelectElement).value
+    )
+  }
+  const removeItemToBasket = () => {
+    removeBasketItem(
+      item,
+      (colorRef.current as unknown as HTMLSelectElement).value,
+      (sizeRef.current as unknown as HTMLSelectElement).value
+    )
+  }
   return (
     <div className={$.furnitureContainer}>
       <div className={$.gridCustom}>
@@ -78,15 +126,15 @@ const Furniture = ({ price, title, imgUrl, rating }: FurnitureProps) => {
                 icon={faMinus}
                 color='#ececec7c'
                 size='sm'
-                onClick={() => setCount(count - 1)}
+                onClick={removeItemToBasket}
               />
-              <span className='text-2xl text-white'>{count}</span>
+              <span className='text-2xl text-white'>{addedCount}</span>
               <FontAwesomeIcon
                 className='cursor-pointer'
                 icon={faPlus}
                 color='#ececec7c'
                 size='sm'
-                onClick={() => setCount(count + 1)}
+                onClick={addItemToBasket}
               />
             </div>
           </div>
@@ -96,14 +144,18 @@ const Furniture = ({ price, title, imgUrl, rating }: FurnitureProps) => {
                 <label className={$.furnitureLabel} htmlFor='select-color'>
                   Color:
                   <select
+                    ref={colorRef}
                     defaultValue='yellow'
                     className={$.labelSelect}
                     name='color'
                     id='select-color'
                   >
-                    <option value='white'>White</option>
-                    <option value='yellow'>Yellow</option>
-                    <option value='pink'>Pink</option>
+                    {item &&
+                      item.color.map((s) => (
+                        <option key={s} value={s}>
+                          {s.replace(/[a-z]/, (v) => v.toUpperCase())}
+                        </option>
+                      ))}
                   </select>
                 </label>
               </form>
@@ -113,22 +165,28 @@ const Furniture = ({ price, title, imgUrl, rating }: FurnitureProps) => {
                 <label className={$.furnitureLabel} htmlFor='select-size'>
                   Size:
                   <select
+                    ref={sizeRef}
                     defaultValue='regular'
                     className={`${$.labelSelect} w-20`}
                     name='size'
                     id='select-size'
                   >
-                    <option value='light'>Light</option>
-                    <option value='regular'>Regular</option>
-                    <option value='hard'>Hard</option>
+                    {item &&
+                      item.size.map((s) => (
+                        <option key={s} value={s}>
+                          {s.replace(/[a-z]/, (v) => v.toUpperCase())}
+                        </option>
+                      ))}
                   </select>
                 </label>
               </form>
             </div>
           </div>
-          <Link className='mt-6' to='/basket'>
-            <button className={$.furnitureButtonAdd}>Add to card</button>
-          </Link>
+          <div className='mt-6'>
+            <button onClick={addItemToBasket} className={$.furnitureButtonAdd}>
+              Add to card
+            </button>
+          </div>
           <div className={`${$.furnitureInfo} flexBetweenX`}>
             <div>
               <p>Info Guide</p>

@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons'
 import { bit } from '@assets/icons'
 import $ from '@common/Header.module.scss'
 import Search from '@components/Search'
+import { IBasketinitialState } from '../redux/slices/basketSlice'
+import { RootState } from '@/redux/store'
 
 type SetStateAction<S> = S | ((prevState: S) => S)
 type Dispatch<A> = (value: A) => void
@@ -13,8 +16,11 @@ export interface HeaderProps {
   setSearchValue?: Dispatch<SetStateAction<string>>
 }
 
-// const Header = ({ searchValue, setSearchValue }: HeaderProps) => {
 const Header = () => {
+  const { items, totalPrice } = useSelector((state: RootState) => {
+    return state.basket
+  })
+
   return (
     <header className={$.header}>
       <div className={$.gridBox}>
@@ -32,7 +38,7 @@ const Header = () => {
         <Search />
         <div className={$.infoPayment}>
           <Link to='/basket' className={`${$.button} flexCenter`}>
-            <span className={$.buttonCost}>$ 320</span>
+            <span className={$.buttonCost}>$ {totalPrice}</span>
             <div className={$.buttonDelimiter}> </div>
             <FontAwesomeIcon
               color='white'
@@ -40,7 +46,7 @@ const Header = () => {
               icon={faBasketShopping}
               size='lg'
             />
-            <span className={$.infoBin}>3</span>
+            <span className={$.infoBin}>{items.length}</span>
           </Link>
         </div>
       </div>
