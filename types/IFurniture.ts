@@ -8,4 +8,5 @@ interface IFurniture {
   size: string[]
   color: string[]
 }
+
 export default IFurniture

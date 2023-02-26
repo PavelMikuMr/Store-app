@@ -28,11 +28,13 @@ const styles = {
 const HandleLayout = ({
   furnitureItems,
   isLoading,
-  findValue
+  findValue,
+  isMountedLayout
 }: {
   furnitureItems: IFurniture[]
   isLoading: boolean
   findValue: string
+  isMountedLayout: boolean
 }) => {
   const swiperInit = React.useRef(null)
   const dispacth = useDispatch()
@@ -40,6 +42,19 @@ const HandleLayout = ({
   const { pageCount, categoryId } = useSelector((state: RootState) => {
     return state.filter
   })
+  React.useEffect(() => {
+    if (!swiperInit.current) {
+      return
+    }
+    if (!(swiperInit.current as SwiperRef).swiper) {
+      return
+    }
+
+    if (categoryId === 0) {
+      const currentSwiper = (swiperInit.current as SwiperRef).swiper
+      currentSwiper.slideTo((pageCount as number) - 1)
+    }
+  }, [isMountedLayout])
 
   const onCLickAdd = (item: IFurniture, actualColor: string, actualSize: string) => {
     const basketItem: IBasket = {
@@ -64,21 +79,6 @@ const HandleLayout = ({
     }
     dispacth(removeItems(basketItem))
   }
-
-  React.useEffect(() => {
-    if (!swiperInit.current) {
-      return
-    }
-    if (!(swiperInit.current as SwiperRef).swiper) {
-      return
-    }
-
-    if (categoryId === 0) {
-      const currentSwiper = (swiperInit.current as SwiperRef).swiper
-
-      currentSwiper.slideTo((pageCount as number) - 1)
-    }
-  }, [isLoading, categoryId])
 
   const selectOpenPage = (value: number) => {
     dispacth(setPageCount(value))
@@ -109,7 +109,6 @@ const HandleLayout = ({
       )
     })
   }
-
   return (
     <div className={$.handleLayout}>
       <div className='flex items-baseline justify-start gap-x-4'>

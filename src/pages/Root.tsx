@@ -16,6 +16,7 @@ import { RootState } from '@/redux/store'
 import { setCategoryId, setFilters } from '@/redux/slices/filterSlice'
 import { setFurniture } from '@/redux/slices/furnitureSlice'
 import { FurnitureService } from '@/services/furniture.service'
+import { useGetAllFurnitureQuery } from '@/services/furnitureApi'
 
 export interface IOutletContex {
   onChangeCategory: (id: number) => void
@@ -23,6 +24,7 @@ export interface IOutletContex {
   valueForSearch: string
   furnitureItems: IFurniture[]
   isLoading: boolean
+  isMountedLayout: boolean
 }
 
 export const SearchContext = React.createContext<HeaderProps | null>(null)
@@ -30,13 +32,13 @@ export const SearchContext = React.createContext<HeaderProps | null>(null)
 const Root = () => {
   const navigate = useNavigate()
   const isMounted = React.useRef(false)
-
+  const isLayout = React.useRef(false)
   const { categoryId, sort, pageCount } = useSelector((state: RootState) => state.filter)
+
   const { furnitureItems } = useSelector((state: RootState) => state.furniture)
   const dispatch = useDispatch()
 
   const onChangeCategory = (id: number) => {
-    //* в dispatch передаем наши action (объект {type:some ,payload:some}) которые мы описали в сторе в reducer
     dispatch(setCategoryId(id))
   }
 
@@ -65,61 +67,76 @@ const Root = () => {
           sort: sort as ISort
         })
       )
-    } else {
-      dispatch(
-        setFilters({
-          pageCount: 1,
-          categoryId: 0,
-          sort: {
-            name: 'popular',
-            sortProperty: 'rating'
-          }
-        })
-      )
     }
     curRef.current = true
   }, [])
 
-  const { isLoading } = useQuery(
-    ['repoData', categoryId, sort, searchValue, order],
-    () => {
-      const checkId = !!categoryId
-      const property = sort.sortProperty
-      const search = searchValue || ''
-      const param =
-        checkId && !search
-          ? {
-              params: {
-                category: categoryId,
-                sortBy: property,
-                order
-              }
-            }
-          : {
-              params: {
-                ...(search ? { search: searchValue } : {}),
-                sortBy: property,
-                order
-              }
-            }
+  // const { isLoading } = useQuery(
+  //   ['repoData', categoryId, sort, searchValue, order],
+  //   () => {
+  //     const checkId = !!categoryId
+  //     const property = sort.sortProperty
+  //     const search = searchValue || ''
+  //     const param =
+  //       checkId && !search
+  //         ? {
+  //             params: {
+  //               category: categoryId,
+  //               sortBy: property,
+  //               order
+  //             }
+  //           }
+  //         : {
+  //             params: {
+  //               ...(search ? { search: searchValue } : {}),
+  //               sortBy: property,
+  //               order
+  //             }
+  //           }
 
-      return curRef.current ? FurnitureService.getAll('/items', param) : {}
-    },
-    curRef.current
-      ? {
-          onSuccess: ({ data }: { data: IFurniture[] }) => {
-            dispatch(setFurniture(data))
-            window.scrollTo(0, 0)
-          },
-          onError: (err: any) => {
-            dispatch(setFurniture([]))
-            alert((err as AxiosError).message)
+  //     return curRef.current ? FurnitureService.getAll('/items', param) : {}
+  //   },
+  //   curRef.current
+  //     ? {
+  //         onSuccess: ({ data }: { data: IFurniture[] }) => {
+  //           console.log('state fur items onsuccess:', data)
+  //           dispatch(setFurniture(data))
+  //           window.scrollTo(0, 0)
+  //         },
+  //         onError: (err: any) => {
+  //           dispatch(setFurniture([]))
+  //           alert((err as AxiosError).message)
 
-            console.log(err)
-          }
-        }
-      : {}
-  )
+  //           console.log(err)
+  //         }
+  //       }
+  //     : {}
+  // )
+
+  const {
+    data,
+    error: err,
+    isLoading,
+    isSuccess: success
+  } = useGetAllFurnitureQuery({
+    categoryId,
+    sortProperty: sort.sortProperty,
+    searchValue,
+    order
+  })
+
+  React.useEffect(() => {
+    if (success) {
+      if (data) {
+        dispatch(setFurniture(data))
+        window.scrollTo(0, 0)
+        isLayout.current = true
+      }
+    } else if (err) {
+      dispatch(setFurniture([]))
+      // alert((err))
+    }
+  }, [data])
 
   React.useEffect(() => {
     if (isMounted.current) {
@@ -143,7 +160,8 @@ const Root = () => {
     orderSetting: (term: string) => setOrder(term),
     valueForSearch: searchValue,
     furnitureItems,
-    isLoading
+    isLoading,
+    isMountedLayout: isLayout.current
   }
 
   return (
