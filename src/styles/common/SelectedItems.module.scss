@@ -1,5 +1,5 @@
 .selectedItem {
-  @apply grid grid-cols-[repeat(2,_minmax(0,_max-content)),repeat(2,1fr),_minmax(0,_max-content)] gap-x-5;
+  @apply grid grid-cols-[_minmax(0,_max-content),1fr,repeat(2,1fr),_minmax(0,_max-content)] gap-x-5;
 }
 
 .itemImg {

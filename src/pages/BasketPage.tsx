@@ -1,16 +1,23 @@
+import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 import { faBasketShopping, faCaretLeft } from '@fortawesome/free-solid-svg-icons'
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons'
-
 import SelectedItem from '@components/SelectedItem'
-
 import $ from '@views/BasketPage.module.scss'
-
 import { BtnXL } from '@fields'
+import { RootState } from '@/redux/store'
+import { clearAllItems } from '@/redux/slices/basketSlice'
 
 const BasketPage = () => {
+  const { items, totalPrice } = useSelector((state: RootState) => state.basket)
+  const dispatch = useDispatch()
+
+  const clearAllItemFromBasket = () => {
+    if (window.confirm('Are you sure want to remove?')) {
+      dispatch(clearAllItems())
+    }
+  }
   return (
     <div className={$.basketContainer}>
       <header className={`${$.basketHeader} flexBetweenX`}>
@@ -30,18 +37,23 @@ const BasketPage = () => {
             icon={faTrashCan}
             size='lg'
           />
-          <p className={$.cleanBasketTitle}>Clean basket</p>
+          <button onClick={clearAllItemFromBasket} className={$.cleanBasketTitle}>
+            Clean basket
+          </button>
         </div>
       </header>
-      <SelectedItem />
-      <SelectedItem />
-      <SelectedItem />
-      <SelectedItem />
-      <SelectedItem />
+      {items.length > 0 ? (
+        items.map((item) => <SelectedItem key={item.id} item={item} />)
+      ) : (
+        <div>
+          <h1>Please select items</h1>
+        </div>
+      )}
+
       <div className={$.order}>
         <div className={$.orderAll}>
           <h2 className={$.orderTitle}>
-            Total selected: <strong>3 pieces</strong>
+            Total selected: <strong>{items.length} pieces</strong>
           </h2>
           <div className={$.orderComeBack}>
             <FontAwesomeIcon
@@ -57,7 +69,7 @@ const BasketPage = () => {
         </div>
         <div className={$.buyNow}>
           <h2 className={$.buyNowTitle}>
-            Order amount: <strong>900 $</strong>
+            Order amount: <strong>{totalPrice} $</strong>
           </h2>
           <BtnXL text='Buy now' link='/' />
         </div>

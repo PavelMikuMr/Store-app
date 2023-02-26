@@ -54,12 +54,23 @@ export const basketSlice = createSlice({
       }
     },
 
-    clearItems(state) {
+    clearItems(state, action: { payload: IBasket }) {
+      state.items = state.items.filter((obj) => obj.id !== action.payload.id)
+      if (state.items.length > 0) {
+        state.totalPrice = state.items.reduce((a, val) => {
+          return val.price * ('count' in val ? val.count : 1) + a
+        }, 0)
+      } else {
+        state.totalPrice = 0
+      }
+    },
+    clearAllItems(state) {
       state.items = []
+      state.totalPrice = 0
     }
   }
 })
 
-export const { addItems, removeItems, clearItems } = basketSlice.actions
+export const { addItems, removeItems, clearItems, clearAllItems } = basketSlice.actions
 
 export default basketSlice.reducer

@@ -5,7 +5,6 @@ import { faBasketShopping } from '@fortawesome/free-solid-svg-icons'
 import { bit } from '@assets/icons'
 import $ from '@common/Header.module.scss'
 import Search from '@components/Search'
-import { IBasketinitialState } from '../redux/slices/basketSlice'
 import { RootState } from '@/redux/store'
 
 type SetStateAction<S> = S | ((prevState: S) => S)
@@ -37,7 +36,10 @@ const Header = () => {
         </div>
         <Search />
         <div className={$.infoPayment}>
-          <Link to='/basket' className={`${$.button} flexCenter`}>
+          <Link
+            to={items.length > 0 ? '/basket' : '/emptyBasket'}
+            className={`${$.button} flexCenter`}
+          >
             <span className={$.buttonCost}>$ {totalPrice}</span>
             <div className={$.buttonDelimiter}> </div>
             <FontAwesomeIcon
