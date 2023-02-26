@@ -26,11 +26,11 @@ const styles = {
 }
 
 const HandleLayout = ({
-  items,
+  furnitureItems,
   isLoading,
   findValue
 }: {
-  items: IFurniture[]
+  furnitureItems: IFurniture[]
   isLoading: boolean
   findValue: string
 }) => {
@@ -91,7 +91,7 @@ const HandleLayout = ({
   }
 
   const renderItemsBackendSwiper = () => {
-    return items.map((item: IFurniture): React.ReactNode => {
+    return furnitureItems.map((item: IFurniture): React.ReactNode => {
       return (
         <SwiperSlide key={item.title}>
           <Furniture
@@ -119,7 +119,7 @@ const HandleLayout = ({
 
       {isLoading ? (
         <div className={$.sceletonLayout}>{renderSkeleton()}</div>
-      ) : items.length > 0 ? (
+      ) : furnitureItems.length > 0 ? (
         <Swiper
           ref={swiperInit}
           slidesPerView={2}

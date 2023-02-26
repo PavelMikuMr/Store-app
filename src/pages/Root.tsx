@@ -3,8 +3,7 @@ import React from 'react'
 import qs from 'qs'
 import { Outlet, useNavigate } from 'react-router-dom'
 
-import Sort, { sortBy } from '@components/Sort'
-import HandleLayout from '@components/HandleLayout'
+import { sortBy } from '@components/Sort'
 import IFurniture from '_types/IFurniture'
 import Header, { HeaderProps } from '@components/Header'
 import Wrapper from '@components/Wrapper'
@@ -15,13 +14,14 @@ import { AxiosError } from 'axios'
 import { useQuery } from 'react-query'
 import { RootState } from '@/redux/store'
 import { setCategoryId, setFilters } from '@/redux/slices/filterSlice'
+import { setFurniture } from '@/redux/slices/furnitureSlice'
 import { FurnitureService } from '@/services/furniture.service'
 
 export interface IOutletContex {
   onChangeCategory: (id: number) => void
   orderSetting: (term: string) => void
   valueForSearch: string
-  items: IFurniture[]
+  furnitureItems: IFurniture[]
   isLoading: boolean
 }
 
@@ -32,6 +32,7 @@ const Root = () => {
   const isMounted = React.useRef(false)
 
   const { categoryId, sort, pageCount } = useSelector((state: RootState) => state.filter)
+  const { furnitureItems } = useSelector((state: RootState) => state.furniture)
   const dispatch = useDispatch()
 
   const onChangeCategory = (id: number) => {
@@ -42,8 +43,6 @@ const Root = () => {
   const [searchValue, setSearchValue] = React.useState('')
 
   const [order, setOrder] = React.useState('desc')
-
-  const [items, setItems] = React.useState<IFurniture[]>([])
 
   const curRef = React.useRef(false)
 
@@ -109,12 +108,14 @@ const Root = () => {
     curRef.current
       ? {
           onSuccess: ({ data }: { data: IFurniture[] }) => {
-            console.log(data)
-            setItems(data)
+            dispatch(setFurniture(data))
             window.scrollTo(0, 0)
           },
-          onError: (error: any) => {
-            alert((error as AxiosError).message)
+          onError: (err: any) => {
+            dispatch(setFurniture([]))
+            alert((err as AxiosError).message)
+
+            console.log(err)
           }
         }
       : {}
@@ -141,7 +142,7 @@ const Root = () => {
     onChangeCategory,
     orderSetting: (term: string) => setOrder(term),
     valueForSearch: searchValue,
-    items,
+    furnitureItems,
     isLoading
   }
 

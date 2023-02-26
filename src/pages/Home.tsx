@@ -5,12 +5,16 @@ import HandleLayout from '@components/HandleLayout'
 import { IOutletContex } from '@/pages/Root'
 
 const Home = () => {
-  const { onChangeCategory, orderSetting, valueForSearch, items, isLoading } =
+  const { onChangeCategory, orderSetting, valueForSearch, furnitureItems, isLoading } =
     useOutletContext<IOutletContex>()
   return (
     <>
       <Sort onChangeCategory={onChangeCategory} setOrder={orderSetting} />
-      <HandleLayout findValue={valueForSearch} items={items} isLoading={isLoading} />
+      <HandleLayout
+        findValue={valueForSearch}
+        furnitureItems={furnitureItems}
+        isLoading={isLoading}
+      />
     </>
   )
 }
