@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, current } from '@reduxjs/toolkit'
 import { IBasket } from '_types/Filter'
 
 export interface IBasketinitialState {
@@ -34,6 +34,7 @@ export const basketSlice = createSlice({
           return val.price * ('count' in val ? val.count : 1) + a
         }, 0)
       }
+      // console.log(current(state))
     },
 
     removeItems(state, action: { payload: IBasket }) {

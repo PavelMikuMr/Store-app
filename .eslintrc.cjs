@@ -66,7 +66,8 @@ module.exports = {
     'consistent-return': 1,
     'no-console': 1,
     'import/prefer-default-export': 0,
-
+    // for redux props
+    'no-param-reassign': ['error', { props: false }],
     // classes
     // Enforce that class methods utilize this
     'class-methods-use-this': 'warn',

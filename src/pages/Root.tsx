@@ -71,48 +71,6 @@ const Root = () => {
     curRef.current = true
   }, [])
 
-  // const { isLoading } = useQuery(
-  //   ['repoData', categoryId, sort, searchValue, order],
-  //   () => {
-  //     const checkId = !!categoryId
-  //     const property = sort.sortProperty
-  //     const search = searchValue || ''
-  //     const param =
-  //       checkId && !search
-  //         ? {
-  //             params: {
-  //               category: categoryId,
-  //               sortBy: property,
-  //               order
-  //             }
-  //           }
-  //         : {
-  //             params: {
-  //               ...(search ? { search: searchValue } : {}),
-  //               sortBy: property,
-  //               order
-  //             }
-  //           }
-
-  //     return curRef.current ? FurnitureService.getAll('/items', param) : {}
-  //   },
-  //   curRef.current
-  //     ? {
-  //         onSuccess: ({ data }: { data: IFurniture[] }) => {
-  //           console.log('state fur items onsuccess:', data)
-  //           dispatch(setFurniture(data))
-  //           window.scrollTo(0, 0)
-  //         },
-  //         onError: (err: any) => {
-  //           dispatch(setFurniture([]))
-  //           alert((err as AxiosError).message)
-
-  //           console.log(err)
-  //         }
-  //       }
-  //     : {}
-  // )
-
   const {
     data,
     error: err,
@@ -134,7 +92,8 @@ const Root = () => {
       }
     } else if (err) {
       dispatch(setFurniture([]))
-      // alert((err))
+
+      alert('Error is occuring')
     }
   }, [data])
 
