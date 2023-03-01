@@ -1,6 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Fancybox } from '@fancyapps/ui'
+import '@styles/fancybox/fancybox.scss'
 
 import {
   faStar,
@@ -9,12 +10,10 @@ import {
   faHeart as faHeartSol
 } from '@fortawesome/free-solid-svg-icons'
 import { faHeart as faHeartReg } from '@fortawesome/free-regular-svg-icons'
-
 import $ from '@common/Furniture.module.scss'
 import IFurniture from '_types/IFurniture'
-import { IBasket } from '_types/Filter'
 import { useSelector } from 'react-redux'
-import { RootState } from '@/redux/store'
+import { itemSelectorById } from '@/redux/slices/basketSlice'
 
 interface FurnitureProps {
   price: number
@@ -37,29 +36,16 @@ const Furniture = ({
   removeBasketItem
 }: FurnitureProps) => {
   const [like, setLike] = React.useState(false)
-  const [count, setCount] = React.useState(0)
   const [heroImg, setHeroImg] = React.useState(0)
   const sizeRef = React.useRef(null)
   const colorRef = React.useRef(null)
-
-  const incrementor = () => {
-    if (count >= 0) {
-      setCount((p) => p + 1)
-    } else setCount(0)
-  }
-  const decrementor = () => {
-    if (count > 0) {
-      setCount((p) => p - 1)
-    } else setCount(0)
-  }
 
   const getKeyForSideImg = (arr: string[]): number[] => {
     return Array.from(Array(arr.length)).map((_, i) => i + 1)
   }
 
-  const addedItems = useSelector((state: RootState) =>
-    state.basket.items.find((val) => val.id === item.id)
-  )
+  const addedItems = useSelector(itemSelectorById(item.id))
+
   const addedCount = addedItems ? addedItems.count : 0
 
   const addItemToBasket = () => {
@@ -76,10 +62,29 @@ const Furniture = ({
       (sizeRef.current as unknown as HTMLSelectElement).value
     )
   }
+  const showGallary = () => {
+    type Gallary = {
+      src: string
+      thumb: string
+    }
+    const galleryItems: Gallary[] = []
+
+    const galleryOptions = {
+      slug: 'gallery',
+      startIndex: 0
+    }
+
+    imgUrl.forEach((img: string) => galleryItems.push({ src: img, thumb: img }))
+    return { galleryItems, galleryOptions }
+  }
+
   return (
     <div className={$.furnitureContainer}>
       <div className={$.gridCustom}>
-        <div className={`${$.flexCenterX} ${$.furnitureListImg}`}>
+        <div
+          className={`${$.flexCenterX} ${$.furnitureListImg} `}
+          id={`gallery-wrap-${title}`}
+        >
           <ul className={$.furnitureList}>
             {getKeyForSideImg(imgUrl).map((item, index) => (
               <li
@@ -89,14 +94,21 @@ const Furniture = ({
                 role='presentation'
               >
                 <div className={index === heroImg ? '' : $.sideBackdrop}> </div>
+
                 <img src={imgUrl[index]} alt={title} />
               </li>
             ))}
           </ul>
         </div>
-        <div className={`${$.furnitureHero} flexCenter overflow-hidden `}>
-          <img src={imgUrl[heroImg]} alt='lamp' />{' '}
-        </div>
+        <button
+          onClick={() => {
+            const { galleryItems, galleryOptions } = showGallary()
+            Fancybox.show(galleryItems, galleryOptions)
+          }}
+          className={`${$.furnitureHero} flexCenter overflow-hidden `}
+        >
+          <img src={imgUrl[heroImg]} alt={`${title}-hero`} />
+        </button>
         <div className={`${$.flexCol} ${$.furnitureInfoTextAll}`}>
           <h2 className={$.furniturePriceTitle}>{title}</h2>
           <div className={$.furnitureRate}>

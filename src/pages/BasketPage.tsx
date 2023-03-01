@@ -6,11 +6,10 @@ import { faTrashCan } from '@fortawesome/free-regular-svg-icons'
 import SelectedItem from '@components/SelectedItem'
 import $ from '@views/BasketPage.module.scss'
 import { BtnXL } from '@fields'
-import { RootState } from '@/redux/store'
-import { clearAllItems } from '@/redux/slices/basketSlice'
+import { clearAllItems, basketSelector } from '@/redux/slices/basketSlice'
 
 const BasketPage = () => {
-  const { items, totalPrice } = useSelector((state: RootState) => state.basket)
+  const { items, totalPrice } = useSelector(basketSelector)
   const dispatch = useDispatch()
 
   const clearAllItemFromBasket = () => {
@@ -49,7 +48,6 @@ const BasketPage = () => {
           <h1>Please select items</h1>
         </div>
       )}
-
       <div className={$.order}>
         <div className={$.orderAll}>
           <h2 className={$.orderTitle}>

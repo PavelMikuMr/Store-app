@@ -1,8 +1,10 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit'
 import { ISort, FilterState } from '_types/Filter'
+import { RootState } from '@/redux/store'
 
 const initialState: FilterState = {
+  searchValue: '',
   pageCount: 1,
   categoryId: 0,
   sort: {
@@ -24,6 +26,9 @@ export const filterSlice = createSlice({
     setSortValue(state, action: { payload: ISort }) {
       state.sort = action.payload
     },
+    setSearchValue(state, action: { payload: string }) {
+      state.searchValue = action.payload
+    },
     setPageCount(state, action: { payload: number }) {
       state.pageCount = action.payload
     },
@@ -35,7 +40,8 @@ export const filterSlice = createSlice({
   }
 })
 
-export const { setCategoryId, setSortValue, setPageCount, setFilters } =
+export const filterSelector = (state: RootState) => state.filter
+export const { setCategoryId, setSortValue, setPageCount, setFilters, setSearchValue } =
   filterSlice.actions
 
 export default filterSlice.reducer

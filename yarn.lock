@@ -382,6 +382,11 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@fancyapps/ui@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@fancyapps/ui/-/ui-5.0.3.tgz#38b32ced69899bf3e1e18ed1dbe57b2f392b9081"
+  integrity sha512-l0xKw7hBR2lD7BXYH6q5QAnFK97X+CUSzigVhvenhkvvB9ei9Cq6hAOLfj2MsGU9VK8443o4UvkeAGkt3XqtNA==
+
 "@fortawesome/fontawesome-common-types@6.2.1":
   version "6.2.1"
   resolved "https://registry.npmjs.org/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-6.2.1.tgz"
@@ -545,6 +550,13 @@
   resolved "https://registry.npmjs.org/@tsconfig/node16/-/node16-1.0.3.tgz"
   integrity sha512-yOlFc+7UtL/89t2ZhjPvvB/DeAr3r+Dq58IgzsFkOAvVC6NMJXmCGjbptdXdR9qsX7pKcTL+s87FtYREi2dEEQ==
 
+"@types/fancybox@^3.5.3":
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/@types/fancybox/-/fancybox-3.5.3.tgz#a9c68c8e6ad198d1ec872a7926c2449c93e2ae39"
+  integrity sha512-VmlqpN7Ez/HvSHBdxALh/4gnkBEYLroYe6bTmXkJtQpPVkHTg1SzS/hIdzZKtKLjxeb6zPGK02RqnnB7VQIKtg==
+  dependencies:
+    "@types/jquery" "*"
+
 "@types/hoist-non-react-statics@*", "@types/hoist-non-react-statics@^3.3.1":
   version "3.3.1"
   resolved "https://registry.npmjs.org/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz"
@@ -552,6 +564,13 @@
   dependencies:
     "@types/react" "*"
     hoist-non-react-statics "^3.3.0"
+
+"@types/jquery@*":
+  version "3.5.16"
+  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.5.16.tgz#632131baf30951915b0317d48c98e9890bdf051d"
+  integrity sha512-bsI7y4ZgeMkmpG9OM710RRzDFp+w4P1RGiIt30C1mSBT+ExCleeh4HObwgArnDFELmRrOpXgSYN9VF1hj+f1lw==
+  dependencies:
+    "@types/sizzle" "*"
 
 "@types/json-schema@^7.0.9":
   version "7.0.11"
@@ -620,6 +639,11 @@
   version "7.3.13"
   resolved "https://registry.npmjs.org/@types/semver/-/semver-7.3.13.tgz"
   integrity sha512-21cFJr9z3g5dW8B0CVI9g2O9beqaThGQ6ZFBqHfwhzLDKUxaqTIy3vnfah/UPkfOiF2pLq+tGz+W8RyCskuslw==
+
+"@types/sizzle@*":
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/@types/sizzle/-/sizzle-2.3.3.tgz#ff5e2f1902969d305225a047c8a0fd5c915cebef"
+  integrity sha512-JYM8x9EGF163bEyhdJBpR2QX1R5naCJHC8ucJylJ3w9/CVBaskdQ8WqBf8MmQrd1kRvp/a4TS8HJ+bxzR7ZJYQ==
 
 "@types/styled-components@^5.1.26":
   version "5.1.26"

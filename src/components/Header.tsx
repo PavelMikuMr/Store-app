@@ -5,7 +5,7 @@ import { faBasketShopping } from '@fortawesome/free-solid-svg-icons'
 import { bit } from '@assets/icons'
 import $ from '@common/Header.module.scss'
 import Search from '@components/Search'
-import { RootState } from '@/redux/store'
+import { basketSelector } from '@/redux/slices/basketSlice'
 
 type SetStateAction<S> = S | ((prevState: S) => S)
 type Dispatch<A> = (value: A) => void
@@ -16,9 +16,7 @@ export interface HeaderProps {
 }
 
 const Header = () => {
-  const { items, totalPrice } = useSelector((state: RootState) => {
-    return state.basket
-  })
+  const { items, totalPrice } = useSelector(basketSelector)
 
   return (
     <header className={$.header}>

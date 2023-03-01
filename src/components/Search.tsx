@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { debounce } from 'lodash'
-
+import { useDispatch } from 'react-redux'
 import tw from 'twin.macro'
 import styled from 'styled-components'
-import { SearchContext } from '@/pages/Root'
-import { HeaderProps } from './Header'
+import { AppDispatch } from '@/redux/store'
+import { setSearchValue } from '@/redux/slices/filterSlice'
 
 const SearchBox = styled.div`
   ${tw`
@@ -113,8 +113,8 @@ const Xmark = styled.span`
 `
 
 const Search = () => {
+  const dispatch = useDispatch<AppDispatch>()
   const [value, setValue] = React.useState('')
-  const searchData = useContext(SearchContext) as HeaderProps
 
   const [search, setSearch] = React.useState(false)
 
@@ -122,9 +122,7 @@ const Search = () => {
 
   const updateSearchValue = React.useCallback(
     debounce((str: string) => {
-      if (searchData && 'setSearchValue' in searchData) {
-        searchData.setSearchValue(str)
-      }
+      dispatch(setSearchValue(str))
     }, 1500),
     []
   )

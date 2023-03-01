@@ -8,14 +8,6 @@ import { fetchUsers } from '@/redux/slices/furnitureSlice'
 import { AppDispatch, RootState } from '@/redux/store'
 
 const Home = () => {
-  const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector
-
-  const dispatch = useDispatch<AppDispatch>()
-  // const handleClick = () => dispatch(fetchUsers())
-
-  React.useEffect(() => {
-    dispatch(fetchUsers()).catch((error) => console.log(error))
-  }, [])
   const {
     onChangeCategory,
     orderSetting,

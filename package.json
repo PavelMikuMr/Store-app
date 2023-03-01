@@ -14,12 +14,14 @@
     }
   },
   "dependencies": {
+    "@fancyapps/ui": "^5.0.3",
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-brands-svg-icons": "^6.2.1",
     "@fortawesome/free-regular-svg-icons": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@reduxjs/toolkit": "^1.9.2",
+    "@types/fancybox": "^3.5.3",
     "@types/lodash": "^4.14.191",
     "@types/node": "^18.13.0",
     "@types/swiper": "^6.0.0",

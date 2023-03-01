@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import IFurniture from '_types/IFurniture'
 import { createSlice, createAsyncThunk, current } from '@reduxjs/toolkit'
 import axios from 'axios'
@@ -16,9 +15,8 @@ export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
   return response.data
 })
 
-const initialState: { furnitureItems: IFurniture[]; users: User[] } = {
-  furnitureItems: [],
-  users: []
+const initialState: { furnitureItems: IFurniture[] } = {
+  furnitureItems: []
 }
 
 export const furnitureSlice = createSlice({
@@ -32,17 +30,6 @@ export const furnitureSlice = createSlice({
         state.furnitureItems = []
       }
     }
-  },
-  // extraReducers: {
-  //   [fetchUsers.fulfilled]: (state, { payload }) => {
-  //     console.log(current(state))
-  //   }
-  // }
-  extraReducers: (builder) => {
-    builder.addCase(fetchUsers.fulfilled, (state, { payload }) => {
-      state.users.push(...payload)
-      console.log(current(state))
-    })
   }
 })
 

@@ -1,6 +1,7 @@
-/* eslint-disable no-param-reassign */
+/* eslint-disable import/no-cycle */
 import { createSlice, current } from '@reduxjs/toolkit'
 import { IBasket } from '_types/Filter'
+import { RootState } from '../store'
 
 export interface IBasketinitialState {
   totalPrice: number
@@ -71,6 +72,13 @@ export const basketSlice = createSlice({
     }
   }
 })
+
+export const basketSelector = (state: RootState) => {
+  return state.basket
+}
+// itemSelectorById(5) => (state) => state
+export const itemSelectorById = (id: number) => (state: RootState) =>
+  state.basket.items.find((obj) => obj.id === id)
 
 export const { addItems, removeItems, clearItems, clearAllItems } = basketSlice.actions
 

@@ -4,6 +4,7 @@ export interface ISort {
 }
 
 export interface FilterState {
+  searchValue: string
   categoryId: number | string
   pageCount: number | string
   sort: ISort
