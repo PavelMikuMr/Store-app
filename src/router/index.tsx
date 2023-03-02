@@ -5,6 +5,7 @@ import EmptyBasketPage from '@pages/EmptyBasketPage'
 import LoginPage from '@pages/LoginPage'
 import Root from '@/pages/Root'
 import Home from '@/pages/Home'
+import RouteId from './RouteId'
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,11 @@ const router = createBrowserRouter([
         path: '/emptyBasket',
         id: 'EmptyBasketPage',
         element: <EmptyBasketPage />
+      },
+      {
+        path: '/:id',
+        id: 'BasketId',
+        element: <RouteId />
       }
     ]
   },

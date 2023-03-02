@@ -56,30 +56,6 @@ const HandleLayout = ({
     }
   }, [isMountedLayout])
 
-  const onCLickAdd = (item: IFurniture, actualColor: string, actualSize: string) => {
-    const basketItem: IBasket = {
-      id: item.id,
-      title: item.title,
-      price: item.price,
-      imgUrl: item.imgUrl,
-      color: actualColor,
-      size: actualSize
-    }
-    dispacth(addItems(basketItem))
-  }
-
-  const onClickRemove = (item: IFurniture, actualColor: string, actualSize: string) => {
-    const basketItem: IBasket = {
-      id: item.id,
-      title: item.title,
-      price: item.price,
-      imgUrl: item.imgUrl,
-      color: actualColor,
-      size: actualSize
-    }
-    dispacth(removeItems(basketItem))
-  }
-
   const selectOpenPage = (value: number) => {
     dispacth(setPageCount(value))
   }
@@ -96,8 +72,6 @@ const HandleLayout = ({
         <SwiperSlide key={item.title}>
           <Furniture
             item={item}
-            addBasketItem={onCLickAdd}
-            removeBasketItem={onClickRemove}
             price={item.price}
             title={item.title}
             imgUrl={item.imgUrl}
@@ -126,7 +100,6 @@ const HandleLayout = ({
             rows: 2
           }}
           spaceBetween={30}
-          // loop
           pagination={{
             type: 'bullets',
             clickable: true

@@ -1,11 +1,9 @@
 import React from 'react'
-import { useDispatch, TypedUseSelectorHook, useSelector } from 'react-redux'
+import { useWhyDidYouUpdate } from 'ahooks'
 import { useOutletContext } from 'react-router-dom'
 import Sort from '@components/Sort'
 import HandleLayout from '@components/HandleLayout'
 import { IOutletContex } from '@/pages/Root'
-import { fetchUsers } from '@/redux/slices/furnitureSlice'
-import { AppDispatch, RootState } from '@/redux/store'
 
 const Home = () => {
   const {

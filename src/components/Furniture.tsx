@@ -1,6 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Fancybox } from '@fancyapps/ui'
+import { clsx } from 'clsx'
 import '@styles/fancybox/fancybox.scss'
 
 import {
@@ -12,8 +13,9 @@ import {
 import { faHeart as faHeartReg } from '@fortawesome/free-regular-svg-icons'
 import $ from '@common/Furniture.module.scss'
 import IFurniture from '_types/IFurniture'
-import { useSelector } from 'react-redux'
-import { itemSelectorById } from '@/redux/slices/basketSlice'
+import { IBasket } from '_types/Filter'
+import { useSelector, useDispatch } from 'react-redux'
+import { itemSelectorById, addItems, removeItems } from '@/redux/slices/basketSlice'
 
 interface FurnitureProps {
   price: number
@@ -22,24 +24,14 @@ interface FurnitureProps {
   rating: number
   id: number
   item: IFurniture
-  addBasketItem: (item: IFurniture, actualColor: string, actualSize: string) => void
-  removeBasketItem: (item: IFurniture, actualColor: string, actualSize: string) => void
 }
 
-const Furniture = ({
-  item,
-  price,
-  title,
-  imgUrl,
-  rating,
-  addBasketItem,
-  removeBasketItem
-}: FurnitureProps) => {
+const Furniture = ({ item, price, title, imgUrl, rating }: FurnitureProps) => {
   const [like, setLike] = React.useState(false)
   const [heroImg, setHeroImg] = React.useState(0)
   const sizeRef = React.useRef(null)
   const colorRef = React.useRef(null)
-
+  const dispacth = useDispatch()
   const getKeyForSideImg = (arr: string[]): number[] => {
     return Array.from(Array(arr.length)).map((_, i) => i + 1)
   }
@@ -48,26 +40,30 @@ const Furniture = ({
 
   const addedCount = addedItems ? addedItems.count : 0
 
+  const getItemForManipulate = () => {
+    const basketItem: IBasket = {
+      id: item.id,
+      title: item.title,
+      price: item.price,
+      imgUrl: item.imgUrl,
+      color: (colorRef.current as unknown as HTMLSelectElement).value,
+      size: (sizeRef.current as unknown as HTMLSelectElement).value
+    }
+    return basketItem
+  }
+
   const addItemToBasket = () => {
-    addBasketItem(
-      item,
-      (colorRef.current as unknown as HTMLSelectElement).value,
-      (sizeRef.current as unknown as HTMLSelectElement).value
-    )
+    dispacth(addItems(getItemForManipulate()))
   }
   const removeItemToBasket = () => {
-    removeBasketItem(
-      item,
-      (colorRef.current as unknown as HTMLSelectElement).value,
-      (sizeRef.current as unknown as HTMLSelectElement).value
-    )
+    dispacth(removeItems(getItemForManipulate()))
   }
-  const showGallary = () => {
-    type Gallary = {
+  const showGallery = () => {
+    type Gallery = {
       src: string
       thumb: string
     }
-    const galleryItems: Gallary[] = []
+    const galleryItems: Gallery[] = []
 
     const galleryOptions = {
       slug: 'gallery',
@@ -94,7 +90,6 @@ const Furniture = ({
                 role='presentation'
               >
                 <div className={index === heroImg ? '' : $.sideBackdrop}> </div>
-
                 <img src={imgUrl[index]} alt={title} />
               </li>
             ))}
@@ -102,7 +97,7 @@ const Furniture = ({
         </div>
         <button
           onClick={() => {
-            const { galleryItems, galleryOptions } = showGallary()
+            const { galleryItems, galleryOptions } = showGallery()
             Fancybox.show(galleryItems, galleryOptions)
           }}
           className={`${$.furnitureHero} flexCenter overflow-hidden `}
@@ -134,7 +129,9 @@ const Furniture = ({
             <p className={$.furnitureCostDigit}>$ {price}.00</p>
             <div className='flex items-center gap-x-2'>
               <FontAwesomeIcon
-                className='cursor-pointer'
+                className={clsx('cursor-pointer', {
+                  'card__item-count-minus': like
+                })}
                 icon={faMinus}
                 color='#ececec7c'
                 size='sm'

@@ -112,7 +112,7 @@ const Xmark = styled.span`
   }
 `
 
-const Search = () => {
+const Search = React.memo(function Search() {
   const dispatch = useDispatch<AppDispatch>()
   const [value, setValue] = React.useState('')
 
@@ -157,5 +157,5 @@ const Search = () => {
       </SearchBox>
     </div>
   )
-}
+})
 export default Search

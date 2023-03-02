@@ -1,18 +1,18 @@
 import React from 'react'
-// * сохранение параметров в URL + react useNavigate
 import qs from 'qs'
+import { useWhyDidYouUpdate } from 'ahooks'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { sortBy } from '@components/Sort'
 import IFurniture from '_types/IFurniture'
-import Header, { HeaderProps } from '@components/Header'
+import Header from '@components/Header'
 import Wrapper from '@components/Wrapper'
 import { useSelector, useDispatch } from 'react-redux'
 import { ISort } from '_types/Filter'
-// * использование react-query
 import { RootState } from '@/redux/store'
 import { setCategoryId, setFilters, filterSelector } from '@/redux/slices/filterSlice'
 import { setFurniture } from '@/redux/slices/furnitureSlice'
 import { useGetAllFurnitureQuery } from '@/services/furnitureApi'
+import { basketSelector } from '@/redux/slices/basketSlice'
 
 export interface IOutletContex {
   onChangeCategory: (id: number) => void
@@ -23,8 +23,6 @@ export interface IOutletContex {
   isMountedLayout: boolean
 }
 
-export const SearchContext = React.createContext<HeaderProps | null>(null)
-
 const Root = () => {
   const [order, setOrder] = React.useState('desc')
   const curRef = React.useRef(false)
@@ -33,13 +31,13 @@ const Root = () => {
   const isMounted = React.useRef(false)
   const isLayout = React.useRef(false)
   const { categoryId, sort, pageCount, searchValue } = useSelector(filterSelector)
-
+  const { items, totalPrice } = useSelector(basketSelector)
   const { furnitureItems } = useSelector((state: RootState) => state.furniture)
   const dispatch = useDispatch()
 
-  const onChangeCategory = (id: number) => {
+  const onChangeCategory = React.useCallback((id: number) => {
     dispatch(setCategoryId(id))
-  }
+  }, [])
 
   React.useEffect(() => {
     if (window.location.search) {
@@ -111,10 +109,9 @@ const Root = () => {
     isLoading,
     isMountedLayout: isLayout.current
   }
-
   return (
     <Wrapper>
-      <Header />
+      <Header items={items} totalPrice={totalPrice} />
       <Outlet context={outletContext} />
     </Wrapper>
   )

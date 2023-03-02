@@ -1,4 +1,5 @@
 import React from 'react'
+import { useWhyDidYouUpdate } from 'ahooks'
 import $ from '@common/Sort.module.scss'
 import { useSelector, useDispatch } from 'react-redux'
 import { ISort } from '_types/Filter'
@@ -23,7 +24,6 @@ export const sortBy: ISort[] = [
 
 const Sort = ({ onChangeCategory, setOrder }: SortProps) => {
   const { categoryId, sort: sortType } = useSelector((state: RootState) => state.filter)
-  // манипуляция popup
   const sortRef = React.useRef(null)
 
   const dispatch = useDispatch()
@@ -33,12 +33,15 @@ const Sort = ({ onChangeCategory, setOrder }: SortProps) => {
     dispatch(setSortValue(sortValue))
     setIsOpenPop(false)
   }
+  const callback = React.useCallback((i: number) => {
+    onChangeCategory(i)
+  }, [])
 
   const categoryChange = (index: number) => {
-    dispatch(setFilters({ categoryId, pageCount: 1, sort: sortType }))
-    onChangeCategory(index)
+    dispatch(setFilters({ categoryId, pageCount: 1, sort: sortType, searchValue: '' }))
+    callback(index)
   }
-  // манипуляция popup
+
   React.useEffect(() => {
     const clickOutside = (event: Event) => {
       if (!event.composedPath().includes(sortRef.current as unknown as EventTarget)) {

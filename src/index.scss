@@ -1,4 +1,4 @@
-@import '@/styles/fonts';
+// @import '@/styles/fonts';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
@@ -10,7 +10,7 @@
     144.39deg,
     #202020 -278.56%,
     #161616 -78.47%,
-    #6ea1c370.61%
+    #d44f4063 0.61%
   );
   --card-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
 }
@@ -137,14 +137,6 @@
   &:first-child {
     background-color: #ba59ff;
   }
-}
-
-.test {
-  color: black;
-  font-family: 'Ubuntu';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 2rem;
 }
 
 // Swiper
