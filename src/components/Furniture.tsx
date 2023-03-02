@@ -95,15 +95,17 @@ const Furniture = ({ item, price, title, imgUrl, rating }: FurnitureProps) => {
             ))}
           </ul>
         </div>
-        <button
+        <div
           onClick={() => {
             const { galleryItems, galleryOptions } = showGallery()
             Fancybox.show(galleryItems, galleryOptions)
           }}
-          className={`${$.furnitureHero} flexCenter overflow-hidden `}
+          className={`${$.furnitureHero} flexCenter overflow-hidden bg-cover bg-center bg-no-repeat `}
+          style={{ backgroundImage: `url(${imgUrl[heroImg]})` }}
+          role='presentation'
         >
-          <img src={imgUrl[heroImg]} alt={`${title}-hero`} />
-        </button>
+          {/* <img src={imgUrl[heroImg]} alt={`${title}-hero`} /> */}
+        </div>
         <div className={`${$.flexCol} ${$.furnitureInfoTextAll}`}>
           <h2 className={$.furniturePriceTitle}>{title}</h2>
           <div className={$.furnitureRate}>

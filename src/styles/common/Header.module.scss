@@ -2,39 +2,45 @@
   @apply mb-12 max-w-[100%];
 
   .gridBox {
-    @apply grid grid-cols-3;
+    @apply grid grid-rows-2 ss:grid-cols-3;
   }
   .infoTextBox {
-    @apply ml-2;
+    @apply ml-2 flex items-center md:block;
   }
   .info {
-    @apply flex justify-self-start;
+    @apply row-start-2 flex justify-self-start ss:row-auto;
   }
   .infoTitle {
     @apply font-poppins text-2xl font-semibold;
   }
 
   .infoSubTitle {
-    @apply font-medium text-white/[.40];
+    @apply hidden font-medium text-white/[.40]  md:block;
   }
 
   .infoPayment {
-    @apply grid place-content-center justify-self-end;
+    @apply row-start-2 grid place-content-center justify-self-end ss:row-auto;
   }
 
   .button {
-    @apply h-max w-[180px] rounded-3xl bg-[#EF6043] py-3 px-5 hover:bg-[#eb6f50];
+    @apply relative flex h-max w-[130px] items-end justify-center rounded-3xl  bg-[#EF6043] py-3 px-5 hover:bg-[#eb6f50] sm:w-[180px] sm:items-center;
   }
 
   .buttonDelimiter {
-    @apply mx-3 h-4  w-[1px] bg-white;
+    @apply mx-3 hidden  h-4 w-[1px] bg-white sm:block;
   }
 
   .buttonCost {
-    @apply self-end  font-poppins font-semibold leading-none;
+    @apply mb-1 hidden self-auto font-poppins text-base font-semibold  sm:mb-0 sm:block sm:self-end sm:text-base sm:leading-none;
   }
 
   .infoBin {
-    @apply self-end font-poppins font-semibold leading-none;
+    @apply self-auto font-poppins font-semibold leading-none sm:self-end;
+  }
+}
+
+@media (max-widht: 850px) {
+  .infoSubTitle {
+    display: none;
   }
 }

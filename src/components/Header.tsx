@@ -40,13 +40,13 @@ const Header = React.memo(
             <div className={$.infoPayment}>
               <Link
                 to={items.length > 0 ? '/basket' : '/emptyBasket'}
-                className={`${$.button} flexCenter`}
+                className={`${$.button}`}
               >
                 <span className={$.buttonCost}>$ {totalPrice}</span>
                 <div className={$.buttonDelimiter}> </div>
                 <FontAwesomeIcon
                   color='white'
-                  className='mr-2'
+                  className='bottom-[11px] right-[50%] mr-2'
                   icon={faBasketShopping}
                   size='lg'
                 />

@@ -1,18 +1,18 @@
 .sort {
-  @apply mb-12;
+  @apply mb-6 sm:mb-12;
 
   .categoryList {
-    @apply mb-4 gap-8 lg:mb-0;
+    @apply mb-4  lg:mb-0;
   }
   .categoryItem {
-    @apply cursor-pointer rounded-3xl bg-none py-3 px-5 font-poppins font-bold transition-colors;
+    @apply cursor-pointer rounded-3xl bg-none py-3 px-5 font-poppins text-sm font-bold transition-colors xs:text-base;
   }
 
   span {
     @apply cursor-pointer border-b border-dashed border-[#EF6043] font-poppins;
   }
   .sortPopup {
-    @apply absolute right-[140px] top-[-20px] rounded-2xl bg-[#0f0f0f] p-4 lg:right-[0px] lg:top-[40px];
+    @apply absolute  top-[30px] rounded-2xl bg-[#0f0f0f] p-4  lg:top-[40px];
     li {
       @apply cursor-pointer font-poppins;
     }

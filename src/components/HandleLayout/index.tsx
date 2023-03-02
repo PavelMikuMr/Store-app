@@ -85,8 +85,10 @@ const HandleLayout = ({
   }
   return (
     <div className={$.handleLayout}>
-      <div className='flex items-baseline justify-start gap-x-4'>
-        <h1 className='heading text-center lg:text-left'>Get, Buy & Sell</h1>
+      <div className={$.headingTitleBox}>
+        <h1 className='heading text-center text-3xl ss:text-4xl sm:text-5xl md:text-6xl lg:text-left'>
+          Get, Buy & Sell
+        </h1>
         <img src={flower} alt='flower' />
       </div>
 
@@ -94,15 +96,32 @@ const HandleLayout = ({
         <div className={$.sceletonLayout}>{renderSkeleton()}</div>
       ) : furnitureItems.length > 0 ? (
         <Swiper
+          // centeredSlides={true}
           ref={swiperInit}
           slidesPerView={2}
           grid={{
-            rows: 2
+            rows: 1
           }}
-          spaceBetween={30}
+          spaceBetween={50}
           pagination={{
             type: 'bullets',
             clickable: true
+          }}
+          breakpoints={{
+            // 640: {
+            //   slidesPerView: 2,
+            //   spaceBetween: 20,
+            // },
+            // 768: {
+            //   slidesPerView: 4,
+            //   spaceBetween: 40,
+            // },
+            1350: {
+              spaceBetween: 30,
+              grid: {
+                rows: 2
+              }
+            }
           }}
           modules={[Grid, Pagination]}
           className='mySwiper'

@@ -53,6 +53,11 @@ const SearchIcon = styled.div`
     background: #ef6043;
     transform: translate(6px, 6px) rotate(-45deg);
   }
+  @media (max-widht: 620px) {
+    & {
+      display: none;
+    }
+  }
 `
 const InputContainer = styled.div`
   ${tw`
@@ -139,7 +144,7 @@ const Search = React.memo(function Search() {
     updateSearchValue(event.target.value)
   }
   return (
-    <div className='flexCenter'>
+    <div className='searhHead flexCenter col-span-2 row-start-1 ss:col-span-1 ss:row-start-auto'>
       <SearchBox className={search ? 'active' : ''}>
         <SearchIcon onClick={() => setSearch((prev) => !prev)} />
         <InputContainer>

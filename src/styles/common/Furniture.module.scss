@@ -1,31 +1,20 @@
-.gridCustom {
-  display: grid;
-  grid-template-columns: minmax(0, max-content) repeat(2, minmax(0, 1fr));
-  gap: 0 0.5rem;
-  // grid-template-columns:  minmax(0, max-content);
-}
-
-.furnitureItemBackground {
-  background-color: #ececec7c;
-}
-
 .furnitureContainer {
-  @apply max-w-[40rem] rounded-3xl border-2 border-white/[.20] bg-black py-5 shadow-modern md:px-6 lg:px-10;
+  @apply m-auto max-w-[33rem] rounded-3xl border-2 border-white/[.20] bg-black py-5 shadow-modern  sm:px-6 lg:m-0 lg:max-w-[40rem] lg:px-10;
 
   .furnitureListImg {
-    @apply max-h-[18.2rem];
+    @apply row-start-2 max-h-[18.2rem] lg:row-auto;
   }
 
   .furnitureList {
-    @apply flex flex-col justify-between gap-y-2 p-2;
+    @apply flex w-full flex-row justify-between gap-y-2 p-2 lg:w-auto lg:flex-col;
   }
   .sideBackdrop {
-    @apply absolute z-[1] h-16 w-16 cursor-pointer bg-black/[.90] transition duration-200  hover:bg-transparent;
+    @apply absolute z-[1] h-[95px] w-[95px] cursor-pointer bg-black/[.90] transition duration-200 hover:bg-transparent lg:h-[70px]  lg:w-[70px];
   }
   .furnitureItem {
-    @apply flex cursor-pointer items-center justify-center overflow-hidden rounded-2xl transition-colors md:max-h-[56px] md:max-w-[56px] lg:max-h-[4rem] lg:max-w-[4rem];
+    @apply flex max-h-[90px] max-w-[90px] cursor-pointer items-center justify-center overflow-hidden rounded-2xl transition-colors lg:max-h-[4rem] lg:max-w-[4rem];
     img {
-      @apply h-[100px] w-[100px]  object-contain object-top;
+      @apply object-contain object-top  lg:h-[100px] lg:w-[100px];
     }
   }
 
@@ -40,19 +29,19 @@
     @apply max-h-[18.2rem] justify-between;
   }
   .furniturePriceTitle {
-    @apply font-poppins font-normal text-white md:text-2xl lg:text-4xl;
+    @apply font-poppins font-normal text-white md:text-3xl lg:text-4xl;
   }
   .furnitureRate {
     @apply flex items-center justify-between;
   }
   .furnitureRateStart {
-    @apply ml-1 inline-block align-bottom font-poppins text-white/[.40] md:text-xs lg:text-sm;
+    @apply ml-1 inline-block align-bottom font-poppins text-white/[.40] md:text-sm lg:text-sm;
   }
   .furnitureCost {
     @apply mt-4;
   }
   .furnitureCostDigit {
-    @apply font-poppins text-white md:text-xl lg:text-2xl;
+    @apply font-poppins text-2xl text-white;
   }
   .furnitureDecrease {
     @apply absolute top-0 right-0 text-[3rem] text-white/[.40];
@@ -75,7 +64,7 @@
   }
   .furnitureInfo {
     p {
-      @apply mt-6 cursor-pointer font-poppins text-white/[.40] hover:text-[#eb988488] md:text-[10px] lg:text-xs;
+      @apply mt-6 cursor-pointer font-poppins text-white/[.40] hover:text-[#eb988488] md:text-[12px] lg:text-xs;
     }
   }
 }
@@ -85,6 +74,23 @@
 // }
 
 @import '@styles/utilities/Master.module.scss';
+
+.gridCustom {
+  display: grid;
+  grid-template-columns: minmax(0, max-content) repeat(2, minmax(0, 1fr));
+  gap: 0 0.5rem;
+  // grid-template-columns:  minmax(0, max-content);
+
+  @media (max-width: 1350px) {
+    grid-template-columns: auto;
+    grid-template-rows: 1fr minmax(0, max-content) 1fr;
+    // grid-row-start: ;
+  }
+}
+
+.furnitureItemBackground {
+  background-color: #ececec7c;
+}
 
 @media (max-width: 1350px) {
   .news {

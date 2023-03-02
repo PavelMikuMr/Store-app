@@ -3,6 +3,9 @@
 
   /* grid-template-columns: minmax(0, max-content) repeat(2, minmax(0, 1fr)); */
   /*  mx-auto  grid grid-cols-[200px_minmax(900px,_1fr)_100px]; */
+  .headingTitleBox {
+    @apply mb-6 flex  items-baseline justify-center gap-x-4 lg:justify-start;
+  }
 }
 .sceletonLayout {
   @apply mx-auto grid w-max  grid-cols-[repeat(2,_minmax(0,_max-content))] place-content-center gap-5;
