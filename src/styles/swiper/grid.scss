@@ -19,3 +19,21 @@
     height: 700px;
   }
 }
+
+@media (max-width: 840px) {
+  .swiper {
+    height: 760px;
+  }
+}
+@media (max-width: 640px) {
+  .swiper {
+    height: 690px;
+  }
+}
+
+@media (max-width: 440px) {
+  .swiper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

@@ -98,7 +98,7 @@ const HandleLayout = ({
         <Swiper
           // centeredSlides={true}
           ref={swiperInit}
-          slidesPerView={2}
+          slidesPerView={1}
           grid={{
             rows: 1
           }}
@@ -108,15 +108,18 @@ const HandleLayout = ({
             clickable: true
           }}
           breakpoints={{
-            // 640: {
+            // 440: {
             //   slidesPerView: 2,
-            //   spaceBetween: 20,
+            //   spaceBetween: 50
             // },
-            // 768: {
-            //   slidesPerView: 4,
-            //   spaceBetween: 40,
-            // },
+            840: {
+              slidesPerView: 2,
+              grid: {
+                rows: 1
+              }
+            },
             1350: {
+              slidesPerView: 2,
               spaceBetween: 30,
               grid: {
                 rows: 2

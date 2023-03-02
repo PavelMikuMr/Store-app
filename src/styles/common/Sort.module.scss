@@ -2,7 +2,7 @@
   @apply mb-6 sm:mb-12;
 
   .categoryList {
-    @apply mb-4  lg:mb-0;
+    @apply mb-4 overflow-scroll xs:overflow-auto  lg:mb-0;
   }
   .categoryItem {
     @apply cursor-pointer rounded-3xl bg-none py-3 px-5 font-poppins text-sm font-bold transition-colors xs:text-base;

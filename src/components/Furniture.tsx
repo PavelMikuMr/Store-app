@@ -131,17 +131,17 @@ const Furniture = ({ item, price, title, imgUrl, rating }: FurnitureProps) => {
             <p className={$.furnitureCostDigit}>$ {price}.00</p>
             <div className='flex items-center gap-x-2'>
               <FontAwesomeIcon
-                className={clsx('cursor-pointer', {
-                  'card__item-count-minus': like
-                })}
+                className='text-base xs:text-base ss:text-lg sm:text-xl sw840:text-base'
                 icon={faMinus}
                 color='#ececec7c'
                 size='sm'
                 onClick={removeItemToBasket}
               />
-              <span className='text-2xl text-white'>{addedCount}</span>
+              <span className='text-xl text-white xs:text-2xl ss:text-3xl sm:text-4xl sw840:text-2xl'>
+                {addedCount}
+              </span>
               <FontAwesomeIcon
-                className='cursor-pointer'
+                className='cursor-pointer text-base xs:text-base ss:text-lg sm:text-xl sw840:text-base'
                 icon={faPlus}
                 color='#ececec7c'
                 size='sm'
@@ -178,7 +178,7 @@ const Furniture = ({ item, price, title, imgUrl, rating }: FurnitureProps) => {
                   <select
                     ref={sizeRef}
                     defaultValue='regular'
-                    className={`${$.labelSelect} w-20`}
+                    className={`${$.labelSelect} sm:w-24 sw840:w-20`}
                     name='size'
                     id='select-size'
                   >
