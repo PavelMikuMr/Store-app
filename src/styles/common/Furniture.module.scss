@@ -19,12 +19,14 @@
   }
 
   .furnitureHero {
-    @apply rounded-3xl md:max-h-[16.75rem] lg:max-h-[18.2rem];
+    @apply flex items-center justify-center overflow-hidden rounded-3xl bg-cover bg-center   bg-no-repeat md:max-h-[16.75rem] lg:max-h-[18.2rem];
     img {
       @apply md:max-w-[110%] lg:max-w-full;
     }
   }
-
+  // .RiveraJerry {
+  //   @apply bg-[center_top_1rem];
+  // }
   .furnitureInfoTextAll {
     @apply max-h-[18.2rem] justify-between;
   }
@@ -65,10 +67,6 @@
     }
   }
 }
-
-// .furnitureItem:first-child div {
-//   display: none;
-// }
 
 @import '@styles/utilities/Master.module.scss';
 

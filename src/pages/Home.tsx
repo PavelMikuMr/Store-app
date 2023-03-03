@@ -12,7 +12,8 @@ const Home = () => {
     valueForSearch,
     furnitureItems,
     isLoading,
-    isMountedLayout
+    isMountedLayout,
+    isFetching
   } = useOutletContext<IOutletContex>()
   return (
     <>
@@ -22,6 +23,7 @@ const Home = () => {
         furnitureItems={furnitureItems}
         isLoading={isLoading}
         isMountedLayout={isMountedLayout}
+        isFetching={isFetching}
       />
     </>
   )

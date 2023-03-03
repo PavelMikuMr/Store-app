@@ -1,6 +1,7 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react'
 import Furniture from '@components/Furniture'
+import { Spinner } from '@components/Spinner'
 import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Grid, Pagination } from 'swiper'
@@ -29,13 +30,16 @@ const HandleLayout = ({
   furnitureItems,
   isLoading,
   findValue,
-  isMountedLayout
+  isMountedLayout,
+  isFetching
 }: {
   furnitureItems: IFurniture[]
   isLoading: boolean
   findValue: string
   isMountedLayout: boolean
+  isFetching: boolean
 }) => {
+  console.log(' inside layout isFetching:', isFetching)
   const swiperInit = React.useRef(null)
   const dispacth = useDispatch()
 
@@ -65,7 +69,6 @@ const HandleLayout = ({
       return (<Skeleton key={item} />) as React.ReactNode
     })
   }
-
   const renderItemsBackendSwiper = () => {
     return furnitureItems.map((item: IFurniture): React.ReactNode => {
       return (
@@ -83,6 +86,49 @@ const HandleLayout = ({
       )
     })
   }
+  const renderSwiperLayout = (): React.ReactNode => {
+    return (
+      <Swiper
+        // centeredSlides={true}
+        ref={swiperInit}
+        slidesPerView={1}
+        grid={{
+          rows: 1
+        }}
+        spaceBetween={50}
+        pagination={{
+          type: 'bullets',
+          clickable: true
+        }}
+        breakpoints={{
+          840: {
+            slidesPerView: 2,
+            grid: {
+              rows: 1
+            }
+          },
+          1350: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+            grid: {
+              rows: 2
+            }
+          }
+        }}
+        modules={[Grid, Pagination]}
+        className='mySwiper'
+        onActiveIndexChange={(swiper) => {
+          selectOpenPage(swiper.activeIndex + 1)
+        }}
+      >
+        {renderItemsBackendSwiper()}
+      </Swiper>
+    )
+  }
+
+  const renderSpinner = (): React.ReactNode => {
+    return <Spinner />
+  }
   return (
     <div className={$.handleLayout}>
       <div className={$.headingTitleBox}>
@@ -95,45 +141,11 @@ const HandleLayout = ({
       {isLoading ? (
         <div className={$.sceletonLayout}>{renderSkeleton()}</div>
       ) : furnitureItems.length > 0 ? (
-        <Swiper
-          // centeredSlides={true}
-          ref={swiperInit}
-          slidesPerView={1}
-          grid={{
-            rows: 1
-          }}
-          spaceBetween={50}
-          pagination={{
-            type: 'bullets',
-            clickable: true
-          }}
-          breakpoints={{
-            // 440: {
-            //   slidesPerView: 2,
-            //   spaceBetween: 50
-            // },
-            840: {
-              slidesPerView: 2,
-              grid: {
-                rows: 1
-              }
-            },
-            1350: {
-              slidesPerView: 2,
-              spaceBetween: 30,
-              grid: {
-                rows: 2
-              }
-            }
-          }}
-          modules={[Grid, Pagination]}
-          className='mySwiper'
-          onActiveIndexChange={(swiper) => {
-            selectOpenPage(swiper.activeIndex + 1)
-          }}
-        >
-          {renderItemsBackendSwiper()}
-        </Swiper>
+        isFetching ? (
+          renderSpinner()
+        ) : (
+          renderSwiperLayout()
+        )
       ) : (
         <div className=' mt-10 w-full text-center text-4xl'>
           <h1>Nothing found 😸</h1>

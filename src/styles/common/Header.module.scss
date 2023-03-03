@@ -2,7 +2,7 @@
   @apply mb-12 max-w-[100%];
 
   .gridBox {
-    @apply grid grid-rows-2 ss:grid-cols-3;
+    @apply grid grid-rows-2 ss:grid-cols-[1fr,360px,_minmax(0,1fr)] ss:grid-rows-1;
   }
   .infoTextBox {
     @apply ml-2 flex items-center md:block;
@@ -23,15 +23,15 @@
   }
 
   .button {
-    @apply relative flex h-max w-[130px] items-end justify-center rounded-3xl  bg-[#EF6043] py-3 px-5 hover:bg-[#eb6f50] sm:w-[180px] sm:items-center;
+    @apply relative flex h-max w-[180px] items-end justify-end gap-x-1 rounded-3xl bg-none py-3 px-0  xs:w-[180px] sm:items-center sw840:w-[160px] sw840:justify-center sw840:gap-x-0 sw840:bg-[#EF6043] sw840:px-5 sw840:hover:bg-[#eb6f50];
   }
 
   .buttonDelimiter {
-    @apply mx-3 hidden  h-4 w-[1px] bg-white sm:block;
+    @apply mx-3  h-4 w-[1px] bg-white;
   }
 
   .buttonCost {
-    @apply mb-1 hidden self-auto font-poppins text-base font-semibold  sm:mb-0 sm:block sm:self-end sm:text-base sm:leading-none;
+    @apply mb-0 self-end  font-poppins  text-base font-semibold leading-none;
   }
 
   .infoBin {
@@ -39,8 +39,8 @@
   }
 }
 
-@media (max-widht: 850px) {
-  .infoSubTitle {
-    display: none;
-  }
-}
+// @media (max-widht: 850px) {
+//   .infoSubTitle {
+//     display: none;
+//   }
+// }

@@ -9,8 +9,10 @@ import { setSearchValue } from '@/redux/slices/filterSlice'
 const SearchBox = styled.div`
   ${tw`
   bg-white
-  w-[60px]
-  h-[60px]
+  w-[40px]
+  h-[40px]
+  ss:w-[60px]
+  ss:h-[60px]
   rounded-full
   shadow
   shadow-amber-50
@@ -21,14 +23,20 @@ const SearchBox = styled.div`
   &.active {
     width: 360px;
   }
+  @media (max-width: 620px) {
+    &.active {
+      width: 300px;
+    }
 `
 const SearchIcon = styled.div`
   ${tw`
   absolute
   top-0
   left-0
-  w-[60px]
-  h-[60px]
+  w-[40px]
+  h-[40px]
+  ss:w-[60px]
+  ss:h-[60px]
   bg-white
   rounded-full
   grid
@@ -61,7 +69,7 @@ const SearchIcon = styled.div`
 `
 const InputContainer = styled.div`
   ${tw`
-  relative left-[3.75rem] grid h-[3.75rem] w-[16rem] place-items-center
+  relative left-[2.75rem] ss:left-[3.75rem] grid h-[2.75rem] ss:h-[3.75rem] w-[16rem] place-items-center
 `}
 `
 const SearchInput = styled.input`

@@ -100,7 +100,8 @@ const Furniture = ({ item, price, title, imgUrl, rating }: FurnitureProps) => {
             const { galleryItems, galleryOptions } = showGallery()
             Fancybox.show(galleryItems, galleryOptions)
           }}
-          className={`${$.furnitureHero} flexCenter overflow-hidden bg-cover bg-center bg-no-repeat `}
+          className={`${$.furnitureHero}`}
+          id={`${title.replace(/\s/g, '')}`}
           style={{ backgroundImage: `url(${imgUrl[heroImg]})` }}
           role='presentation'
         >

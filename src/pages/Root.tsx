@@ -2,11 +2,11 @@ import React from 'react'
 import qs from 'qs'
 import { useWhyDidYouUpdate } from 'ahooks'
 import { Outlet, useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
 import { sortBy } from '@components/Sort'
 import IFurniture from '_types/IFurniture'
 import Header from '@components/Header'
 import Wrapper from '@components/Wrapper'
-import { useSelector, useDispatch } from 'react-redux'
 import { ISort } from '_types/Filter'
 import { RootState } from '@/redux/store'
 import { setCategoryId, setFilters, filterSelector } from '@/redux/slices/filterSlice'
@@ -21,6 +21,7 @@ export interface IOutletContex {
   furnitureItems: IFurniture[]
   isLoading: boolean
   isMountedLayout: boolean
+  isFetching: boolean
 }
 
 const Root = () => {
@@ -67,7 +68,8 @@ const Root = () => {
     data,
     error: err,
     isLoading,
-    isSuccess: success
+    isSuccess: success,
+    isFetching
   } = useGetAllFurnitureQuery({
     categoryId,
     sortProperty: sort.sortProperty,
@@ -107,7 +109,8 @@ const Root = () => {
     valueForSearch: searchValue,
     furnitureItems,
     isLoading,
-    isMountedLayout: isLayout.current
+    isMountedLayout: isLayout.current,
+    isFetching
   }
   return (
     <Wrapper>
