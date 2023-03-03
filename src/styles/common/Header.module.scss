@@ -1,5 +1,5 @@
 .header {
-  @apply mb-12 max-w-[100%];
+  @apply mb-6 max-w-[100%] ss:mb-12;
 
   .gridBox {
     @apply grid grid-rows-2 ss:grid-cols-[1fr,360px,_minmax(0,1fr)] ss:grid-rows-1;

@@ -42,7 +42,7 @@
     @apply grid grid-cols-2;
   }
   .orderTitle {
-    @apply font-poppins text-xl;
+    @apply font-poppins text-base ss:text-lg sm:text-xl;
   }
   .orderAll {
     @apply grid grid-rows-2;
@@ -57,7 +57,7 @@
     @apply flex flex-col gap-y-4  justify-self-end;
   }
   .buyNowTitle {
-    @apply font-poppins text-xl;
+    @apply font-poppins text-base ss:text-lg sm:text-xl;
     strong {
       @apply text-[#eb6f50];
     }

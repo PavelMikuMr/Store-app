@@ -6,6 +6,8 @@ import LoginPage from '@pages/LoginPage'
 import Root from '@/pages/Root'
 import Home from '@/pages/Home'
 import RouteId from './RouteId'
+import Modal from '@/components/Modal'
+import Wrapper from '@/components/Wrapper'
 
 const router = createBrowserRouter([
   {
@@ -40,6 +42,12 @@ const router = createBrowserRouter([
     path: '/login',
     id: 'LoginPage',
     element: <LoginPage />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: '/modal',
+    id: 'modalPage',
+    element: <Modal />,
     errorElement: <ErrorPage />
   }
 ])

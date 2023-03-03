@@ -36,13 +36,13 @@ const SelectedItem = ({ item }: { item: IBasket }) => {
         <div className='itemIcon'>
           <img className={$.itemImg} src={item.imgUrl[0]} alt='selected-furniture' />
         </div>
-        <div>
+        <div className={$.infoTextContainer}>
           <h2 className={$.itemInfoTittle}>{item.title}</h2>
           <p className={$.itemInfoSubTittle}>
             Color: {item.color} , Size: {item.size}
           </p>
         </div>
-        <div className={`${$.additionItem} flexCenter`}>
+        <div className={`${$.additionItem}`}>
           <div className={$.additionItemBtn}>
             <span onClick={addItemToBasket} role='presentation'>
               +

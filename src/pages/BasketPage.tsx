@@ -44,14 +44,12 @@ const BasketPage = () => {
       {items.length > 0 ? (
         items.map((item) => <SelectedItem key={item.id} item={item} />)
       ) : (
-        <div>
-          <h1>Please select items</h1>
-        </div>
+        <div />
       )}
       <div className={$.order}>
         <div className={$.orderAll}>
           <h2 className={$.orderTitle}>
-            Total selected: <strong>{items.length} pieces</strong>
+            Total selected: <strong>{items.length} products</strong>
           </h2>
           <div className={$.orderComeBack}>
             <FontAwesomeIcon
@@ -67,7 +65,8 @@ const BasketPage = () => {
         </div>
         <div className={$.buyNow}>
           <h2 className={$.buyNowTitle}>
-            Order amount: <strong>{totalPrice} $</strong>
+            Order amount:
+            <strong className='block text-center'>{totalPrice} $</strong>
           </h2>
           <BtnXL text='Buy now' link='/' />
         </div>

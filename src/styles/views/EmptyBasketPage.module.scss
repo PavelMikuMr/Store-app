@@ -2,7 +2,7 @@
   @apply mx-auto max-w-[800px];
 
   .emptyBasket {
-    @apply mx-auto flex max-w-[500px] flex-col gap-y-[7rem] text-center;
+    @apply mx-auto flex max-w-[500px] flex-col gap-y-[1rem] text-center;
 
     .emptyBasketTitle {
       @apply mb-3 font-poppins text-3xl;
