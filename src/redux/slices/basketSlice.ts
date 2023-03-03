@@ -1,16 +1,11 @@
 /* eslint-disable import/no-cycle */
-import { createSlice, current } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 import { IBasket } from '_types/Filter'
 import { RootState } from '../store'
+import getItemsFromLS from '@/utils/getItemsFromLS'
 
-export interface IBasketinitialState {
-  totalPrice: number
-  items: IBasket[]
-}
-const initialState: IBasketinitialState = {
-  totalPrice: 0,
-  items: []
-}
+const initialState = getItemsFromLS()
+
 interface ExistedItems extends IBasket {
   count: number
 }
@@ -35,7 +30,6 @@ export const basketSlice = createSlice({
           return val.price * ('count' in val ? val.count : 1) + a
         }, 0)
       }
-      // console.log(current(state))
     },
 
     removeItems(state, action: { payload: IBasket }) {

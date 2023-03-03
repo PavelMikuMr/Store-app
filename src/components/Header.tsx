@@ -15,12 +15,21 @@ interface Filter {
 
 const Header = React.memo(
   function Header({ items, totalPrice }: Filter) {
+    const isMounted = React.useRef(false)
+
     enum Path {
       basket = '/basket',
       empty = '/emptyBasket'
     }
     const { pathname } = useLocation()
 
+    React.useEffect(() => {
+      if (isMounted.current) {
+        const json = JSON.stringify({ totalPrice, items })
+        localStorage.setItem('basket', json)
+      }
+      isMounted.current = true
+    }, [items])
     return (
       <header className={$.header}>
         <div className={$.gridBox}>
