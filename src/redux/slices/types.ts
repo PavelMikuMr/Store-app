@@ -1,4 +1,4 @@
-import { IBasket } from '_types/Filter'
+import { IBasket } from '@type/Filter'
 
 export interface IBasketinitialState {
   totalPrice: number

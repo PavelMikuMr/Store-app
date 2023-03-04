@@ -1,4 +1,4 @@
-import $ from '@common/Wrapper.module.scss'
+import tw from '@common/Wrapper.module.scss'
 
 interface WrapperProps {
   children: React.ReactNode
@@ -7,7 +7,7 @@ interface WrapperProps {
 const Wrapper = ({ children }: WrapperProps) => {
   return (
     <div className='App'>
-      <div className={$.wrapper}>{children}</div>
+      <div className={tw.wrapper}>{children}</div>
     </div>
   )
 }

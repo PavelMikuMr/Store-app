@@ -3,9 +3,9 @@ import { Link, useLocation } from 'react-router-dom'
 import { shallowEqual } from 'shallow-equal'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons'
-import { IBasket } from '_types/Filter'
+import { IBasket } from '@type/Filter'
 import { bit } from '@assets/icons'
-import $ from '@common/Header.module.scss'
+import tw from '@common/Header.module.scss'
 import Search from '@components/Search'
 
 interface Filter {
@@ -31,35 +31,35 @@ const Header = React.memo(
       isMounted.current = true
     }, [items])
     return (
-      <header className={$.header}>
-        <div className={$.gridBox}>
-          <div className={$.info}>
+      <header className={tw.header}>
+        <div className={tw.gridBox}>
+          <div className={tw.info}>
             <div>
               <Link to='/'>
                 <img src={bit} alt='logo' className='max-w-[3rem]' />
               </Link>
             </div>
-            <div className={$.infoTextBox}>
-              <h2 className={$.infoTitle}>React Store</h2>
-              <p className={$.infoSubTitle}> The best store in the universe </p>
+            <div className={tw.infoTextBox}>
+              <h2 className={tw.infoTitle}>React Store</h2>
+              <p className={tw.infoSubTitle}> The best store in the universe </p>
             </div>
           </div>
           <Search />
           {pathname !== Path.basket && pathname !== Path.empty && (
-            <div className={$.infoPayment}>
+            <div className={tw.infoPayment}>
               <Link
                 to={items.length > 0 ? '/basket' : '/emptyBasket'}
-                className={`${$.button}`}
+                className={`${tw.button}`}
               >
-                <span className={$.buttonCost}>$ {totalPrice}</span>
-                <div className={$.buttonDelimiter}> </div>
+                <span className={tw.buttonCost}>$ {totalPrice}</span>
+                <div className={tw.buttonDelimiter}> </div>
                 <FontAwesomeIcon
                   color='white'
                   className='bottom-[11px] right-[50%] mr-2'
                   icon={faBasketShopping}
                   size='lg'
                 />
-                <span className={$.infoBin}>{items.length}</span>
+                <span className={tw.infoBin}>{items.length}</span>
               </Link>
             </div>
           )}

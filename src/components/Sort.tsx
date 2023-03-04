@@ -1,8 +1,7 @@
 import React from 'react'
-import { useWhyDidYouUpdate } from 'ahooks'
-import $ from '@common/Sort.module.scss'
+import tw from '@common/Sort.module.scss'
 import { useSelector, useDispatch } from 'react-redux'
-import { ISort } from '_types/Filter'
+import { ISort } from '@type/Filter'
 import { RootState } from '@/redux/store'
 
 import { setSortValue, setFilters } from '@/redux/slices/filterSlice'
@@ -56,16 +55,16 @@ const Sort = ({ onChangeCategory, setOrder }: SortProps) => {
   }, [categoryId])
 
   return (
-    <div className={`${$.sort} lg:flexBetweenX`}>
+    <div className={`${tw.sort} lg:flexBetweenX`}>
       <div>
-        <ul className={`${$.categoryList} ${$.categoryListActive}  flexBetweenX`}>
+        <ul className={`${tw.categoryList} ${tw.categoryListActive}  flexBetweenX`}>
           {categories.map((categoryName, index) => {
             return (
               <li
                 onClick={() => {
                   categoryChange(index)
                 }}
-                className={`${$.categoryItem} ${categoryId === index ? $.active : ''}`}
+                className={`${tw.categoryItem} ${categoryId === index ? tw.active : ''}`}
                 role='presentation'
                 key={categoryName}
               >
@@ -113,13 +112,13 @@ const Sort = ({ onChangeCategory, setOrder }: SortProps) => {
           </span>
         </div>
         {isOpenPop && (
-          <div className={$.sortPopup}>
+          <div className={tw.sortPopup}>
             <ul>
               {sortBy.map((obj) => (
                 <li
                   onClick={() => selectSortValue(obj)}
                   className={
-                    sortType.sortProperty === obj.sortProperty ? $.sortActive : ''
+                    sortType.sortProperty === obj.sortProperty ? tw.sortActive : ''
                   }
                   key={obj.name}
                   role='presentation'

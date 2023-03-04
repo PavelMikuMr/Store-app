@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 import { createSlice } from '@reduxjs/toolkit'
-import { IBasket } from '_types/Filter'
+import { IBasket } from '@type/Filter'
 import { RootState } from '../store'
 import getItemsFromLS from '@/utils/getItemsFromLS'
 

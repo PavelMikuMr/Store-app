@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import type IFurniture from '_types/IFurniture'
+import type IFurniture from '@type/IFurniture'
 
 type Parameters = {
   categoryId: string | number

@@ -1,8 +1,7 @@
 import React from 'react'
 import { useOutletContext } from 'react-router-dom'
-import Sort from '@components/Sort'
-import HandleLayout from '@components/HandleLayout'
-import { IOutletContex } from '@/pages/Root'
+import { HandleLayout, Sort } from '@components_i'
+import { IOutlet } from '@type_i'
 
 const Home = () => {
   const {
@@ -13,7 +12,7 @@ const Home = () => {
     isLoading,
     isMountedLayout,
     isFetching
-  } = useOutletContext<IOutletContex>()
+  } = useOutletContext<IOutlet>()
   return (
     <>
       <Sort onChangeCategory={onChangeCategory} setOrder={orderSetting} />

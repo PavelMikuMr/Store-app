@@ -10,9 +10,9 @@ import {
   faHeart as faHeartSol
 } from '@fortawesome/free-solid-svg-icons'
 import { faHeart as faHeartReg } from '@fortawesome/free-regular-svg-icons'
-import $ from '@common/Furniture.module.scss'
-import IFurniture from '_types/IFurniture'
-import { IBasket } from '_types/Filter'
+import tw from '@common/Furniture.module.scss'
+import IFurniture from '@type/IFurniture'
+import { IBasket } from '@type/Filter'
 import { useSelector, useDispatch } from 'react-redux'
 import { itemSelectorById, addItems, removeItems } from '@/redux/slices/basketSlice'
 
@@ -74,21 +74,21 @@ const Furniture = ({ item, price, title, imgUrl, rating }: FurnitureProps) => {
   }
 
   return (
-    <div className={$.furnitureContainer}>
-      <div className={$.gridCustom}>
+    <div className={tw.furnitureContainer}>
+      <div className={tw.gridCustom}>
         <div
-          className={`${$.flexCenterX} ${$.furnitureListImg} `}
+          className={`${tw.flexCenterX} ${tw.furnitureListImg} `}
           id={`gallery-wrap-${title}`}
         >
-          <ul className={$.furnitureList}>
+          <ul className={tw.furnitureList}>
             {getKeyForSideImg(imgUrl).map((item, index) => (
               <li
                 onClick={() => setHeroImg(index)}
-                className={`${$.furnitureItem} ${$.furnitureItemBackground}`}
+                className={`${tw.furnitureItem} ${tw.furnitureItemBackground}`}
                 key={item}
                 role='presentation'
               >
-                <div className={index === heroImg ? '' : $.sideBackdrop}> </div>
+                <div className={index === heroImg ? '' : tw.sideBackdrop}> </div>
                 <img src={imgUrl[index]} alt={title} />
               </li>
             ))}
@@ -99,14 +99,14 @@ const Furniture = ({ item, price, title, imgUrl, rating }: FurnitureProps) => {
             const { galleryItems, galleryOptions } = showGallery()
             Fancybox.show(galleryItems, galleryOptions)
           }}
-          className={`${$.furnitureHero}`}
+          className={`${tw.furnitureHero}`}
           id={`${title.replace(/\s/g, '')}`}
           style={{ backgroundImage: `url(${imgUrl[heroImg]})` }}
           role='presentation'
         />
-        <div className={`${$.flexCol} ${$.furnitureInfoTextAll}`}>
-          <h2 className={$.furniturePriceTitle}>{title}</h2>
-          <div className={$.furnitureRate}>
+        <div className={`${tw.flexCol} ${tw.furnitureInfoTextAll}`}>
+          <h2 className={tw.furniturePriceTitle}>{title}</h2>
+          <div className={tw.furnitureRate}>
             <div className='flex'>
               {Array.from(Array(rating))
                 .map((e, i) => +i + 10)
@@ -115,7 +115,7 @@ const Furniture = ({ item, price, title, imgUrl, rating }: FurnitureProps) => {
                     <FontAwesomeIcon color='#f77d4d' icon={faStar} size='sm' key={item} />
                   )
                 })}
-              <span className={$.furnitureRateStart}>{rating} of 5 stars</span>
+              <span className={tw.furnitureRateStart}>{rating} of 5 stars</span>
             </div>
             <FontAwesomeIcon
               onClick={() => setLike((like) => !like)}
@@ -125,8 +125,8 @@ const Furniture = ({ item, price, title, imgUrl, rating }: FurnitureProps) => {
               size='2xl'
             />
           </div>
-          <div className={`${$.furnitureCost} flexBetweenX`}>
-            <p className={$.furnitureCostDigit}>$ {price}.00</p>
+          <div className={`${tw.furnitureCost} flexBetweenX`}>
+            <p className={tw.furnitureCostDigit}>$ {price}.00</p>
             <div className='flex items-center gap-x-2'>
               <FontAwesomeIcon
                 className='text-base xs:text-base ss:text-lg sm:text-xl sw840:text-base'
@@ -150,12 +150,12 @@ const Furniture = ({ item, price, title, imgUrl, rating }: FurnitureProps) => {
           <div className='flexBetweenX'>
             <div className='furnitureColor'>
               <form>
-                <label className={$.furnitureLabel} htmlFor='select-color'>
+                <label className={tw.furnitureLabel} htmlFor='select-color'>
                   Color:
                   <select
                     ref={colorRef}
                     defaultValue='yellow'
-                    className={$.labelSelect}
+                    className={tw.labelSelect}
                     name='color'
                     id='select-color'
                   >
@@ -171,12 +171,12 @@ const Furniture = ({ item, price, title, imgUrl, rating }: FurnitureProps) => {
             </div>
             <div>
               <form>
-                <label className={$.furnitureLabel} htmlFor='select-size'>
+                <label className={tw.furnitureLabel} htmlFor='select-size'>
                   Size:
                   <select
                     ref={sizeRef}
                     defaultValue='regular'
-                    className={`${$.labelSelect} sm:w-24 sw840:w-20`}
+                    className={`${tw.labelSelect} sm:w-24 sw840:w-20`}
                     name='size'
                     id='select-size'
                   >
@@ -192,11 +192,11 @@ const Furniture = ({ item, price, title, imgUrl, rating }: FurnitureProps) => {
             </div>
           </div>
           <div className='mt-6'>
-            <button onClick={addItemToBasket} className={$.furnitureButtonAdd}>
+            <button onClick={addItemToBasket} className={tw.furnitureButtonAdd}>
               Add to card
             </button>
           </div>
-          <div className={`${$.furnitureInfo} flexBetweenX`}>
+          <div className={`${tw.furnitureInfo} flexBetweenX`}>
             <div>
               <p>Info Guide</p>
             </div>

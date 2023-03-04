@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
-import $ from '@common/SelectedItems.module.scss'
-import { IBasket } from '_types/Filter'
+import tw from '@common/SelectedItems.module.scss'
+import { IBasket } from '@type/Filter'
 import {
   addItems,
   removeItems,
@@ -32,34 +32,34 @@ const SelectedItem = ({ item }: { item: IBasket }) => {
 
   return (
     <div className='mb-10'>
-      <div className={`${$.selectedItem} px-2`}>
+      <div className={`${tw.selectedItem} px-2`}>
         <div className='itemIcon'>
-          <img className={$.itemImg} src={item.imgUrl[0]} alt='selected-furniture' />
+          <img className={tw.itemImg} src={item.imgUrl[0]} alt='selected-furniture' />
         </div>
-        <div className={$.infoTextContainer}>
-          <h2 className={$.itemInfoTittle}>{item.title}</h2>
-          <p className={$.itemInfoSubTittle}>
+        <div className={tw.infoTextContainer}>
+          <h2 className={tw.itemInfoTittle}>{item.title}</h2>
+          <p className={tw.itemInfoSubTittle}>
             Color: {item.color} , Size: {item.size}
           </p>
         </div>
-        <div className={`${$.additionItem}`}>
-          <div className={$.additionItemBtn}>
+        <div className={`${tw.additionItem}`}>
+          <div className={tw.additionItemBtn}>
             <span onClick={addItemToBasket} role='presentation'>
               +
             </span>
           </div>
           <div className='w-[20px] text-center'>{item.count}</div>
-          <div className={$.additionItemBtn}>
+          <div className={tw.additionItemBtn}>
             <span onClick={removeItemToBasket} role='presentation'>
               -
             </span>
           </div>
         </div>
-        <div className={`${$.totalCost} flexCenter`}>
+        <div className={`${tw.totalCost} flexCenter`}>
           {item.count ? item.count * item.price : item.price} $
         </div>
-        <div className={`${$.cancelSell} flexCenter`}>
-          <div className={$.closeMarker}>
+        <div className={`${tw.cancelSell} flexCenter`}>
+          <div className={tw.closeMarker}>
             <FontAwesomeIcon
               onClick={clearItemFromBasket}
               color='white'

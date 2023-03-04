@@ -1,4 +1,4 @@
-import $ from '@styles/views/LoginPage.module.scss'
+import tw from '@styles/views/LoginPage.module.scss'
 
 interface InputProps extends React.HTMLProps<HTMLInputElement> {
   isError?: boolean
@@ -14,18 +14,18 @@ export const Input = ({
   helperText,
   ...props
 }: InputProps) => {
-  const className = isError ? $.error : ''
+  const className = isError ? tw.error : ''
   return (
     <>
       <input
         id={htmlFor}
-        className={`${$.formInput} ${$.formInputActive} ${className}`}
+        className={`${tw.formInput} ${tw.formInputActive} ${className}`}
         {...props}
       />
-      <label className={$.formLabelActive} htmlFor={htmlFor}>
+      <label className={tw.formLabelActive} htmlFor={htmlFor}>
         {labelText}
       </label>
-      {isError && helperText && <div className={$.helperErrorText}>{helperText}</div>}
+      {isError && helperText && <div className={tw.helperErrorText}>{helperText}</div>}
     </>
   )
 }

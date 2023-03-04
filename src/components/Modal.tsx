@@ -1,8 +1,7 @@
 /* eslint-disable no-param-reassign */
-import React from 'react'
 import { useSelector } from 'react-redux'
 import { clsx } from 'clsx'
-import $ from '@styles/common/Modal.module.scss'
+import tw from '@styles/common/Modal.module.scss'
 import { Link } from 'react-router-dom'
 import { bit } from '@/assets/icons'
 import { RootState } from '@/redux/store'
@@ -18,17 +17,17 @@ const Modal = ({ isTrue, setIsTrue }: { isTrue: boolean; setIsTrue: () => void }
   const totalPrice = useSelector((state: RootState) => state.basket.totalPrice)
   return (
     <>
-      <div className={`${$.modal} ${clsx(isTrue && $.opened)}`}>
-        <div className={$.modalWrapper}>
-          <div className={$.content}>
-            <div className={$.titleBox}>
+      <div className={`${tw.modal} ${clsx(isTrue && tw.opened)}`}>
+        <div className={tw.modalWrapper}>
+          <div className={tw.content}>
+            <div className={tw.titleBox}>
               <Link to='/'>
                 <img src={bit} alt='logo' className='max-w-[2rem]' />
               </Link>
-              <h1 className={$.modalTitle}>Store</h1>
+              <h1 className={tw.modalTitle}>Store</h1>
             </div>
-            <form action='' className={$.form}>
-              <div className={`${$.formGroup} ${$.full}`}>
+            <form action='' className={tw.form}>
+              <div className={`${tw.formGroup} ${tw.full}`}>
                 <label htmlFor={LabelController.CARD}>Credit Card:</label>
                 <input
                   type='text'
@@ -37,7 +36,7 @@ const Modal = ({ isTrue, setIsTrue }: { isTrue: boolean; setIsTrue: () => void }
                   id={LabelController.CARD}
                 />
               </div>
-              <div className={$.formGroup}>
+              <div className={tw.formGroup}>
                 <label htmlFor={LabelController.EXPIRE}>EXPIRE:</label>
                 <input
                   type='text'
@@ -46,7 +45,7 @@ const Modal = ({ isTrue, setIsTrue }: { isTrue: boolean; setIsTrue: () => void }
                   id={LabelController.EXPIRE}
                 />
               </div>
-              <div className={$.formGroup}>
+              <div className={tw.formGroup}>
                 <label htmlFor={LabelController.CCV}>ccv:</label>
                 <input
                   type='password'
@@ -55,7 +54,7 @@ const Modal = ({ isTrue, setIsTrue }: { isTrue: boolean; setIsTrue: () => void }
                   id={LabelController.CCV}
                 />
               </div>
-              <div className={`${$.formGroup} ${$.full}`}>
+              <div className={`${tw.formGroup} ${tw.full}`}>
                 <label htmlFor={LabelController.INSTANT}>INSTANT</label>
                 <input
                   type='text'
@@ -64,25 +63,25 @@ const Modal = ({ isTrue, setIsTrue }: { isTrue: boolean; setIsTrue: () => void }
                   id={LabelController.INSTANT}
                 />
               </div>
-              <div className={$.formCheckbox}>
+              <div className={tw.formCheckbox}>
                 <input type='checkbox' name='agreement' id='agreement' required />
-                <span className={$.check} />
+                <span className={tw.check} />
                 <label className={LabelController.AGREEMENT} htmlFor='agreement'>
                   I agree with the <span>rules</span> of the Store
                 </label>
               </div>
-              <div className={$.modalTotal}>
-                <div className={$.modalTotalText}>your total sum</div>
-                <div className={$.modalTotalPrice}>{totalPrice} $</div>
+              <div className={tw.modalTotal}>
+                <div className={tw.modalTotalText}>your total sum</div>
+                <div className={tw.modalTotalPrice}>{totalPrice} $</div>
               </div>
-              <button className={`${$.modalSubmit} ${$.buyButton}`} type='submit'>
+              <button className={`${tw.modalSubmit} ${tw.buyButton}`} type='submit'>
                 buy now
               </button>
               <div
                 onClick={() => {
                   setIsTrue()
                 }}
-                className={$.closeMarker}
+                className={tw.closeMarker}
                 role='presentation'
               >
                 x
@@ -91,7 +90,7 @@ const Modal = ({ isTrue, setIsTrue }: { isTrue: boolean; setIsTrue: () => void }
           </div>
         </div>
       </div>
-      <div className={`${$.overlay} ${clsx(isTrue && $.opened)}`} />
+      <div className={`${tw.overlay} ${clsx(isTrue && tw.opened)}`} />
     </>
   )
 }

@@ -1,13 +1,12 @@
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBasketShopping, faCaretLeft } from '@fortawesome/free-solid-svg-icons'
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons'
-import React from 'react'
-import SelectedItem from '@components/SelectedItem'
-import $ from '@views/BasketPage.module.scss'
+import { SelectedItem, Modal } from '@components_i'
+import tw from '@views/BasketPage.module.scss'
 import { clearAllItems, basketSelector } from '@/redux/slices/basketSlice'
-import Modal from '@/components/Modal'
 
 const BasketPage = () => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -22,9 +21,9 @@ const BasketPage = () => {
   return (
     <>
       {' '}
-      <div className={$.basketContainer}>
-        <header className={`${$.basketHeader} flexBetweenX`}>
-          <div className={`${$.basket} flexBetweenX`}>
+      <div className={tw.basketContainer}>
+        <header className={`${tw.basketHeader} flexBetweenX`}>
+          <div className={`${tw.basket} flexBetweenX`}>
             <FontAwesomeIcon
               color='white'
               className='mr-2'
@@ -33,14 +32,14 @@ const BasketPage = () => {
             />
             <h2 className='title'>Basket</h2>
           </div>
-          <div className={`${$.cleanBasket} flexBetweenX`}>
+          <div className={`${tw.cleanBasket} flexBetweenX`}>
             <FontAwesomeIcon
               color='white'
               className='mr-2 cursor-pointer'
               icon={faTrashCan}
               size='lg'
             />
-            <button onClick={clearAllItemFromBasket} className={$.cleanBasketTitle}>
+            <button onClick={clearAllItemFromBasket} className={tw.cleanBasketTitle}>
               Clean basket
             </button>
           </div>
@@ -50,12 +49,12 @@ const BasketPage = () => {
         ) : (
           <div />
         )}
-        <div className={$.order}>
-          <div className={$.orderAll}>
-            <h2 className={$.orderTitle}>
+        <div className={tw.order}>
+          <div className={tw.orderAll}>
+            <h2 className={tw.orderTitle}>
               Total selected: <strong>{items.length} products</strong>
             </h2>
-            <div className={$.orderComeBack}>
+            <div className={tw.orderComeBack}>
               <FontAwesomeIcon
                 color='white'
                 className='absolute top-[4px] left-0 mr-2 cursor-pointer'
@@ -63,12 +62,12 @@ const BasketPage = () => {
                 size='lg'
               />
               <Link to='/'>
-                <button className={$.orderComeBackBtn}>Go back</button>
+                <button className={tw.orderComeBackBtn}>Go back</button>
               </Link>
             </div>
           </div>
-          <div className={$.buyNow}>
-            <h2 className={$.buyNowTitle}>
+          <div className={tw.buyNow}>
+            <h2 className={tw.buyNowTitle}>
               Order amount:
               <strong className='block text-center'>{totalPrice} $</strong>
             </h2>

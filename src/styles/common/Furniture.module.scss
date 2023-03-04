@@ -9,7 +9,29 @@
     @apply flex w-full flex-row justify-between gap-y-2 px-0 py-2 lg:w-auto lg:flex-col lg:p-2;
   }
   .sideBackdrop {
-    @apply absolute z-[1] h-[75px] w-[75px] cursor-pointer bg-black/[.90] transition duration-200 hover:bg-transparent xs:h-[85px] xs:w-[85px] ss:h-[95px] ss:w-[95px] sm:h-[105px] sm:w-[105px] sw840:h-[75px] sw840:w-[75px] mn:h-[85px] mn:w-[85px] md:h-[86px] md:w-[86px] lg:h-[70px]  lg:w-[70px];
+    @apply absolute 
+    z-[1] 
+    h-[75px] 
+    w-[75px] 
+    cursor-pointer
+    bg-black/[.90] 
+    transition 
+    duration-200 
+    hover:bg-transparent 
+    xs:h-[85px] 
+    xs:w-[85px] 
+    ss:h-[95px] 
+    ss:w-[95px] 
+    sm:h-[105px] 
+    sm:w-[105px] 
+    sw840:h-[75px] 
+    sw840:w-[75px] 
+    mn:h-[85px] 
+    mn:w-[85px] 
+    md:h-[86px] 
+    md:w-[86px] 
+    lg:h-[70px]  
+    lg:w-[70px];
   }
   .furnitureItem {
     @apply flex h-[70px] w-[70px] cursor-pointer items-center justify-center overflow-hidden rounded-2xl transition-colors xs:h-[80px] xs:w-[80px] ss:h-[90px] ss:w-[90px] sm:h-[100px] sm:w-[100px] sw840:h-[70px] sw840:w-[70px] mn:max-h-[80px] mn:max-w-[80px] md:max-h-[90px] md:max-w-[90px] lg:max-h-[4rem] lg:max-w-[4rem];
@@ -19,7 +41,7 @@
   }
 
   .furnitureHero {
-    @apply flex items-center justify-center overflow-hidden rounded-3xl bg-cover bg-center   bg-no-repeat md:max-h-[16.75rem] lg:max-h-[18.2rem];
+    @apply flex cursor-pointer items-center justify-center overflow-hidden rounded-3xl bg-cover bg-center  bg-no-repeat md:max-h-[16.75rem] lg:max-h-[18.2rem];
     img {
       @apply md:max-w-[110%] lg:max-w-full;
     }

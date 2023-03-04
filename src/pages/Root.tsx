@@ -1,13 +1,9 @@
 import React from 'react'
 import qs from 'qs'
-import { useWhyDidYouUpdate } from 'ahooks'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { sortBy } from '@components/Sort'
-import IFurniture from '_types/IFurniture'
-import Header from '@components/Header'
-import Wrapper from '@components/Wrapper'
-import { ISort } from '_types/Filter'
+import { Header, Wrapper, sortBy } from '@components_i'
+import { IOutlet, ISort, IFurniture } from '@type_i'
 import { RootState } from '@/redux/store'
 import { setCategoryId, setFilters, filterSelector } from '@/redux/slices/filterSlice'
 import { setFurniture } from '@/redux/slices/furnitureSlice'
@@ -27,15 +23,6 @@ export interface IOutletContex {
 const Root = () => {
   const [order, setOrder] = React.useState('desc')
   const curRef = React.useRef(false)
-
-  import('@/utils/math')
-    .then((math) => {
-      console.log(math.add('hello', 'world'))
-    })
-    .catch((err: any) => {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-      throw new Error(err)
-    })
 
   const navigate = useNavigate()
   const isMounted = React.useRef(false)
@@ -125,7 +112,6 @@ const Root = () => {
     <Wrapper>
       <Header items={items} totalPrice={totalPrice} />
       <Outlet context={outletContext} />
-      <div id='sparta'>Sparta</div>
     </Wrapper>
   )
 }

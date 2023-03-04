@@ -1,7 +1,6 @@
-/* eslint-disable react/no-unknown-property */
 import { useState } from 'react'
-import { Input, Checkbox } from '@fields'
-import $ from '@views/LoginPage.module.scss'
+import { Input, Checkbox } from '@fields_i'
+import tw from '@views/LoginPage.module.scss'
 import { Link } from 'react-router-dom'
 
 const validateIsEmpty = (value: string) => {
@@ -35,15 +34,15 @@ const LoginPage = () => {
     password: null
   })
   return (
-    <div className={$.wrapperLogin}>
-      <div className={$.login}>
-        <div className={$.header}>
+    <div className={tw.wrapperLogin}>
+      <div className={tw.login}>
+        <div className={tw.header}>
           <h2 className='uppercase'>Store</h2>
         </div>
-        <div className={$.loginBox}>
-          <form className={$.form}>
-            <h1 className={$.loginTitle}>Log in</h1>
-            <div className={`${$.formGroup} ${$.formGroupActive}`}>
+        <div className={tw.loginBox}>
+          <form className={tw.form}>
+            <h1 className={tw.loginTitle}>Log in</h1>
+            <div className={`${tw.formGroup} ${tw.formGroupActive}`}>
               <Input
                 type='text'
                 placeholder=' '
@@ -63,7 +62,7 @@ const LoginPage = () => {
                 })}
               />
             </div>
-            <div className={`${$.formGroup} ${$.formGroupActive}`}>
+            <div className={`${tw.formGroup} ${tw.formGroupActive}`}>
               <Input
                 type='password'
                 placeholder=' '
@@ -83,12 +82,12 @@ const LoginPage = () => {
               />
             </div>
             <Checkbox htmlFor='myDevice' text='This is my devise' />
-            <Link to='/' className={`${$.formButton} text-center`}>
+            <Link to='/' className={`${tw.formButton} text-center`}>
               Sign in
             </Link>
           </form>
         </div>
-        <div className={$.flexCenter}>
+        <div className={tw.flexCenter}>
           <button className='text-yellow-600'>Create new account</button>
         </div>
       </div>

@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit'
-import { ISort, FilterState } from '_types/Filter'
+import { ISort, FilterState } from '@type/Filter'
 import { RootState } from '@/redux/store'
 
 const initialState: FilterState = {

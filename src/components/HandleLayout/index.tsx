@@ -5,9 +5,8 @@ import { Spinner } from '@components/Spinner'
 import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Grid, Pagination } from 'swiper'
-import tw from 'twin.macro'
-import $ from '@common/HandleLayout.module.scss'
-import IFurniture from '_types/IFurniture'
+import tw from '@common/HandleLayout.module.scss'
+import IFurniture from '@type/IFurniture'
 import { flower } from '@assets/images'
 import Skeleton from './Skeleton'
 import { RootState } from '@/redux/store'
@@ -18,11 +17,6 @@ import 'swiper/scss'
 import 'swiper/scss/pagination'
 import 'swiper/scss/grid'
 import '@styles/swiper/grid.scss'
-
-const styles = {
-  container: tw`flex justify-center items-center w-full`,
-  text: tw`font-poppins text-2xl`
-}
 
 const HandleLayout = ({
   furnitureItems,
@@ -126,8 +120,8 @@ const HandleLayout = ({
     return <Spinner />
   }
   return (
-    <div className={$.handleLayout}>
-      <div className={$.headingTitleBox}>
+    <div className={tw.handleLayout}>
+      <div className={tw.headingTitleBox}>
         <h1 className='heading text-center text-3xl ss:text-4xl sm:text-5xl md:text-6xl lg:text-left'>
           Get, Buy & Sell
         </h1>
@@ -135,7 +129,7 @@ const HandleLayout = ({
       </div>
 
       {isLoading ? (
-        <div className={$.sceletonLayout}>{renderSkeleton()}</div>
+        <div className={tw.sceletonLayout}>{renderSkeleton()}</div>
       ) : furnitureItems.length > 0 ? (
         isFetching ? (
           renderSpinner()

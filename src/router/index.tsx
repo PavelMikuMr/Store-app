@@ -1,17 +1,24 @@
+import React, { Suspense } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
-import ErrorPage from '@pages/ErrorPage'
-import BasketPage from '@pages/BasketPage'
-import EmptyBasketPage from '@pages/EmptyBasketPage'
-import LoginPage from '@pages/LoginPage'
 import Root from '@/pages/Root'
 import Home from '@/pages/Home'
+import { Spinner } from '@/components/Spinner'
+// подгрузка только в нужный момент
+const BasketPage = React.lazy(() => import('@pages/BasketPage'))
+const EmptyBasketPage = React.lazy(() => import('@pages/EmptyBasketPage'))
+const LoginPage = React.lazy(() => import('@pages/LoginPage'))
+const ErrorPage = React.lazy(() => import('@pages/ErrorPage'))
 
 const router = createBrowserRouter([
   {
     path: '/',
     id: 'Root',
     element: <Root />,
-    errorElement: <ErrorPage />,
+    errorElement: (
+      <Suspense fallback={<Spinner />}>
+        <ErrorPage />
+      </Suspense>
+    ),
     children: [
       {
         path: '/',
@@ -21,19 +28,31 @@ const router = createBrowserRouter([
       {
         path: '/basket',
         id: 'BasketPage',
-        element: <BasketPage />
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <BasketPage />
+          </Suspense>
+        )
       },
       {
         path: '/emptyBasket',
         id: 'EmptyBasketPage',
-        element: <EmptyBasketPage />
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <EmptyBasketPage />
+          </Suspense>
+        )
       }
     ]
   },
   {
     path: '/login',
     id: 'LoginPage',
-    element: <LoginPage />,
+    element: (
+      <Suspense fallback={<Spinner />}>
+        <LoginPage />
+      </Suspense>
+    ),
     errorElement: <ErrorPage />
   }
 ])

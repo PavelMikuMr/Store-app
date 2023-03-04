@@ -1,4 +1,4 @@
-import IFurniture from '_types/IFurniture'
+import IFurniture from '@type/IFurniture'
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState: { furnitureItems: IFurniture[] } = {

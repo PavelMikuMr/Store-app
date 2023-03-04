@@ -1,129 +1,9 @@
 import React from 'react'
-import { debounce } from 'lodash'
+import debounce from 'lodash.debounce'
 import { useDispatch } from 'react-redux'
-import tw from 'twin.macro'
-import styled from 'styled-components'
+import tw from '@styles/common/Search.module.scss'
 import { AppDispatch } from '@/redux/store'
 import { setSearchValue } from '@/redux/slices/filterSlice'
-
-const SearchBox = styled.div`
-  ${tw`
-  bg-white
-  w-[40px]
-  h-[40px]
-  ss:w-[60px]
-  ss:h-[60px]
-  rounded-full
-  shadow
-  shadow-amber-50
-  relative
-  overflow-hidden
-`}
-  transition:0.5s;
-  &.active {
-    width: 360px;
-  }
-  @media (max-width: 620px) {
-    &.active {
-      width: 300px;
-    }
-`
-const SearchIcon = styled.div`
-  ${tw`
-  absolute
-  top-0
-  left-0
-  w-[40px]
-  h-[40px]
-  ss:w-[60px]
-  ss:h-[60px]
-  bg-white
-  rounded-full
-  grid
-  place-items-center
-  z-[999]
-  cursor-pointer
-`}
-  &::before {
-    position: absolute;
-    content: '';
-    width: 15px;
-    height: 15px;
-    border: 3px solid #ef6043;
-    border-radius: 50%;
-    transform: translate(-2px, -2px);
-  }
-  &::after {
-    position: absolute;
-    content: '';
-    width: 3px;
-    height: 10px;
-    background: #ef6043;
-    transform: translate(6px, 6px) rotate(-45deg);
-  }
-  @media (max-widht: 620px) {
-    & {
-      display: none;
-    }
-  }
-`
-const InputContainer = styled.div`
-  ${tw`
-  relative left-[2.75rem] ss:left-[3.75rem] grid h-[2.75rem] ss:h-[3.75rem] w-[16rem] place-items-center
-`}
-`
-const SearchInput = styled.input`
-  ${tw`
-  absolute
-  top-0
-  left-0
-  w-full
-  h-full
-  border-0
-  outline-0
-  text-black/[.60]
-  font-poppins
-  text-lg
-  py-2.5  
-`}
-  background-size: cover;
-`
-const Xmark = styled.span`
-  ${tw`
-  absolute
-  top-[50%]
-  right-4
-  h-4
-  w-4
-  cursor-pointer
-  grid
-  place-self-center
-  translate-y-[-50%]
-  
-  `}
-  &::before {
-    content: '';
-    position: absolute;
-    width: 1px;
-    height: 15px;
-    background: #999;
-    transform: rotate(45deg);
-  }
-  &::after {
-    content: '';
-    position: absolute;
-    width: 1px;
-    height: 15px;
-    background: #999;
-    transform: rotate(-45deg);
-  }
-  &:hover::after {
-    background: #000000;
-  }
-  &:hover::before {
-    background: #000000;
-  }
-`
 
 const Search = React.memo(function Search() {
   const dispatch = useDispatch<AppDispatch>()
@@ -153,10 +33,15 @@ const Search = React.memo(function Search() {
   }
   return (
     <div className='searhHead flexCenter col-span-2 row-start-1 ss:col-span-1 ss:row-start-auto'>
-      <SearchBox className={search ? 'active' : ''}>
-        <SearchIcon onClick={() => setSearch((prev) => !prev)} />
-        <InputContainer>
-          <SearchInput
+      <div className={`${tw.searchBox} ${search ? tw.active : ''}`}>
+        <div
+          role='presentation'
+          className={tw.searchIcon}
+          onClick={() => setSearch((prev) => !prev)}
+        />
+        <div className={tw.inputContainer}>
+          <input
+            className={tw.searchInput}
             ref={inputRef}
             type='text'
             name=''
@@ -165,9 +50,11 @@ const Search = React.memo(function Search() {
             value={value}
             onChange={onChangeInput}
           />
-        </InputContainer>
-        {value && <Xmark onClick={onClickClear} />}
-      </SearchBox>
+        </div>
+        {value && (
+          <span className={tw.xmark} role='presentation' onClick={onClickClear} />
+        )}
+      </div>
     </div>
   )
 })
