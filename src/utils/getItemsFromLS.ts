@@ -7,3 +7,6 @@ export default function getItemsFromLS() {
 
   return data ? (JSON.parse(data) as IBasketinitialState) : { totalPrice: 0, items: [] }
 }
+{
+  ;`${$.formGroup} ${$.full}`
+}

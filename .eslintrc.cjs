@@ -69,7 +69,6 @@ module.exports = {
     // for redux props
     'no-param-reassign': ['error', { props: false }],
     // classes
-    // Enforce that class methods utilize this
     'class-methods-use-this': 'warn',
     'no-underscore-dangle': [
       'error',
@@ -77,6 +76,23 @@ module.exports = {
     ],
     'global-require': 0,
     'linebreak-style': 0,
+    // label
+    'jsx-a11y/label-has-associated-control': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id']
+        }
+      }
+    ],
+    'jsx-a11y/label-has-for': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id']
+        }
+      }
+    ],
     'import/extensions': [
       'error',
       'ignorePackages',
