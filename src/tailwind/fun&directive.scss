@@ -1,0 +1,144 @@
+/* 
+Если вам нужен детальный контроль над порядком применения классов, используйте несколько операторов @apply:
+*/
+
+.btn {
+  @apply py-2;
+  @apply p-4;
+}
+
+/* Вывод */
+.btn {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding: 1rem;
+}
+///////////////////////////////////////////////////////////////
+//todo Вы также можете смешивать объявления @apply с обычными объявлениями
+///////////////////////////////////////////////////////////////
+/* Ввод */
+.btn {
+  transform: translateY(-1px);
+  @apply bg-black;
+}
+
+/* Вывод */
+.btn {
+  background-color: #000;
+  transform: translateY(-1px);
+}
+///////////////////////////////////////////////////////////////
+//todo Любые правила, заключенные с помощью @apply, будут иметь !important удалено по умолчанию, чтобы избежать проблем со специфичностью:
+///////////////////////////////////////////////////////////////
+
+/* Ввод */
+.foo {
+  color: blue !important;
+}
+
+.bar {
+  @apply foo;
+}
+
+/* Вывод */
+.foo {
+  color: blue !important;
+}
+
+.bar {
+  color: blue;
+}
+
+///////////////////////////////////////////////////////////////
+//todo Если вы хотите применить к существующему классу @apply и сделать его !important, просто добавьте !important в конец объявления:
+///////////////////////////////////////////////////////////////
+/* Ввод */
+.btn {
+  @apply rounded py-2 px-4 font-bold !important;
+}
+
+/* Вывод */
+.btn {
+  font-weight: 700 !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  padding-right: 1rem !important;
+  padding-left: 1rem !important;
+  border-radius: 0.25rem !important;
+}
+/* 
+Обратите внимание, что если вы используете Sass/SCSS, вам нужно использовать функцию интерполяции Sass, чтобы это работало:
+*/
+.btn {
+  @apply rounded py-2 px-4 font-bold #{!important};
+// }
+
+///////////////////////////////////////////////////////////////'
+/// 								   !	@layer
+//todo Используйте директиву @layer, чтобы указать Tailwind, к какому “bucket” принадлежит набор пользовательских стилей. Допустимые уровни - это base, components и utilities.
+///////////////////////////////////////////////////////////////
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+}
+
+@layer components {
+  .btn-blue {
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+  }
+}
+
+@layer utilities {
+  @variants hover, focus {
+    .filter-none {
+      filter: none;
+    }
+    .filter-grayscale {
+      filter: grayscale(100%);
+    }
+  }
+}
+
+///////////////////////////////////////////////////////////////'
+/// 								  @variants
+//todo Вы можете сгенерировать responsive, hover, focus, active и другие варианты Ваших собственных утилит, заключив их определения в директиву @variants.
+///////////////////////////////////////////////////////////////
+ @variants focus, hover {
+  .rotate-0 {
+    transform: rotate(0deg);
+  }
+  .rotate-90 {
+    transform: rotate(90deg);
+  }
+}
+// Это сгенерирует следующий CSS:
+
+.rotate-0 {
+  transform: rotate(0deg);
+}
+.rotate-90 {
+  transform: rotate(90deg);
+}
+
+.focus\:rotate-0:focus {
+  transform: rotate(0deg);
+}
+.focus\:rotate-90:focus {
+  transform: rotate(90deg);
+}
+
+.hover\:rotate-0:hover {
+  transform: rotate(0deg);
+}
+.hover\:rotate-90:hover {
+  transform: rotate(90deg);
+}

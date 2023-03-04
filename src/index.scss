@@ -7,9 +7,9 @@
 :root {
   --black-gradient: linear-gradient(
     144.39deg,
-    #ffffff -278.56%,
-    #6d6d6d -78.47%,
-    #11101d 91.61%
+    #202020 -278.56%,
+    #161616 -78.47%,
+    #d44f4063 0.61%
   );
   --card-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
 }
@@ -17,154 +17,185 @@
 * {
   scroll-behavior: smooth;
 }
+body {
+  color: white;
+  background-color: black;
 
-@layer components {
-  body {
-    @apply min-h-screen bg-black/100;
+  &::-webkit-scrollbar {
+    width: 0.15rem;
+    height: 0.15rem;
+  }
+  &::-webkit-scrollbar-track {
+    background: #1e1e24;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #6649b8;
   }
 }
+// @layer components {
+//   body {
+//     @apply bg-black text-white;
+//   }
+// }
 
 @layer components {
-  .video {
-    @apply bg-gray-200 px-12 py-14 text-center;
+  .btnXl {
+    @apply w-full rounded-3xl bg-[#EF6043] p-1 font-poppins text-base hover:bg-[#eb6f50] sm:p-3 sm:text-lg;
   }
 }
 
 @layer utilities {
-  .grid-custom {
-    display: grid;
-    grid-template-columns: minmax(0, max-content) repeat(2, minmax(0, 1fr));
-    gap: 0 0.5rem;
-    // grid-template-columns:  minmax(0, max-content);
+  .boxWidth {
+    @apply w-full xl:max-w-[1280px];
+  }
+  .paragraph {
+    @apply font-poppins text-[18px] font-normal leading-[30.8px] text-white;
+  }
+  .heading {
+    @apply font-poppins  font-semibold leading-[66.8px] text-white xs:leading-[76.8px];
+  }
+
+  .flexCenter {
+    @apply flex items-center justify-center;
+  }
+  .flexStart {
+    @apply flex items-start justify-center;
+  }
+  .flexEnd {
+    @apply flex items-end justify-center;
+  }
+  .flexCenterX {
+    @apply flex justify-center;
+  }
+  .flexCenterY {
+    @apply flex flex-col items-center justify-center;
+  }
+  .flexBetweenX {
+    @apply flex flex-row justify-between;
+  }
+  .flexCol {
+    @apply flex flex-col;
+  }
+  .paddingX {
+    @apply px-6 sm:px-16;
+  }
+  .paddingY {
+    @apply py-6 sm:py-16;
+  }
+  .padding {
+    @apply px-6 py-4 sm:px-16 sm:py-12;
+  }
+  .marginX {
+    @apply mx-6 sm:mx-16;
+  }
+  .marginY {
+    @apply my-6 sm:my-16;
+  }
+  .section {
+    @apply flex flex-col py-6 sm:py-16 md:flex-row;
+  }
+  .sectionReverse {
+    @apply flex flex-col-reverse md:flex-row;
+  }
+  .sectionImgReverse {
+    @apply relative mr-0 mt-10 flex flex-1 items-center justify-center md:mr-10 md:mt-0;
+  }
+  .sectionImg {
+    @apply relative ml-0 mt-10 flex flex-1 items-center justify-center md:ml-10 md:mt-0;
+  }
+  .sectionInfo {
+    @apply flex-1  flex-col  items-start justify-center;
   }
 }
 
-@layer components {
-  .furnitureItemBackground {
-    background-color: #ececec7c;
-  }
-}
-
-// @layer utilities {
-//   .grid-custom {
-//     grid-template-columns: repeat(3, minmax(0, 1fr));
+// @layer components {
+//   .but-bl {
+//     filter: blur(8px);
+//     -webkit-filter: blur(8px);
 //   }
 // }
 
-.text-gradient {
-  background: radial-gradient(
-    64.18% 64.18% at 71.16% 35.69%,
-    #def9fa 0.89%,
-    #bef3f5 17.23%,
-    #9dedf0 42.04%,
-    #7de7eb 55.12%,
-    #5ce1e6 71.54%,
-    #33bbcf 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
+.pinkHero {
+  background-color: #ff5ab9;
 }
-
-.bg-blue-gradient {
-  background: linear-gradient(
-    157.81deg,
-    #def9fa -43.27%,
-    #bef3f5 -21.24%,
-    #9dedf0 12.19%,
-    #7de7eb 29.82%,
-    #5ce1e6 51.94%,
-    #33bbcf 90.29%
-  );
-  color: #a6adc933;
-}
-
-.bg-black-gradient {
-  background: linear-gradient(
-    144.39deg,
-    #ffffff -278.56%,
-    #6d6d6d -78.47%,
-    #11101d 91.61%
-  );
-}
-
-.bg-black-gradient-2 {
-  background: linear-gradient(
-    -168.39deg,
-    #ffffff -278.56%,
-    #6d6d6d -78.47%,
-    #11101d 91.61%
-  );
-}
-
-.bg-gray-gradient {
-  background: linear-gradient(153.47deg, rgba(255, 255, 255, 0) -341.94%, #14101d 95.11%);
-}
-
-.bg-discount-gradient {
-  background: linear-gradient(125.17deg, #272727 0%, #11101d 100%);
-}
-
-.box-shadow {
-  box-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
-}
-
-.sidebar {
-  -webkit-animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
-@-webkit-keyframes slide-top {
-  0% {
-    -webkit-transform: translateY(100px);
-    transform: translateY(100px);
+.pinkSide {
+  background-color: #a8347479;
+  &:hover {
+    background-color: #ff5ab9;
   }
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
+  &:first-child {
+    background-color: #ff5ab9;
+  }
+}
+.orangeHero {
+  background-color: #ff6c4e;
+}
+.orangeSide {
+  background-color: #a8593479;
+  &:hover {
+    background-color: #ff6c4e;
+  }
+  &:first-child {
+    background-color: #ff6c4e;
+  }
+}
+.purpleHero {
+  background-color: #ba59ff;
+}
+.purpleSide {
+  background-color: #9534a879;
+  &:hover {
+    background-color: #ba59ff;
+  }
+  &:first-child {
+    background-color: #ba59ff;
   }
 }
 
-@keyframes slide-top {
-  0% {
-    -webkit-transform: translateY(100px);
-    transform: translateY(100px);
-  }
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
+// Swiper
+.swiper-pagination-bullet {
+  background: #7e2ba1 !important;
+}
+.swiper-pagination-bullet-active {
+  background: #ba59ff !important;
 }
 
-.feature-card:hover {
-  background: var(--black-gradient);
-  box-shadow: var(--card-shadow);
+#RiveraJerry {
+  background-position: 20% 5%;
+}
+#Rimini {
+  background-position: 20% 65%;
 }
 
-.feedback-container .feedback-card:last-child {
-  margin-right: 0px;
+#OSofa {
+  background-position: 20% 50%;
 }
 
-.feedback-card {
-  background: transparent;
+#RobasLund {
+  background-position: 20% 72%;
 }
 
-.feedback-card:hover {
-  background: var(--black-gradient);
+#Choco {
+  background-position: 20% 58%;
 }
 
-.blue__gradient {
-  background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #214d76 100%);
-  filter: blur(123px);
+#Monro {
+  background-position: 20% 20%;
+}
+#Christopher {
+  background-position: 20% 68%;
+}
+#ArsNatura {
+  background-position: 20% 95%;
 }
 
-.pink__gradient {
-  background: linear-gradient(90deg, #f4c4f3 0%, #fc67fa 100%);
-  filter: blur(900px);
+#Victoria {
+  background-position: 20% 53%;
+}
+#Sitzer {
+  background-position: 20% 77%;
 }
 
-.white__gradient {
-  background: rgba(255, 255, 255, 0.6);
-  filter: blur(750px);
+#Esstisch {
+  background-position: 20% 60%;
 }

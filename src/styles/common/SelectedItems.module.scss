@@ -1,0 +1,36 @@
+.selectedItem {
+  @apply grid grid-cols-[_minmax(0,_max-content),_minmax(0,80px),1fr,_minmax(0,60px),_minmax(0,_max-content)] gap-x-1 xs:grid-cols-[_minmax(0,_max-content),1fr,repeat(2,1fr),_minmax(0,_max-content)] xs:gap-x-3 ss:gap-x-5;
+}
+
+.itemImg {
+  @apply h-10 w-10 rounded-lg object-cover xs:h-14 xs:w-14;
+}
+.itemInfoTittle {
+  @apply font-poppins text-base xs:text-xl;
+}
+.infoTextContainer {
+  @apply flex items-center xs:block;
+}
+.itemInfoSubTittle {
+  @apply hidden font-poppins text-sm xs:block;
+}
+.additionItem {
+  @apply flex items-center justify-center gap-x-2 font-poppins text-xl ss:gap-x-5;
+
+  .additionItemBtn {
+    @apply grid h-8 w-8 place-content-center rounded-full border-2 border-white/[.20] bg-black ss:h-10 ss:w-10;
+    // span {
+    //   @apply grid h-[36px] w-[36px] cursor-pointer place-items-center rounded-full bg-black text-center align-bottom;
+    // }
+  }
+}
+.totalCost {
+  @apply font-poppins text-base xs:text-xl;
+}
+.cancelSell {
+  @apply h-8 w-8 cursor-pointer self-center rounded-full border-[3px] border-white/[.20] bg-black p-1 ss:h-10 ss:w-10;
+
+  .closeMarker {
+    @apply grid h-8 w-8 place-content-center;
+  }
+}

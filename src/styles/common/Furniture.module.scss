@@ -1,0 +1,119 @@
+.furnitureContainer {
+  @apply m-auto max-w-[33rem] rounded-3xl border-2 border-white/[.20] bg-black py-5 px-4 shadow-modern ss:px-6 lg:m-0 lg:max-w-[40rem] lg:px-10;
+
+  .furnitureListImg {
+    @apply row-start-2 max-h-[18.2rem] lg:row-auto;
+  }
+
+  .furnitureList {
+    @apply flex w-full flex-row justify-between gap-y-2 px-0 py-2 lg:w-auto lg:flex-col lg:p-2;
+  }
+  .sideBackdrop {
+    @apply absolute 
+    z-[1] 
+    h-[75px] 
+    w-[75px] 
+    cursor-pointer
+    bg-black/[.90] 
+    transition 
+    duration-200 
+    hover:bg-transparent 
+    xs:h-[85px] 
+    xs:w-[85px] 
+    ss:h-[95px] 
+    ss:w-[95px] 
+    sm:h-[105px] 
+    sm:w-[105px] 
+    sw840:h-[75px] 
+    sw840:w-[75px] 
+    mn:h-[85px] 
+    mn:w-[85px] 
+    md:h-[86px] 
+    md:w-[86px] 
+    lg:h-[70px]  
+    lg:w-[70px];
+  }
+  .furnitureItem {
+    @apply flex h-[70px] w-[70px] cursor-pointer items-center justify-center overflow-hidden rounded-2xl transition-colors xs:h-[80px] xs:w-[80px] ss:h-[90px] ss:w-[90px] sm:h-[100px] sm:w-[100px] sw840:h-[70px] sw840:w-[70px] mn:max-h-[80px] mn:max-w-[80px] md:max-h-[90px] md:max-w-[90px] lg:max-h-[4rem] lg:max-w-[4rem];
+    img {
+      @apply object-contain object-top  lg:h-[100px] lg:w-[100px];
+    }
+  }
+
+  .furnitureHero {
+    @apply flex cursor-pointer items-center justify-center overflow-hidden rounded-3xl bg-cover bg-center  bg-no-repeat md:max-h-[16.75rem] lg:max-h-[18.2rem];
+    img {
+      @apply md:max-w-[110%] lg:max-w-full;
+    }
+  }
+  // .RiveraJerry {
+  //   @apply bg-[center_top_1rem];
+  // }
+  .furnitureInfoTextAll {
+    @apply max-h-[18.2rem] justify-between;
+  }
+  .furniturePriceTitle {
+    @apply font-poppins text-xl font-normal text-white xs:text-2xl ss:text-3xl sm:text-4xl sw840:text-3xl lg:text-4xl;
+  }
+  .furnitureRate {
+    @apply flex items-center justify-between;
+  }
+  .furnitureRateStart {
+    @apply ml-1 inline-block align-bottom font-poppins text-white/[.40] md:text-sm lg:text-sm;
+  }
+  .furnitureCost {
+    @apply mt-4;
+  }
+  .furnitureCostDigit {
+    @apply font-poppins text-xl text-white xs:text-2xl ss:text-3xl sm:text-4xl sw840:text-2xl;
+  }
+  .furnitureDecrease {
+    @apply absolute top-0 right-0 text-[3rem] text-white/[.40];
+  }
+  .furnitureLabel {
+    @apply mr-1 font-poppins text-white/[.40] sm:text-base sw840:text-[0.85rem];
+  }
+  .labelSelect {
+    @apply ml-0.5 bg-transparent text-white;
+
+    option {
+      @apply border-none bg-black drop-shadow backdrop-blur-xl;
+    }
+  }
+  .furnitureButtonAdd {
+    @apply w-full rounded-3xl bg-[#EF6043] p-2 font-poppins text-lg text-white transition-colors hover:bg-[#eb6f50];
+  }
+  .furnitureInfo {
+    p {
+      @apply mt-6 cursor-pointer font-poppins text-[14px] text-white/[.40] hover:text-[#eb988488] md:text-[12px] lg:text-xs;
+    }
+  }
+}
+
+@import '@styles/utilities/Master.module.scss';
+
+.gridCustom {
+  display: grid;
+  grid-template-columns: minmax(0, max-content) repeat(2, minmax(0, 1fr));
+  gap: 0 0.5rem;
+  // grid-template-columns:  minmax(0, max-content);
+
+  @media (max-width: 1350px) {
+    grid-template-columns: auto;
+    grid-template-rows: 1fr minmax(0, max-content) 1fr;
+    // grid-row-start: ;
+  }
+}
+
+.furnitureItemBackground {
+  background-color: #ececec7c;
+}
+
+@media (max-width: 1350px) {
+  .news {
+    &-item__img {
+      min-width: 201px;
+      height: 70%;
+    }
+  }
+}

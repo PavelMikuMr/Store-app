@@ -1,0 +1,95 @@
+.overlayWrapper {
+  @apply h-screen w-screen;
+}
+.modal {
+  @apply invisible fixed top-1/2 left-1/2  z-[999] font-poppins opacity-0;
+  transform: translate(-50%, -50%);
+
+  &.opened {
+    @apply visible  opacity-100 transition-all;
+  }
+}
+.modalWrapper {
+  @apply relative rounded-xl border-2 border-white/[0.20] p-4 shadow-modern xs:p-8;
+
+  background: linear-gradient(180deg, #0c0c0c 10.42%, #080808 100%);
+}
+.content {
+  @apply z-[2];
+}
+.titleBox {
+  @apply flex items-center justify-center gap-x-2;
+}
+.modalTitle {
+  @apply text-center font-poppins text-2xl font-medium uppercase text-white;
+}
+.form {
+  @apply mt-4 flex min-w-[250px] max-w-[400px] flex-wrap justify-between gap-y-4;
+}
+.formGroup {
+  @apply w-[calc(50%-13px)];
+
+  label {
+    @apply mb-1 block text-sm font-normal uppercase;
+  }
+  input {
+    @apply w-full rounded-[6px] bg-[#6b5b48c4] p-3 text-sm font-medium uppercase leading-3 text-[#d9d9d9] xs:p-4;
+  }
+}
+.full {
+  @apply w-full;
+}
+
+.formCheckbox {
+  @apply relative flex items-center gap-x-3;
+
+  input {
+    @apply absolute top-0 left-0 h-full w-full cursor-pointer opacity-0;
+    &:checked {
+      & + .check {
+        &::before {
+          position: absolute;
+          content: '✓';
+          left: 7px;
+          top: 0px;
+        }
+      }
+    }
+  }
+}
+.check {
+  @apply block h-[24px] w-[25px] rounded-[6px] bg-[#6b5b48c4] text-center;
+}
+.agreement {
+  @apply text-[11px] uppercase leading-3 md:text-sm;
+  span {
+    @apply text-[#ff4136];
+  }
+}
+.modalTotal {
+  @apply w-full justify-between text-base font-medium uppercase;
+}
+.modalTotalText {
+  @apply text-base;
+}
+.modalTotalPrice {
+  @apply text-xl;
+}
+.closeMarker {
+  @apply absolute top-0 right-[12px] cursor-pointer text-2xl font-bold text-[#d9d9d9];
+}
+
+.modalSubmit[type='submit'] {
+  @apply flex w-full cursor-pointer justify-center rounded-lg bg-[#EF6043] py-3 px-8 text-center font-medium uppercase leading-5 text-white transition-all hover:bg-[#eb6f50];
+}
+.buyButton {
+  @apply text-base;
+}
+
+.overlay {
+  @apply invisible fixed top-1/2 left-1/2 z-[-1] h-full w-full translate-x-[-50%] translate-y-[-50%]  opacity-0;
+  background-color: rgba(31, 31, 31, 0.4);
+  &.opened {
+    @apply visible opacity-100;
+  }
+}

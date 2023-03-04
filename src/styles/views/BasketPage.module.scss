@@ -1,0 +1,65 @@
+.basketContainer {
+  @apply mx-auto max-w-[800px];
+
+  .basketHeader {
+    @apply mb-10 border-b border-white/[.40] pb-4;
+  }
+  .basket {
+    @apply font-poppins text-2xl;
+  }
+  .cleanBasket {
+    @apply items-start;
+  }
+  .cleanBasketTitle {
+    @apply cursor-pointer font-poppins text-xl text-white/[.40];
+  }
+
+  .selectedItem {
+    @apply grid grid-cols-[repeat(2,_minmax(0,_max-content)),repeat(2,1fr),_minmax(0,_max-content)] gap-x-5;
+  }
+
+  .itemImg {
+    @apply h-14 w-14 rounded-lg;
+  }
+  .itemInfoTittle {
+    @apply font-poppins text-xl;
+  }
+
+  .itemInfoSubTittle {
+    @apply font-poppins text-sm;
+  }
+  .additionItem {
+    @apply gap-x-5 font-poppins text-xl;
+
+    .additionItemBtn {
+      @apply grid h-10 w-10 place-content-center rounded-full bg-white/[.20];
+      span {
+        @apply grid h-[36px] w-[36px] cursor-pointer place-items-center rounded-full bg-black text-center align-bottom;
+      }
+    }
+  }
+  .order {
+    @apply grid grid-cols-2;
+  }
+  .orderTitle {
+    @apply font-poppins text-base ss:text-lg sm:text-xl;
+  }
+  .orderAll {
+    @apply grid grid-rows-2;
+  }
+  .orderComeBack {
+    @apply relative self-center;
+  }
+  .orderComeBackBtn {
+    @apply ml-4 font-poppins text-sm text-white/[.40];
+  }
+  .buyNow {
+    @apply flex flex-col gap-y-4  justify-self-end;
+  }
+  .buyNowTitle {
+    @apply font-poppins text-base ss:text-lg sm:text-xl;
+    strong {
+      @apply text-[#eb6f50];
+    }
+  }
+}

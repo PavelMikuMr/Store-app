@@ -1,0 +1,40 @@
+.header {
+  @apply mb-6 max-w-[100%] ss:mb-12;
+
+  .gridBox {
+    @apply grid grid-rows-2 ss:grid-cols-[1fr,360px,_minmax(0,1fr)] ss:grid-rows-1;
+  }
+  .infoTextBox {
+    @apply ml-2 flex items-center md:block;
+  }
+  .info {
+    @apply row-start-2 flex justify-self-start ss:row-auto;
+  }
+  .infoTitle {
+    @apply font-poppins text-2xl font-semibold;
+  }
+
+  .infoSubTitle {
+    @apply hidden font-medium text-white/[.40]  md:block;
+  }
+
+  .infoPayment {
+    @apply row-start-2 grid place-content-center justify-self-end ss:row-auto;
+  }
+
+  .button {
+    @apply relative flex h-max w-[180px] items-end justify-end gap-x-1 rounded-3xl bg-none py-3 px-0  xs:w-[180px] sm:items-center sw840:w-[160px] sw840:justify-center sw840:gap-x-0 sw840:bg-[#EF6043] sw840:px-5 sw840:hover:bg-[#eb6f50];
+  }
+
+  .buttonDelimiter {
+    @apply mx-3  h-4 w-[1px] bg-white;
+  }
+
+  .buttonCost {
+    @apply mb-0 self-end  font-poppins  text-base font-semibold leading-none;
+  }
+
+  .infoBin {
+    @apply self-auto font-poppins font-semibold leading-none sm:self-end;
+  }
+}

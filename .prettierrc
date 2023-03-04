@@ -7,5 +7,5 @@
   "jsxBracketSameLine": false,
   "jsxSingleQuote": true,
   "printWidth": 90,
-  "arrowParent": "always"
+  "arrowParens": "always"
 }

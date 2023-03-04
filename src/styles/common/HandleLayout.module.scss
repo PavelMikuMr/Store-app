@@ -1,0 +1,13 @@
+.handleLayout {
+  @apply relative;
+  /*  mx-auto grid w-max grid-cols-1 place-content-center gap-5 lg:grid-cols-[repeat(2,_minmax(0,_max-content))]; */
+
+  /* grid-template-columns: minmax(0, max-content) repeat(2, minmax(0, 1fr)); */
+  /*  mx-auto  grid grid-cols-[200px_minmax(900px,_1fr)_100px]; */
+  .headingTitleBox {
+    @apply mb-6 flex  items-baseline justify-center gap-x-4 lg:justify-start;
+  }
+}
+.sceletonLayout {
+  @apply absolute left-1/2 top-[30%] mx-auto grid w-max translate-x-[-50%] grid-cols-1 grid-rows-1 place-content-start  ss:static ss:-translate-x-px  lg:grid-cols-[repeat(2,_minmax(0,_max-content))] lg:grid-rows-none lg:place-content-center;
+}

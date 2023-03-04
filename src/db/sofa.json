@@ -1,0 +1,54 @@
+[
+  {
+    "id": 8,
+    "title": "Sitzer",
+    "price": 130.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/85/e9/a8/85e9a82b539b6e86ccacc37e3d28952c.jpg",
+      "https://i.pinimg.com/564x/f6/c9/5b/f6c95bb9a1535cdf0abd79ea5c79aa53.jpg",
+      "https://i.pinimg.com/564x/15/f2/6c/15f26c4361688b644d00df6c0ec46009.jpg",
+      "https://i.pinimg.com/564x/23/96/54/23965455aa4c6577ffb2751c3b84b27e.jpg"
+    ],
+    "rating": 2,
+    "category": [0, 3]
+  },
+  {
+    "id": 9,
+    "title": "Robas Lund",
+    "price": 290.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/22/92/30/229230a4f9677759928fa5551719df48.jpg",
+      "https://i.pinimg.com/564x/44/4c/7c/444c7c793656110e0099cea71c7efdce.jpg",
+      "https://i.pinimg.com/564x/af/a1/8d/afa18d3bede793bc9ea0626ef27d9bd0.jpg",
+      "https://i.pinimg.com/564x/2e/4f/66/2e4f664d99f45c24773f5583d8c06766.jpg"
+    ],
+    "rating": 5,
+    "category": [0, 3]
+  },
+  {
+    "id": 10,
+    "title": "Hardman",
+    "price": 145.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/9b/64/2a/9b642a9a784e304263b8c036e921aede.jpg",
+      "https://i.pinimg.com/564x/c5/e5/b4/c5e5b4c49aca01b128a88fdc8718b744.jpg",
+      "https://i.pinimg.com/564x/1a/e6/9a/1ae69abd7c7fc738109b654858b0ee03.jpg",
+      "https://i.pinimg.com/564x/dc/10/25/dc1025a8b8942f90158f362ff2614286.jpg"
+    ],
+    "rating": 3,
+    "category": [0, 3]
+  },
+  {
+    "id": 11,
+    "title": "Vernal",
+    "price": 390.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/15/5e/e8/155ee8838ce8a225ede91d81e8bb2ec3.jpg",
+      "https://i.pinimg.com/564x/bf/6b/42/bf6b42add87bed733efaf13f4239c268.jpg",
+      "https://i.pinimg.com/564x/9a/b3/e9/9ab3e9718ce73eb86d42d39ade9059fd.jpg",
+      "https://i.pinimg.com/564x/9a/0a/6e/9a0a6e12ad1f087120ef1c41e8f36bb8.jpg"
+    ],
+    "rating": 4,
+    "category": [0, 3]
+  }
+]

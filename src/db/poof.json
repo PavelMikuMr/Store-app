@@ -1,0 +1,54 @@
+[
+  {
+    "id": 4,
+    "title": "Vela",
+    "price": 320.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/bc/9e/45/bc9e452b476a29778e571fb688f120c0.jpg",
+      "https://i.pinimg.com/564x/a6/52/7f/a6527f25590889013f656781e8e06990.jpg",
+      "https://i.pinimg.com/564x/95/11/50/95115031e88c68ded7c4acf52195a1f8.jpg",
+      "https://i.pinimg.com/564x/7b/7c/5a/7b7c5a5fbe63a56f9e6f6778f20a19d0.jpg"
+    ],
+    "rating": 3,
+    "category": [0, 2]
+  },
+  {
+    "id": 5,
+    "title": "Ars Natura",
+    "price": 120.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/fb/ad/39/fbad3958b876bed76bd009b3219493e5.jpg",
+      "https://i.pinimg.com/564x/02/72/02/027202437f26f1eb829bed23ed6a74a6.jpg",
+      "https://i.pinimg.com/564x/83/b3/04/83b3040abb252fbeb99fc09f3d09834a.jpg",
+      "https://i.pinimg.com/564x/29/3d/2b/293d2bab87f55e2d8aefb504fc749a22.jpg"
+    ],
+    "rating": 3,
+    "category": [0, 2]
+  },
+  {
+    "id": 6,
+    "title": "O Sofa",
+    "price": 520.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/9e/cb/57/9ecb57842bf672578f58abf7d54b9a21.jpg",
+      "https://i.pinimg.com/564x/7b/da/44/7bda4473fd1149073f5dfa604f2eee49.jpg",
+      "https://i.pinimg.com/564x/42/4f/e8/424fe8baf33ea60d63e681b1bd226070.jpg",
+      "https://i.pinimg.com/564x/de/cf/64/decf64fcbabb74d1edf2a37652d70439.jpg"
+    ],
+    "rating": 5,
+    "category": [0, 2]
+  },
+  {
+    "id": 7,
+    "title": "Esstisch",
+    "price": 90.0,
+    "imgUrl": [
+      "https://i.pinimg.com/564x/c2/16/f6/c216f600968c921203bdf23bd19583c4.jpg",
+      "https://i.pinimg.com/564x/33/4b/bb/334bbba62d5f6b1539584a1b6bcb226b.jpg",
+      "https://i.pinimg.com/564x/03/c2/9b/03c29b8335f8bab0610a7907004d0243.jpg",
+      "https://i.pinimg.com/564x/2b/43/35/2b433546f3bb6abbf70ad7977e2eab0d.jpg"
+    ],
+    "rating": 4,
+    "category": [0, 2]
+  }
+]

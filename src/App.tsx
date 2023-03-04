@@ -1,19 +1,13 @@
-import { useState } from 'react'
-import './App.scss'
-
-import reactLogo from './assets/react.svg'
-
-import Grid from './components/Grid'
-
-import Furniture from './components/Furniture'
+import { RouterProvider } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { store } from './redux/store'
+import router from './router'
 
 const App = () => {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className='App'>
-      <Furniture />
-    </div>
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   )
 }
 

@@ -1,0 +1,141 @@
+// Basic styling
+/////////////////////
+
+import tw from 'twin.macro'
+import styled from 'styled-components'
+import { logo } from '@/assets/icons'
+
+const Button = styled.button`
+  background: ${(props) => (props.disabled ? 'grey' : 'white')};
+  font-size: 1em;
+  margin: 1em;
+  border: 2px solid;
+`
+
+const TopSection = styled.div`
+  ${tw`
+	flex
+	flex-col
+	shadow
+  
+`}
+`
+
+const NavItmes = tw.ul`
+list-none
+flex
+w-full
+h-auto
+lg:h-full
+`
+
+const Lading = styled.div`
+  ${tw`
+	w-full
+	h-screen 
+	flex
+`}
+  background-image: url(logo) linear-gradient(to left ,#005b9c ,#b1d1b148);
+  background-size: cover;
+`
+
+const Outline = styled.svg`
+  font: bold 100px Century 'Archivo Narrow', Arial;
+  ${tw`
+	w-[550px]
+	h-[550px]
+`}
+`
+
+/* 
+import 'twin.macro'
+
+const Component = () => (
+  <div tw="flex w-full">
+    <div tw="w-1/2"></div>
+    <div tw="w-1/2"></div>
+  </div>
+)
+
+ */
+
+///////////////////////////////////////
+//TypeScript example
+////////////////////////////////////////
+
+import tw from 'twin.macro'
+
+interface ComponentProps {
+  hasBg?: string;
+}
+
+const Component = ({ hasBg }: ComponentProps) => (
+  <div
+    css={[
+      tw`flex w-full`, // Add base styles first
+      hasBg && tw`bg-black` // Then add conditional styles
+    ]}
+  >
+    <div tw='w-1/2' />
+    <div tw='w-1/2' />
+  </div>
+)
+
+///////////////////////////////////////
+//Keeping jsx clean
+////////////////////////////////////////
+
+import tw from 'twin.macro'
+
+interface ContainerProps {
+  hasBg?: boolean;
+}
+
+const styles = {
+  container: ({ hasBg }: ContainerProps) => [
+    tw`flex w-full`, // Add base styles first
+    hasBg && tw`bg-black` // Then add conditional styles
+  ],
+  column: tw`w-1/2`
+}
+
+const Component = ({ hasBg }: ContainerProps) => (
+  <section css={styles.container({ hasBg })}>
+    <div css={styles.column} />
+    <div css={styles.column} />
+  </section>
+)
+
+///////////////////////////////////////
+//* Keeping jsx clean
+////////////////////////////////////////
+
+import tw, { TwStyle } from 'twin.macro'
+
+type WrapperVariant = 'light' | 'dark' | 'crazy'
+
+interface ContainerProps {
+  variant?: WrapperVariant;
+}
+
+const containerVariants: Record<WrapperVariant, TwStyle> = {
+  // Named class sets
+  light: tw`bg-white text-black`,
+  dark: tw`bg-black text-white`,
+  crazy: tw`bg-yellow-500 text-red-500`
+}
+
+const styles = {
+  container: ({ variant = 'dark' }: ContainerProps) => [
+    tw`flex w-full`,
+    containerVariants[variant] // Grab the variant style via a prop
+  ],
+  column: tw`w-1/2`
+}
+
+const Component = ({ variant }: ContainerProps) => (
+  <section css={styles.container({ variant })}>
+    <div css={styles.column} />
+    <div css={styles.column} />
+  </section>
+)

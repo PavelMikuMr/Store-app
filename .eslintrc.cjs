@@ -42,11 +42,7 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react/prop-types': 1,
     'react/jsx-no-useless-fragment': [2, { allowExpressions: true }],
-    'no-undef': 0,
-    'no-unused-vars': 0,
-    '@typescript-eslint/no-unused-vars': 0,
-    '@typescript-eslint/no-shadow': 0,
-    'consistent-return': 1,
+    'react/jsx-props-no-spreading': 0,
     'react/function-component-definition': [
       2,
       {
@@ -54,17 +50,61 @@ module.exports = {
         unnamedComponents: 'arrow-function'
       }
     ],
-    'import/prefer-default-export': 0,
-    'react/jsx-props-no-spreading': 0,
+    'react/no-unknown-property': ['error', { ignore: ['css'] }],
+    '@typescript-eslint/no-unused-vars': 0,
+    '@typescript-eslint/no-shadow': 0,
     'eslint linebreak-style': [0, 'error', 'windows'],
-    'global-require': 0,
-    'linebreak-style': 0,
     'prettier/prettier': [
       'error',
       {
         endOfLine: 'auto'
       }
     ],
-    'tailwindcss/no-custom-classname': 0
+    'tailwindcss/no-custom-classname': 0,
+    'no-undef': 0,
+    'no-unused-vars': 1,
+    'consistent-return': 1,
+    'no-console': 1,
+    'import/prefer-default-export': 0,
+    // for redux props
+    'no-param-reassign': ['error', { props: false }],
+    // classes
+    'class-methods-use-this': 'warn',
+    'no-underscore-dangle': [
+      'error',
+      { enforceInClassFields: false, allowAfterThis: true, allow: ['foo_', '_bar'] }
+    ],
+    'global-require': 0,
+    'linebreak-style': 0,
+    // label
+    'jsx-a11y/label-has-associated-control': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id']
+        }
+      }
+    ],
+    'jsx-a11y/label-has-for': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id']
+        }
+      }
+    ],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        '': 'never',
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never'
+      }
+    ],
+    'import/no-extraneous-dependencies': 0,
+    'tailwindcss/classnames-order': 0
   }
 }
