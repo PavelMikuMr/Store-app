@@ -28,6 +28,15 @@ const Root = () => {
   const [order, setOrder] = React.useState('desc')
   const curRef = React.useRef(false)
 
+  import('@/utils/math')
+    .then((math) => {
+      console.log(math.add('hello', 'world'))
+    })
+    .catch((err: any) => {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+      throw new Error(err)
+    })
+
   const navigate = useNavigate()
   const isMounted = React.useRef(false)
   const isLayout = React.useRef(false)
@@ -116,6 +125,7 @@ const Root = () => {
     <Wrapper>
       <Header items={items} totalPrice={totalPrice} />
       <Outlet context={outletContext} />
+      <div id='sparta'>Sparta</div>
     </Wrapper>
   )
 }

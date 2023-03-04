@@ -2,17 +2,17 @@
   @apply h-screen w-screen;
 }
 .modal {
-  @apply fixed top-1/2 left-1/2 z-[999]  font-poppins; //opacity-0 invisible;
+  @apply invisible fixed top-1/2 left-1/2  z-[999] font-poppins opacity-0;
   transform: translate(-50%, -50%);
 
   &.opened {
-    @apply visible bg-red-500 opacity-100 transition-all;
+    @apply visible  opacity-100 transition-all;
   }
 }
 .modalWrapper {
   @apply relative rounded-xl border-2 border-white/[0.20] p-4 shadow-modern xs:p-8;
 
-  background: linear-gradient(180deg, #131312 10.42%, #0a0a07 100%);
+  background: linear-gradient(180deg, #0c0c0c 10.42%, #080808 100%);
 }
 .content {
   @apply z-[2];
@@ -87,7 +87,9 @@
 }
 
 .overlay {
-  @apply fixed top-1/2 left-1/2 z-[-1] h-full w-full translate-x-[-50%] translate-y-[-50%] bg-black/[0.9];
-  //   opacity: 0;
-  //   visibility: hidden;
+  @apply invisible fixed top-1/2 left-1/2 z-[-1] h-full w-full translate-x-[-50%] translate-y-[-50%]  opacity-0;
+  background-color: rgba(31, 31, 31, 0.4);
+  &.opened {
+    @apply visible opacity-100;
+  }
 }

@@ -1,4 +1,3 @@
-// @import '@/styles/fonts';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
@@ -18,12 +17,26 @@
 * {
   scroll-behavior: smooth;
 }
+body {
+  color: white;
+  background-color: black;
 
-@layer components {
-  body {
-    @apply bg-white text-white;
+  &::-webkit-scrollbar {
+    width: 0.15rem;
+    height: 0.15rem;
+  }
+  &::-webkit-scrollbar-track {
+    background: #1e1e24;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #6649b8;
   }
 }
+// @layer components {
+//   body {
+//     @apply bg-black text-white;
+//   }
+// }
 
 @layer components {
   .btnXl {

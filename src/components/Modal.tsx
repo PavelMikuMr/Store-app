@@ -1,7 +1,11 @@
+/* eslint-disable no-param-reassign */
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { clsx } from 'clsx'
 import $ from '@styles/common/Modal.module.scss'
 import { Link } from 'react-router-dom'
 import { bit } from '@/assets/icons'
+import { RootState } from '@/redux/store'
 
 enum LabelController {
   CARD = 'card',
@@ -10,10 +14,11 @@ enum LabelController {
   INSTANT = 'instant',
   AGREEMENT = 'agreement'
 }
-const Modal = () => {
+const Modal = ({ isTrue, setIsTrue }: { isTrue: boolean; setIsTrue: () => void }) => {
+  const totalPrice = useSelector((state: RootState) => state.basket.totalPrice)
   return (
     <>
-      <div className={$.modal}>
+      <div className={`${$.modal} ${clsx(isTrue && $.opened)}`}>
         <div className={$.modalWrapper}>
           <div className={$.content}>
             <div className={$.titleBox}>
@@ -33,42 +38,61 @@ const Modal = () => {
                 />
               </div>
               <div className={$.formGroup}>
-                <label htmlFor='expire'>EXPIRE:</label>
-                <input type='text' required placeholder='mm/yy' id='expire' />
+                <label htmlFor={LabelController.EXPIRE}>EXPIRE:</label>
+                <input
+                  type='text'
+                  required
+                  placeholder='mm/yy'
+                  id={LabelController.EXPIRE}
+                />
               </div>
               <div className={$.formGroup}>
-                <label htmlFor='ccv'>ccv:</label>
-                <input type='password' required placeholder='***' id='ccv' />
+                <label htmlFor={LabelController.CCV}>ccv:</label>
+                <input
+                  type='password'
+                  required
+                  placeholder='***'
+                  id={LabelController.CCV}
+                />
               </div>
               <div className={`${$.formGroup} ${$.full}`}>
-                <label htmlFor='instant'>INSTANT</label>
-                <input type='text' required placeholder='David Koperfield' id='instant' />
+                <label htmlFor={LabelController.INSTANT}>INSTANT</label>
+                <input
+                  type='text'
+                  required
+                  placeholder='David Koperfield'
+                  id={LabelController.INSTANT}
+                />
               </div>
               <div className={$.formCheckbox}>
                 <input type='checkbox' name='agreement' id='agreement' required />
                 <span className={$.check} />
-                <label className={$.agreement} htmlFor='agreement'>
+                <label className={LabelController.AGREEMENT} htmlFor='agreement'>
                   I agree with the <span>rules</span> of the Store
                 </label>
               </div>
               <div className={$.modalTotal}>
                 <div className={$.modalTotalText}>your total sum</div>
-                <div className={$.modalTotalPrice}>34 $</div>
+                <div className={$.modalTotalPrice}>{totalPrice} $</div>
               </div>
               <button className={`${$.modalSubmit} ${$.buyButton}`} type='submit'>
-                {' '}
                 buy now
               </button>
-              <div className={$.closeMarker}>x</div>
+              <div
+                onClick={() => {
+                  setIsTrue()
+                }}
+                className={$.closeMarker}
+                role='presentation'
+              >
+                x
+              </div>
             </form>
           </div>
         </div>
       </div>
-      <div className={$.overlay} />
+      <div className={`${$.overlay} ${clsx(isTrue && $.opened)}`} />
     </>
   )
 }
 export default Modal
-
-// className={$.$1}
-// className='(\w+)'

@@ -8,12 +8,10 @@ import { Grid, Pagination } from 'swiper'
 import tw from 'twin.macro'
 import $ from '@common/HandleLayout.module.scss'
 import IFurniture from '_types/IFurniture'
-import { IBasket } from '_types/Filter'
 import { flower } from '@assets/images'
 import Skeleton from './Skeleton'
 import { RootState } from '@/redux/store'
 import { setPageCount } from '@/redux/slices/filterSlice'
-import { addItems, removeItems } from '@/redux/slices/basketSlice'
 
 // Import Swiper styles
 import 'swiper/scss'
@@ -39,7 +37,6 @@ const HandleLayout = ({
   isMountedLayout: boolean
   isFetching: boolean
 }) => {
-  console.log(' inside layout isFetching:', isFetching)
   const swiperInit = React.useRef(null)
   const dispacth = useDispatch()
 
@@ -89,7 +86,6 @@ const HandleLayout = ({
   const renderSwiperLayout = (): React.ReactNode => {
     return (
       <Swiper
-        // centeredSlides={true}
         ref={swiperInit}
         slidesPerView={1}
         grid={{

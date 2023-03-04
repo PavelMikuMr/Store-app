@@ -1,6 +1,4 @@
 import $ from '@styles/views/LoginPage.module.scss'
-//* 1)
-// type InputProps = React.HTMLProps<HTMLInputElement>
 
 interface InputProps extends React.HTMLProps<HTMLInputElement> {
   isError?: boolean
@@ -8,10 +6,6 @@ interface InputProps extends React.HTMLProps<HTMLInputElement> {
   htmlFor: string
   labelText: string
 }
-//* 3)
-// interface InputProps {
-//   name: string
-// }
 
 export const Input = ({
   labelText,

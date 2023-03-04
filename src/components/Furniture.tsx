@@ -1,7 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Fancybox } from '@fancyapps/ui'
-import { clsx } from 'clsx'
 import '@styles/fancybox/fancybox.scss'
 
 import {
@@ -104,9 +103,7 @@ const Furniture = ({ item, price, title, imgUrl, rating }: FurnitureProps) => {
           id={`${title.replace(/\s/g, '')}`}
           style={{ backgroundImage: `url(${imgUrl[heroImg]})` }}
           role='presentation'
-        >
-          {/* <img src={imgUrl[heroImg]} alt={`${title}-hero`} /> */}
-        </div>
+        />
         <div className={`${$.flexCol} ${$.furnitureInfoTextAll}`}>
           <h2 className={$.furniturePriceTitle}>{title}</h2>
           <div className={$.furnitureRate}>

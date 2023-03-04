@@ -1,18 +1,20 @@
 import { Link } from 'react-router-dom'
 
+interface BtnXLProps extends React.HTMLProps<HTMLButtonElement> {
+  bg?: string
+  text: string
+  width?: string
+  center?: string
+  link?: string
+}
+
 export const BtnXL = ({
   text,
   bg = '',
   width = '',
   center = '',
   link = ''
-}: {
-  bg?: string
-  text: string
-  width?: string
-  center?: string
-  link?: string
-}) => {
+}: BtnXLProps) => {
   return (
     <div className={`btnField ${center}`}>
       <Link to={link}>
@@ -21,4 +23,3 @@ export const BtnXL = ({
     </div>
   )
 }
-// export default BtnXL

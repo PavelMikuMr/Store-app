@@ -4,16 +4,16 @@ const ErrorPage = () => {
   const error = useRouteError()
   if (isRouteErrorResponse(error)) {
     return (
-      <div>
-        <h1>Oops! something went wrong!😥</h1>
+      <div className='grid h-screen w-screen place-items-center'>
+        <h1 className='font-poppins text-3xl'>Oops! something went wrong!😥</h1>
         <p>
-          <strong>
+          <strong className='font-poppins text-3xl'>
             Error: {error.status} - {error.statusText}
           </strong>
-          <Link to='/' className='font-bold text-blue-500'>
-            Back to homepage
-          </Link>
         </p>
+        <Link to='/' className='font-bold text-blue-500'>
+          Back to homepage
+        </Link>
       </div>
     )
   }
