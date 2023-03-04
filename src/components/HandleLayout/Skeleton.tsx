@@ -1,7 +1,7 @@
 import ContentLoader from 'react-content-loader'
-
 const Skeleton = () => (
   <ContentLoader
+    className='w-[400px] ss:w-[500px] mn:w-auto'
     speed={2}
     width={640}
     height={360}

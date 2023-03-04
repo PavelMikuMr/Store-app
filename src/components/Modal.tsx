@@ -59,14 +59,19 @@ const Modal = ({ isTrue, setIsTrue }: { isTrue: boolean; setIsTrue: () => void }
                 <input
                   type='text'
                   required
-                  placeholder='David Koperfield'
+                  placeholder='David Smith'
                   id={LabelController.INSTANT}
                 />
               </div>
               <div className={tw.formCheckbox}>
-                <input type='checkbox' name='agreement' id='agreement' required />
+                <input
+                  type='checkbox'
+                  name='agreement'
+                  id={LabelController.AGREEMENT}
+                  required
+                />
                 <span className={tw.check} />
-                <label className={LabelController.AGREEMENT} htmlFor='agreement'>
+                <label className={tw.agreement} htmlFor={LabelController.AGREEMENT}>
                   I agree with the <span>rules</span> of the Store
                 </label>
               </div>
